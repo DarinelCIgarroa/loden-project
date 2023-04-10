@@ -1,17 +1,31 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
+  <main>
+    <section class="section" id="home">
+      <HomeComponent></HomeComponent>
+    </section>
+    <section class="section" id="about-us">
+      <AboutComponent></AboutComponent>
+    </section>
+    <section class="section" id="contact"></section>
+  </main>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import AboutComponent from 'src/components/AboutComponent.vue'
+import HomeComponent from 'src/components/HomeComponent.vue'
+import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  name: 'IndexPage'
+  name: 'MainLayout',
+  components: {
+    HomeComponent,
+    AboutComponent
+  },
+  setup() {
+    return {
+
+    };
+  }
 })
 </script>
+<style scoped></style>

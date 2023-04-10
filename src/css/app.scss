@@ -1,1 +1,46 @@
 // app global css in SCSS form
+@font-face {
+  font-family: alkatra;
+  src: url(./fonts/Alkatra.ttf);
+}
+@font-face {
+  font-family: Bitter;
+  src: url(./fonts/Bitter.ttf);
+}
+
+body {
+  font-family: 'Bitter';
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+
+.section-title .text-h3 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  color: #222222;
+}
+
+.section-title .text-h3::before,
+.section-title .text-h3::after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: #3498db;
+  display: inline-block;
+}
+
+.section-title .text-h3::before {
+  margin: 0 15px 10px 0;
+}
+
+.section-title .text-h3::after {
+  margin: 0 0 10px 15px;
+}
+
+.section-title p {
+  margin: 15px 0 0 0;
+}
