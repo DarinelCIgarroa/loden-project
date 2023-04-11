@@ -7,25 +7,28 @@
       <AboutComponent></AboutComponent>
     </section>
     <section class="section" id="contact"></section>
+    <section class="section" id="ejemp">
+      <Ejempont></Ejempont>
+    </section>
   </main>
 </template>
 
 <script>
-import AboutComponent from 'src/components/AboutComponent.vue'
-import HomeComponent from 'src/components/HomeComponent.vue'
-import { defineComponent, ref } from 'vue'
+import AboutComponent from "src/components/AboutComponent.vue";
+import HomeComponent from "src/components/HomeComponent.vue";
+import Ejempont from "src/components/ejemComponent.vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: 'MainLayout',
+  name: "MainLayout",
   components: {
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    Ejempont,
   },
   setup() {
-    return {
-
-    };
-  }
-})
+    return {};
+  },
+});
 </script>
 <style scoped></style>
