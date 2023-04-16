@@ -34,6 +34,7 @@ export default defineComponent({
     const onIntersection = (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          console.log(entry.target.id);
           bus.emit('section', entry.target.id);
         }
       });
