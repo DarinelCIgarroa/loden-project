@@ -58,9 +58,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
 .custom-header {
   z-index: 997;
   transition: all 0.5s;
