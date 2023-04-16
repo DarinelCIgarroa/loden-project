@@ -6,28 +6,28 @@
 
       <div class="logo">
         <h1><a href="index.html">LONDEN</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <q-item to="/" exact clickable v-ripple="false" manual-focus active-class="my-menu-link">
-            <q-item-section no-hover class="li-nav" data-url="home">Inicio</q-item-section>
+          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'home' ? 'my-menu-link' : ''">
+            <q-item-section no-hover class="li-nav"><span class="a-nav">inicio</span></q-item-section>
           </q-item>
-          <q-item to="/about-us" exact clickable v-ripple="false" manual-focus active-class="my-menu-link">
-            <q-item-section no-hover class="li-nav" data-url="about-us"><span class="a-nav">Acerca
+          <q-item exact clickable v-ripple="false" manual-focus
+            :class="current_section === 'about-us' ? 'my-menu-link' : ''">
+            <q-item-section no-hover class="li-nav"><span class="a-nav">Acerca
                 De</span></q-item-section>
           </q-item>
-          <q-item to="" exact clickable v-ripple="false" manual-focus active-class="my-menu-link">
-            <q-item-section no-hover class="li-nav" data-url="team"><span class="a-nav">Equipo</span></q-item-section>
+          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'team' ? 'my-menu-link' : ''">
+            <q-item-section no-hover class="li-nav"><span class="a-nav">Equipo</span></q-item-section>
           </q-item>
-          <q-item to="" exact clickable v-ripple="false" manual-focus active-class="my-menu-link">
-            <q-item-section no-hover class="li-nav" data-url="events"><span class="a-nav">Eventos</span></q-item-section>
+          <q-item exact clickable v-ripple="false" manual-focus
+            :class="current_section === 'events' ? 'my-menu-link' : ''">
+            <q-item-section no-hover class="li-nav"><span class="a-nav">Eventos</span></q-item-section>
           </q-item>
-          <q-item to="" exact clickable v-ripple="false" manual-focus active-class="my-menu-link">
-            <q-item-section no-hover class="li-nav" data-url="contact"><span
-                class="a-nav">Contacto</span></q-item-section>
+          <q-item exact clickable v-ripple="false" manual-focus
+            :class="current_section === 'contact' ? 'my-menu-link' : ''">
+            <q-item-section no-hover class="li-nav"><span class="a-nav">Contacto</span></q-item-section>
           </q-item>
         </ul>
       </nav>
@@ -41,59 +41,20 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
+import { defineComponent, onMounted, ref } from 'vue'
+import bus from 'src/utils/event-bus';
 
 export default defineComponent({
   name: 'MainLayout',
 
-
   setup() {
+    const current_section = ref()
+    bus.on('section', (section) => {
+      current_section.value = section
+    });
+
     return {
+      current_section
     }
   }
 })
