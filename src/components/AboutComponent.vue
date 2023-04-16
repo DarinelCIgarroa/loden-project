@@ -16,7 +16,6 @@
             <q-list>
               <q-item style="font-size: 17px">
                 <q-item-section avatar top>
-                  <i class=""></i>
                   <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
                 </q-item-section>
                 <q-item-section>
@@ -25,7 +24,6 @@
               </q-item>
               <q-item style="font-size: 17px">
                 <q-item-section avatar top>
-                  <i class=""></i>
                   <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
                 </q-item-section>
                 <q-item-section>
@@ -34,7 +32,6 @@
               </q-item>
               <q-item style="font-size: 17px">
                 <q-item-section avatar top>
-                  <i class=""></i>
                   <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
                 </q-item-section>
                 <q-item-section>

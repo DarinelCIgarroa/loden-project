@@ -1,42 +1,39 @@
 
 <template>
   <q-layout view="hHh lpR fFf">
-
     <q-header class="custom-header row justify-around" style="font-family: Arial, Helvetica, sans-serif;">
-
       <div class="logo">
         <h1><a href="index.html">LONDEN</a></h1>
       </div>
-
-      <nav id="navbar" class="navbar">
+      <nav id="navbar" class="navbar row">
         <ul>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'home' ? 'my-menu-link' : ''">
-            <q-item-section no-hover class="li-nav"><span class="a-nav">inicio</span></q-item-section>
+          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'home' ? 'active' : ''"
+            @click="current_section = 'home'">
+            <q-item-section no-hover class="li-nav">
+              <q-icon class="icon" name="home"></q-icon>
+              <span class="text">Inicio</span>
+            </q-item-section>
           </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus
-            :class="current_section === 'about-us' ? 'my-menu-link' : ''">
-            <q-item-section no-hover class="li-nav"><span class="a-nav">Acerca
-                De</span></q-item-section>
+          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'about-us' ? 'active' : ''"
+            @click="current_section = 'about-us'">
+            <q-item-section no-hover class="li-nav second li-nav-wide">
+              <q-icon class="icon" name="store"></q-icon>
+              <span class="text">Nostros</span>
+            </q-item-section>
           </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'team' ? 'my-menu-link' : ''">
-            <q-item-section no-hover class="li-nav"><span class="a-nav">Equipo</span></q-item-section>
-          </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus
-            :class="current_section === 'events' ? 'my-menu-link' : ''">
-            <q-item-section no-hover class="li-nav"><span class="a-nav">Eventos</span></q-item-section>
-          </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus
-            :class="current_section === 'contact' ? 'my-menu-link' : ''">
-            <q-item-section no-hover class="li-nav"><span class="a-nav">Contacto</span></q-item-section>
+          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'events' ? 'active' : ''"
+            @click="current_section = 'events'">
+            <q-item-section no-hover class="li-nav second li-nav-wide">
+              <q-icon class="icon" name="date_range"></q-icon>
+              <span class="text">Eventos</span>
+            </q-item-section>
           </q-item>
         </ul>
       </nav>
     </q-header>
-
     <q-page-container>
       <router-view />
     </q-page-container>
-
   </q-layout>
 </template>
 
@@ -67,13 +64,8 @@ export default defineComponent({
 .custom-header {
   z-index: 997;
   transition: all 0.5s;
-  padding: 20px 0;
+  padding: 15px 0;
   background: #000000f5;
-}
-
-.custom-header.header-scrolled {
-  box-shadow: 0px 2px 15px rgba(124, 6, 85, 0.904);
-  padding: 12px 0;
 }
 
 .custom-header .logo h1 {
@@ -97,35 +89,64 @@ export default defineComponent({
   max-height: 40px;
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-/**
-* Desktop Navigation
-*/
 .nav-link {
   text-decoration: none;
 }
 
 .navbar {
   padding: 0;
+
 }
 
 .navbar ul {
+  position: relative;
   margin: 0;
   padding: 0;
   display: flex;
-  list-style: none;
+  /* list-style: none; */
   align-items: center;
 }
 
 .navbar .li-nav {
+  width: 50px;
+  height: 45px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.my-menu-link {
-  color: white;
-  font-size: 17px;
-  border-bottom: 2.5px solid #3f899bf3;
+.li-nav-wide {
+  width: 100px;
+  /* ajusta el ancho según tus necesidades */
+}
+
+.icon {
+  transition: 0.5s;
+  font-size: 2.5em;
+}
+
+.text {
+  display: inline-block;
+  position: absolute;
+  font-weight: 800;
+  font-size: 0.8em;
+  color: #ffffff;
+  transition: 0.5s;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transform: translateY(0px);
+  opacity: 0;
+}
+
+.active .icon {
+  transform: translateY(-8px);
+  color: rgb(44, 157, 192);
+  /* font-size: 2.8em; */
+}
+
+.active .text {
+  transform: translateY(20px);
+  opacity: 1;
 }
 </style>
