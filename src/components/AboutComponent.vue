@@ -5,7 +5,7 @@
         <br>
         <q-card flat bordered class="my-card row no-border q-px-lg q-mt-lg" style="max-width: 1250px;">
           <q-card-section class="text-center col-12 section-title">
-            <div class="text-h3 ">Acerca de nosotros</div>
+            <div class="text-h3">Acerca de nosotros</div>
           </q-card-section>
           <q-card-section class="col-6">
             <span style="font-size: 20px">
@@ -93,8 +93,6 @@
                   <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
                 </div>
               </div>
-
-
             </div>
           </q-card-section>
         </q-card>
@@ -105,7 +103,6 @@
 <script>
 export default {
   mounted() {
-    console.log('component about us');
   },
   setup() {
 
