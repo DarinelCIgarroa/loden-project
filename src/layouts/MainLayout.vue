@@ -58,9 +58,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
 .custom-header {
   z-index: 997;
   transition: all 0.5s;
@@ -69,10 +66,10 @@ export default defineComponent({
 }
 
 .custom-header .logo h1 {
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   padding: 0;
-  line-height: 1.5;
+  line-height: 2.5;
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -95,7 +92,6 @@ export default defineComponent({
 
 .navbar {
   padding: 0;
-
 }
 
 .navbar ul {
@@ -114,11 +110,6 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.li-nav-wide {
-  width: 100px;
-  /* ajusta el ancho según tus necesidades */
 }
 
 .icon {

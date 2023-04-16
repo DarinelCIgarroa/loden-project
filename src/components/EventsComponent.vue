@@ -40,20 +40,15 @@
   </q-layout>
 </template>
 <script>
-// import { onMounted } from 'vue';
 import 'animate.css/animate.min.css';
-
 export default {
   setup() {
-
-
   },
 }
 </script>
 
 <style scoped>
 .my-card {
-  /* background-color: aliceblue; */
   width: 1250px;
   background-size: cover;
   background-position: center;
