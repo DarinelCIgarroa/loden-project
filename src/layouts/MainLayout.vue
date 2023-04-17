@@ -28,6 +28,21 @@
               <span class="text">Eventos</span>
             </q-item-section>
           </q-item>
+          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'team' ? 'active' : ''"
+            @click="current_section = 'team'">
+            <q-item-section no-hover class="li-nav second li-nav-wide">
+              <q-icon class="icon" name="date_range"></q-icon>
+              <span class="text">Equipo</span>
+            </q-item-section>
+          </q-item>
+
+          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'contact' ? 'active' : ''"
+            @click="current_section = 'contact'">
+            <q-item-section no-hover class="li-nav second li-nav-wide">
+              <q-icon class="icon" name="date_range"></q-icon>
+              <span class="text ">Contáctanos</span>
+            </q-item-section>
+          </q-item>
         </ul>
       </nav>
     </q-header>

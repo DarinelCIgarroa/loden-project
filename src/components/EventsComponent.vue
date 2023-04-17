@@ -1,39 +1,48 @@
 <template>
   <q-layout>
-    <q-page-container class="flex flex-center q-mx-sm" style="max-height: 850px;">
+    <q-page-container class="flex flex-center">
       <q-page>
         <q-card flat bordered class="row my-card q-mt-lg no-border justify-center">
           <q-card-section class="text-center col-12 section-title">
             <div class="text-h3">CONOCE NUESTROS EVENTOS</div>
           </q-card-section>
-          <q-card-section class="col-6 q-mt-xl row justify-center section-face-to-face">
-            <q-parallax class="parallax rounded-borders" src="../statics/images/inPerson44.jpg">
-              <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
-                <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos precensiales</span>
-              </div>
-            </q-parallax>
-            <q-card-section class="info-description">
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minima natus quam possimus est voluptas
-                porro
-                soluta, culpa laudantium nobis placeat et aperiam ut, iure officiis nihil ipsam quibusdam.</span>
-              <br>
-              <q-btn class="q-mt-md" unelevated rounded color="primary" label="ver eventos"></q-btn>
-            </q-card-section>
-          </q-card-section>
-          <q-card-section class="col-6 q-mt-xl row justify-center section-face-to-face">
-            <q-parallax class="parallax rounded-borders" src="../statics/images/online88.jpg">
-              <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
-                <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos en linea</span>
-              </div>
-            </q-parallax>
-            <q-card-section class="info-description">
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minima natus quam possimus est voluptas
-                porro
-                soluta, culpa laudantium nobis placeat et aperiam ut, iure officiis nihil ipsam quibusdam.</span>
-              <br>
-              <q-btn class="q-mt-md" unelevated rounded color="primary" label="ver eventos"></q-btn>
-            </q-card-section>
-          </q-card-section>
+          <div class="row">
+            <div class="co-lg-6 items-center">
+              <q-card-section class="q-mt-xl row justify-center section-face-to-face">
+                <q-parallax class="parallax rounded-borders" src="../statics/images/inPerson44.jpg">
+                  <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
+                    <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos precensiales</span>
+                  </div>
+                </q-parallax>
+                <q-card-section class="info-description">
+                  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minima natus quam possimus est
+                    voluptas
+                    porro
+                    soluta, culpa laudantium nobis placeat et aperiam ut, iure officiis nihil ipsam quibusdam.</span>
+                  <br>
+                  <q-btn class="q-mt-md" unelevated rounded color="primary" label="ver eventos"></q-btn>
+                </q-card-section>
+              </q-card-section>
+            </div>
+            <div class="co-lg-6 items-center">
+              <q-card-section class="q-mt-xl row justify-center section-face-to-face">
+                <q-parallax class="parallax rounded-borders" src="../statics/images/online88.jpg">
+                  <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
+                    <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos en linea</span>
+                  </div>
+                </q-parallax>
+                <q-card-section class="info-description">
+                  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minima natus quam possimus est
+                    voluptas
+                    porro
+                    soluta, culpa laudantium nobis placeat et aperiam ut, iure officiis nihil ipsam quibusdam.</span>
+                  <br>
+                  <q-btn class="q-mt-md" unelevated rounded color="primary" label="ver eventos"></q-btn>
+                </q-card-section>
+              </q-card-section>
+
+            </div>
+          </div>
         </q-card>
       </q-page>
     </q-page-container>
@@ -49,7 +58,6 @@ export default {
 
 <style scoped>
 .my-card {
-  width: 1250px;
   background-size: cover;
   background-position: center;
 }
@@ -60,16 +68,16 @@ export default {
   position: relative;
   z-index: 1;
   transition: all 300ms;
-  border-radius: 0px 0px 20px 20px;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .info-description {
-  padding: 20px;
+  padding: 40px;
   margin-top: -220px;
   position: relative;
   z-index: -1;
-  width: 530PX;
-  border-radius: 0px 0px 20px 20px;
+  width: 400PX;
+  border-radius: 2px 20px 20px 20px;
   transition: all 400ms cubic-bezier(0.5, 0, 0, 1);
 }
 
@@ -81,14 +89,20 @@ export default {
 
 .section-face-to-face:hover .parallax {
   margin-top: -40px;
-  border-radius: 20px 20px 0px 0px;
-  height: 530PX;
-  width: 530PX;
+  border-radius: 20px 20px 20px 20px;
+  width: 380PX;
 }
 
 .section-face-to-face:hover .info-description {
   background-color: #e0dddd4f;
   margin-top: 0;
   font-size: 17px;
+}
+
+@media (min-width: 64px) and (max-width: 1191px) {
+  .col-6 {
+    height: auto;
+    width: 50%;
+  }
 }
 </style>

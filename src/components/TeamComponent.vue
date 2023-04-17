@@ -1,83 +1,126 @@
 <template>
   <q-layout>
-    <q-page-container
-      class="flex flex-center q-mx-sm"
-      style="max-height: 850px"
-    >
+    <q-page-container class="flex flex-center q-mx-sm">
       <q-page>
-        <q-card
-          flat
-          bordered
-          class="row my-card q-mt-lg no-border justify-center"
-        >
+        <br>
+        <q-card flat bordered class="row my-card q-mt-lg no-border justify-center">
           <q-card-section class="text-center col-12 section-title">
-            <div class="text-h3">CONOCE NUESTROS EVENTOS</div>
-          </q-card-section>
-          <q-card-section
-            class="col-6 q-mt-xl row justify-center section-face-to-face"
-          >
-            <q-parallax
-              class="parallax rounded-borders"
-              src="../statics/images/inPerson44.jpg"
-            >
-              <div
-                class="absolute-bottom text-subtitle2 text-center text-white q-pb-md"
-              >
-                <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic"
-                  >Eventos precensiales</span
-                >
-              </div>
-            </q-parallax>
-            <q-card-section class="info-description">
-              <span
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-                minima natus quam possimus est voluptas porro soluta, culpa
-                laudantium nobis placeat et aperiam ut, iure officiis nihil
-                ipsam quibusdam.</span
-              >
-              <br />
-              <q-btn
-                class="q-mt-md"
-                unelevated
-                rounded
-                color="primary"
-                label="ver eventos"
-              ></q-btn>
-            </q-card-section>
-          </q-card-section>
-          <q-card-section
-            class="col-6 q-mt-xl row justify-center section-face-to-face"
-          >
-            <q-parallax
-              class="parallax rounded-borders"
-              src="../statics/images/online88.jpg"
-            >
-              <div
-                class="absolute-bottom text-subtitle2 text-center text-white q-pb-md"
-              >
-                <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic"
-                  >Eventos en linea</span
-                >
-              </div>
-            </q-parallax>
-            <q-card-section class="info-description">
-              <span
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-                minima natus quam possimus est voluptas porro soluta, culpa
-                laudantium nobis placeat et aperiam ut, iure officiis nihil
-                ipsam quibusdam.</span
-              >
-              <br />
-              <q-btn
-                class="q-mt-md"
-                unelevated
-                rounded
-                color="primary"
-                label="ver eventos"
-              ></q-btn>
-            </q-card-section>
+            <div class="text-h3"> Equipos </div>
           </q-card-section>
         </q-card>
+        <div class="q-pa-md example-row-mix-and-match">
+          <div class="row content-center">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sx-12 col-sm-6 q-pa-xs q-gutter-md">
+              <q-card-section>
+                <q-card class=" my-card  " flat bordered>
+                  <q-img src="../statics/images/team-1.jpg">
+                    <div class="social">
+                      <div class="q-pa-md q-gutter-sm">
+                        <q-btn round push glossy class="link"> <i class="fa-brands fa-linkedin-in"></i> </q-btn>
+                        <q-btn round push style=" --fa-secondary-opacity: 0.6;  background-color: beige;">
+                          <i class="fa-brands fa-instagram insta fa-bounce"></i>
+                        </q-btn>
+                        <q-btn round push glossy class="face"><i class="fa-brands fa-facebook-f  fa-lg"></i></q-btn>
+                        <q-btn round push glossy class="twitt"><i class="fa-brands fa-twitter fa-lg"></i> </q-btn>
+                      </div>
+                    </div>
+                  </q-img>
+                  <q-card-section>
+                    <div class="text-h5 q-mt-sm q-mb-xs  text-center">Title</div>
+                    <div class="text-caption text-grey text-justify text-center animate__animated">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua.
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </q-card-section>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sx-12 col-sm-6 q-pa-xs q-gutter-md">
+              <q-card-section>
+                <q-card class=" my-card shadow-9 shadow-up-6 " flat bordered>
+                  <q-img src="../statics/images/team-1.jpg">
+                    <div class="social">
+                      <div class="q-pa-md q-gutter-sm">
+                        <q-btn round push glossy class="link btn"> <i class="fa-brands fa-linkedin-in"></i> </q-btn>
+                        <q-btn round push class="btn" style=" --fa-secondary-opacity: 0.6;  background-color: beige;">
+                          <i class="fa-brands fa-instagram insta fa-bounce"></i>
+                        </q-btn>
+                        <q-btn round push glossy class="face"><i class="fa-brands fa-facebook-f  fa-lg"></i></q-btn>
+                        <q-btn round push glossy class="twitt"><i class="fa-brands fa-twitter fa-lg"></i> </q-btn>
+                      </div>
+                    </div>
+                  </q-img>
+                  <q-card-section>
+                    <div class="text-h5 q-mt-sm q-mb-xs  text-center">Title</div>
+                    <div class="text-caption text-grey text-justify text-center animate__animated">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua.
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </q-card-section>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sx-12 col-sm-6 q-pa-xs q-gutter-md">
+              <q-card-section>
+                <q-card class=" my-card shadow-9 shadow-up-6 " flat bordered>
+                  <q-img src="../statics/images/team-1.jpg">
+                    <div class="social">
+                      <div class="q-pa-md q-gutter-sm">
+                        <q-btn round push glossy class="link"> <i class="fa-brands fa-linkedin-in"></i> </q-btn>
+                        <q-btn round push style=" --fa-secondary-opacity: 0.6;  background-color: beige;">
+                          <i class="fa-brands fa-instagram insta fa-bounce"></i>
+                        </q-btn>
+                        <q-btn round push glossy class="face"><i class="fa-brands fa-facebook-f  fa-lg"></i></q-btn>
+                        <q-btn round push glossy class="twitt"><i class="fa-brands fa-twitter fa-lg"></i> </q-btn>
+                      </div>
+                    </div>
+                  </q-img>
+                  <q-card-section>
+                    <div class="text-h5 q-mt-sm q-mb-xs  text-center">Title</div>
+                    <div class="text-caption text-grey text-justify text-center animate__animated">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua.
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </q-card-section>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sx-12 col-sm-6 q-pa-xs q-gutter-md">
+              <q-card-section>
+                <q-card class=" my-card shadow-9 shadow-up-6 " flat bordered>
+                  <q-img src="../statics/images/team-1.jpg">
+                    <div class="social">
+                      <div class="q-pa-md q-gutter-sm">
+                        <q-btn round push glossy class="link"> <i class="fa-brands fa-linkedin-in"></i> </q-btn>
+                        <q-btn round push style=" --fa-secondary-opacity: 0.6;  background-color: beige;">
+                          <i class="fa-brands fa-instagram insta fa-bounce"></i>
+                        </q-btn>
+                        <q-btn round push glossy class="face"><i class="fa-brands fa-facebook-f  fa-lg"></i></q-btn>
+                        <q-btn round push glossy class="twitt"><i class="fa-brands fa-twitter fa-lg"></i> </q-btn>
+                      </div>
+                    </div>
+                  </q-img>
+                  <q-card-section>
+                    <div class="text-h5 q-mt-sm q-mb-xs  text-center">Title</div>
+                    <div class="text-caption text-grey text-justify text-center animate__animated">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore
+                      et
+                      dolore magna aliqua.
+                    </div>
+                  </q-card-section>
+                </q-card>
+              </q-card-section>
+            </div>
+          </div>
+        </div>
       </q-page>
     </q-page-container>
   </q-layout>
@@ -85,8 +128,65 @@
 <script>
 import "animate.css/animate.min.css";
 export default {
-  setup() {},
+  setup() { },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.social {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  right: 0;
+  height: 50px;
+  opacity: 0;
+  transition: ease-in-out 0.3s;
+  background: rgba(255, 255, 255, 0.85);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  background-color: #0e76a8;
+  color: #ffffff;
+}
+
+.face {
+  --fa-secondary-opacity: 0.1;
+  background-color: #0165E1;
+  color: #ffffff;
+}
+
+.twitt {
+  background-color: #00acee;
+  color: #ffffff
+}
+
+.insta {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.social:hover {
+  opacity: 1;
+}
+
+@media (min-width: 64px) and (max-width: 800px) {
+  .social {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 64px) and (max-width: 694px) {
+  .col-sm-6 {
+    height: auto;
+    width: 100% !important;
+  }
+
+}
+</style>
