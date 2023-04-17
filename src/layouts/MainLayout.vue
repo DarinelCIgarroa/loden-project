@@ -6,11 +6,8 @@
     >
       <div class="logo">
         <h1><a href="index.html">LONDEN</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       </div>
-
-      <nav id="navbar" class="navbar">
+      <nav id="navbar" class="navbar row">
         <ul>
           <q-item
             to="/"
@@ -75,7 +72,6 @@
         </ul>
       </nav>
     </q-header>
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -137,29 +133,22 @@ export default defineComponent({
     return {};
   },
 });
+
 </script>
 
 <style scoped>
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
 .custom-header {
   z-index: 997;
   transition: all 0.5s;
-  padding: 20px 0;
+  padding: 15px 0;
   background: #000000f5;
 }
 
-.custom-header.header-scrolled {
-  box-shadow: 0px 2px 15px rgba(124, 6, 85, 0.904);
-  padding: 12px 0;
-}
-
 .custom-header .logo h1 {
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   padding: 0;
-  line-height: 1.5;
+  line-height: 2.5;
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -176,12 +165,6 @@ export default defineComponent({
   max-height: 40px;
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-/**
-* Desktop Navigation
-*/
 .nav-link {
   text-decoration: none;
 }
@@ -191,20 +174,49 @@ export default defineComponent({
 }
 
 .navbar ul {
+  position: relative;
   margin: 0;
   padding: 0;
   display: flex;
-  list-style: none;
+  /* list-style: none; */
   align-items: center;
 }
 
 .navbar .li-nav {
+  width: 50px;
+  height: 45px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.my-menu-link {
-  color: white;
-  font-size: 17px;
-  border-bottom: 2.5px solid #3f899bf3;
+.icon {
+  transition: 0.5s;
+  font-size: 2.5em;
+}
+
+.text {
+  display: inline-block;
+  position: absolute;
+  font-weight: 800;
+  font-size: 0.8em;
+  color: #ffffff;
+  transition: 0.5s;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transform: translateY(0px);
+  opacity: 0;
+}
+
+.active .icon {
+  transform: translateY(-8px);
+  color: rgb(44, 157, 192);
+  /* font-size: 2.8em; */
+}
+
+.active .text {
+  transform: translateY(20px);
+  opacity: 1;
 }
 </style>

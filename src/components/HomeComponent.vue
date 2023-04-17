@@ -5,13 +5,14 @@
         <div id="particles-js" :class="$q.dark.isActive ? 'dark_gradient' : 'normal_gradient'"></div>
         <div class="container text-center">
           <div class="col-12 d-flex flex-column">
-            <span class="home-title text-h2 align-self-stretch text-white">Haga crecer sus ingresos con
-              Londen</span>
+            <span class="home-title text-h2 align-self-stretch text-white ">
+              Haga crecer sus ingresos con Londen</span>
             <div class="q-mt-lg">
-              <span class="text-h5 text-italic q-mt-lg text-white">Somos un equipo de trading talentosos, hacemos crecer
-                tu dinero de manera segura</span>
+              <span class="text-h5 concatetx text-italic q-mt-lg text-white input">Somos un equipo de trading talentosos,
+                hacemos
+                crecer tu dinero de manera segura</span>
             </div>
-            <div class="q-mt-lg">
+            <div class="q-mt-lg animate__animated animate__backInUp">
               <q-btn size="lg" rounded color="white" text-color="black" label="Empezar ahora"></q-btn>
             </div>
           </div>
@@ -22,6 +23,9 @@
 </template>
 <script>
 import { onMounted } from 'vue';
+import 'animate.css';
+
+
 export default {
   setup() {
     onMounted(() => {
@@ -151,7 +155,7 @@ export default {
 }
 
 .normal_gradient {
-  background: linear-gradient(145deg, rgb(116, 118, 119) 15%, #3f899bf3 70%);
+  background: linear-gradient(145deg, rgba(66, 66, 66, 0.767) 15%, #3498db 80%);
 }
 
 .dark_gradient {
@@ -161,5 +165,62 @@ export default {
 .container {
   position: absolute;
   font-family: 'alkatra';
+}
+
+.input {
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid rgb(24, 23, 23);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: rgb(17, 17, 17);
+  }
+}
+
+@media (min-width: 713px) and (max-width: 911px) {
+  .concatetx {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 713px) {
+  .concatetx {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+  .concatetx {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .concatetx {
+    font-size: 9px;
+  }
 }
 </style>
