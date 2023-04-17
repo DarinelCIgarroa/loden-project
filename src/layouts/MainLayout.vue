@@ -1,47 +1,73 @@
-
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header class="custom-header row justify-around" style="font-family: Arial, Helvetica, sans-serif;">
+    <q-header
+      class="custom-header row justify-around"
+      style="font-family: Arial, Helvetica, sans-serif"
+    >
       <div class="logo">
         <h1><a href="index.html">LONDEN</a></h1>
       </div>
       <nav id="navbar" class="navbar row">
         <ul>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'home' ? 'active' : ''"
-            @click="current_section = 'home'">
-            <q-item-section no-hover class="li-nav">
-              <q-icon class="icon" name="home"></q-icon>
-              <span class="text">Inicio</span>
-            </q-item-section>
+          <q-item
+            to="/"
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            active-class="my-menu-link"
+          >
+            <q-item-section no-hover class="li-nav" data-url="home"
+              >Inicio</q-item-section
+            >
           </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'about-us' ? 'active' : ''"
-            @click="current_section = 'about-us'">
-            <q-item-section no-hover class="li-nav second li-nav-wide">
-              <q-icon class="icon" name="store"></q-icon>
-              <span class="text">Nostros</span>
-            </q-item-section>
+          <q-item
+            to="/about-us"
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            active-class="my-menu-link"
+          >
+            <q-item-section no-hover class="li-nav" data-url="about-us"
+              ><span class="a-nav">Acerca De</span></q-item-section
+            >
           </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'events' ? 'active' : ''"
-            @click="current_section = 'events'">
-            <q-item-section no-hover class="li-nav second li-nav-wide">
-              <q-icon class="icon" name="date_range"></q-icon>
-              <span class="text">Eventos</span>
-            </q-item-section>
+          <q-item
+            to="/Ejemp-us"
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            active-class="my-menu-link"
+          >
+            <q-item-section no-hover class="li-nav" data-url="team"
+              ><span class="a-nav">Equipo</span></q-item-section
+            >
           </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'team' ? 'active' : ''"
-            @click="current_section = 'team'">
-            <q-item-section no-hover class="li-nav second li-nav-wide">
-              <q-icon class="icon" name="date_range"></q-icon>
-              <span class="text">Equipo</span>
-            </q-item-section>
+          <q-item
+            to=""
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            active-class="my-menu-link"
+          >
+            <q-item-section no-hover class="li-nav" data-url="events"
+              ><span class="a-nav">Eventos</span></q-item-section
+            >
           </q-item>
-
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'contact' ? 'active' : ''"
-            @click="current_section = 'contact'">
-            <q-item-section no-hover class="li-nav second li-nav-wide">
-              <q-icon class="icon" name="date_range"></q-icon>
-              <span class="text ">Contáctanos</span>
-            </q-item-section>
+          <q-item
+            to=""
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            active-class="my-menu-link"
+          >
+            <q-item-section no-hover class="li-nav" data-url="contact"
+              ><span class="a-nav">Contacto</span></q-item-section
+            >
           </q-item>
         </ul>
       </nav>
@@ -53,23 +79,61 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from 'vue'
-import bus from 'src/utils/event-bus';
+import { defineComponent, ref } from "vue";
+
+const linksList = [
+  {
+    title: "Docs",
+    caption: "quasar.dev",
+    icon: "school",
+    link: "https://quasar.dev",
+  },
+  {
+    title: "Github",
+    caption: "github.com/quasarframework",
+    icon: "code",
+    link: "https://github.com/quasarframework",
+  },
+  {
+    title: "Discord Chat Channel",
+    caption: "chat.quasar.dev",
+    icon: "chat",
+    link: "https://chat.quasar.dev",
+  },
+  {
+    title: "Forum",
+    caption: "forum.quasar.dev",
+    icon: "record_voice_over",
+    link: "https://forum.quasar.dev",
+  },
+  {
+    title: "Twitter",
+    caption: "@quasarframework",
+    icon: "rss_feed",
+    link: "https://twitter.quasar.dev",
+  },
+  {
+    title: "Facebook",
+    caption: "@QuasarFramework",
+    icon: "public",
+    link: "https://facebook.quasar.dev",
+  },
+  {
+    title: "Quasar Awesome",
+    caption: "Community Quasar projects",
+    icon: "favorite",
+    link: "https://awesome.quasar.dev",
+  },
+];
 
 export default defineComponent({
-  name: 'MainLayout',
+  name: "MainLayout",
 
   setup() {
-    const current_section = ref()
-    bus.on('section', (section) => {
-      current_section.value = section
-    });
+    return {};
+  },
+});
 
-    return {
-      current_section
-    }
-  }
-})
 </script>
 
 <style scoped>

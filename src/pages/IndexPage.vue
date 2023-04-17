@@ -20,6 +20,7 @@
 
 <script>
 import AboutComponent from "src/components/AboutComponent.vue";
+
 import EventsComponent from "src/components/EventsComponent.vue";
 import HomeComponent from "src/components/HomeComponent.vue";
 import TeamComponent from "src/components/TeamComponent.vue";
@@ -32,6 +33,9 @@ export default defineComponent({
   components: {
     HomeComponent,
     AboutComponent,
+  },
+  setup() {
+    return {}
     EventsComponent,
     TeamComponent,
     ContacComponent,
