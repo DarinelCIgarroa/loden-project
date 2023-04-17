@@ -33,13 +33,11 @@ export default defineComponent({
   components: {
     HomeComponent,
     AboutComponent,
-  },
-  setup() {
-    return {}
     EventsComponent,
     TeamComponent,
     ContacComponent,
   },
+
   setup() {
     const sectionHome = ref(null);
     const sectionAbout = ref(null);
@@ -50,8 +48,6 @@ export default defineComponent({
     const onIntersection = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(entry)
-          console.log(entry.target.id);
           bus.emit("section", entry.target.id);
         }
       });
