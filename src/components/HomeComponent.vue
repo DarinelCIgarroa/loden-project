@@ -8,7 +8,8 @@
             <span class="home-title text-h2 align-self-stretch text-white ">
               Haga crecer sus ingresos con Londen</span>
             <div class="q-mt-lg">
-              <span class="text-h5 text-italic q-mt-lg text-white input">Somos un equipo de trading talentosos, hacemos
+              <span class="text-h5 concatetx text-italic q-mt-lg text-white input">Somos un equipo de trading talentosos,
+                hacemos
                 crecer tu dinero de manera segura</span>
             </div>
             <div class="q-mt-lg animate__animated animate__backInUp">
@@ -196,6 +197,30 @@ export default {
 
   50% {
     border-color: rgb(17, 17, 17);
+  }
+}
+
+@media (min-width: 713px) and (max-width: 911px) {
+  .concatetx {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 713px) {
+  .concatetx {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+  .concatetx {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .concatetx {
+    font-size: 9px;
   }
 }
 </style>
