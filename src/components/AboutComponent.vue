@@ -143,4 +143,6 @@ export default {
   font-size: 15px;
   color: #484848;
 }
+
+@media (min-width: 64px) and (max-width: 595px) {}
 </style>
