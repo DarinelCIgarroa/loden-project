@@ -3,13 +3,13 @@
     <q-page-container class="flex flex-center q-mx-sm">
       <q-page>
         <br>
-        <q-card flat bordered class="row my-card q-mt-lg no-border justify-center" style="max-width: 1250px;">
+        <q-card flat bordered class="row my-card q-mt-lg no-border justify-center contet-div">
           <q-card-section class="text-center col-12 section-title">
             <div class="text-h3"> Equipos </div>
           </q-card-section>
 
-          <div class="q-pa-md example-row-mix-and-match">
-            <div class="row content-center">
+          <div>
+            <div class="row content-center padding-xl">
               <div class="col-xl-3 col-lg-3 col-md-4 col-sx-12 col-sm-6 q-pa-xs q-gutter-md">
                 <q-card-section>
                   <q-card class=" my-card hove-content  shadow-9 shadow-up-6" flat bordered>
@@ -193,5 +193,15 @@ export default {
     width: 100% !important;
   }
 
+}
+
+@media (max-width: 1536px) {
+  .contet-div {
+    max-width: 1250px;
+  }
+
+  .padding-xl {
+    padding-left: 20px 16px !important;
+  }
 }
 </style>
