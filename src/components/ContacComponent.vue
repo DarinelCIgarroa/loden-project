@@ -1,9 +1,8 @@
 <template>
   <q-layout>
-    <q-page-container class="flex flex-center">
+    <q-page-container class="flex flex-center" style="margin: 0;">
       <q-page>
-        <br>
-        <q-card flat bordered class="my-card row no-border q-px-lg q-mt-lg" style="max-width: 1250px;">
+        <q-card flat bordered class="my-card row no-border flex flex-center" style="max-width: 1250px;">
           <q-card-section class="text-center col-12 section-title">
             <div class="text-h3">Contacto</div>
           </q-card-section>
@@ -14,50 +13,65 @@
                   <h2>Infomación de contacto</h2>
                   <ul class="info">
                     <li>
-                      <span><q-icon class="img" name="face"></q-icon></span>
+                      <span><q-icon size="md" class="img" name="face"></q-icon></span>
                       <span>Ciudad de México, 12312, 1231</span>
                     </li>
                     <li>
-                      <span><q-icon class="img" name="mail"></q-icon></span>
+                      <span><q-icon size="md" class="img" name="mail"></q-icon></span>
                       <span>loden@gmail.com</span>
                     </li>
                     <li>
-                      <span><q-icon class="img" name="call"></q-icon></span>
+                      <span><q-icon size="md" class="img" name="call"></q-icon></span>
                       <span>9612365046</span>
                     </li>
                   </ul>
                 </div>
                 <ul class="sci">
-                  <li><a href="#"><q-icon class="img" name="fa-brands fa-facebook"></q-icon></a></li>
-                  <li><a href="#"><q-icon class="img" name="fa-brands fa-instagram"></q-icon></a></li>
-                  <li><a href="#"><q-icon class="img" name="fa-brands fa-twitter"></q-icon></a></li>
+                  <li><a href="#"><q-icon color="white" class="img" size="xl" name="fa-brands fa-facebook"></q-icon></a>
+                  </li>
+                  <li><a href="#"><q-icon color="white" class="img" size="xl" name="fa-brands fa-instagram"></q-icon></a>
+                  </li>
+                  <li><a href="#"><q-icon color="white" class="img" size="xl" name="fa-brands fa-twitter"></q-icon></a>
+                  </li>
                 </ul>
               </div>
               <div class="contact-form">
-                <h2>Send a Message</h2>
+                <h2>Enviar un mensaje</h2>
                 <div class="form-box">
                   <div class="input-box w50">
-                    <input type="text" required>
-                    <span>Primer apellido</span>
+                    <q-input class="input" label="Nombre completo" v-model="text">
+                      <template v-slot:prepend>
+                        <q-icon class="q-mx-sm" name="fa-regular fa-user"></q-icon>
+                      </template>
+                    </q-input>
                   </div>
                   <div class="input-box w50">
-                    <input type="text" required>
-                    <span>Segundo apellido</span>
+                    <q-input class="input" label="Número de teléfono" v-model="text">
+                      <template v-slot:prepend>
+                        <q-icon class="q-mx-sm" name="phone_iphone"></q-icon>
+                      </template>
+                    </q-input>
                   </div>
                   <div class="input-box w50">
-                    <input type="email" required>
-                    <span>Correo electronico</span>
+                    <q-input class="input" label="Correo electrónico" v-model="text">
+                      <template v-slot:prepend>
+                        <q-icon class="q-mx-sm" name="fa-regular fa-envelope"></q-icon>
+                      </template>
+                    </q-input>
                   </div>
                   <div class="input-box w50">
-                    <input type="email" required>
-                    <span>Número de telefono</span>
+                    <q-select class="input" v-model="model" :options="options" label="Evento de interes">
+                      <template v-slot:prepend>
+                        <q-icon name="event"></q-icon>
+                      </template>
+                    </q-select>
                   </div>
                   <div class="input-box w100">
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                    <span>Escribe tu mensaje aqui</span>
+                    <q-input v-model="textareaModel" dense="false" filled clearable type="textarea" color="red-12"
+                      label="Envía un mensaje" @focus="processTextareaFill"></q-input>
                   </div>
                   <div class="input-box w100">
-                    <input type="submit" value="Enviar">
+                    <q-btn class="submit" unelevated rounded color="primary" label="Enviar"></q-btn>
                   </div>
                 </div>
               </div>
@@ -80,12 +94,11 @@ export default {
 
 <style scoped>
 .section {
+  /* background-color: #0f3959; */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 1250px; */
   min-height: 100vh;
-  background: #0955a0;
 }
 
 .section::before {
@@ -95,16 +108,16 @@ export default {
   left: 0;
   width: 50%;
   height: 100%;
-  background: #0eb157;
 }
 
 .container {
   position: relative;
-  min-width: 1100px;
-  min-height: 550px;
+  min-width: 1200px;
+  min-height: 720px;
   display: flex;
-  z-index: 1000;
-  /* background: #fff; */
+  /* border: solid 0.2px rgba(82, 80, 80, 0.274); */
+  /* background-color: #1c6799; */
+  /* z-index: 1000; */
 }
 
 .container .contact-info {
@@ -112,7 +125,7 @@ export default {
   top: 40px;
   width: 350px;
   height: calc(100% - 80px) !important;
-  background: #0f8f84;
+  background: #1c6799;
   z-index: 1;
   padding: 40px;
   display: flex;
@@ -126,21 +139,27 @@ export default {
   color: #fff;
   font-size: 24px;
   font-weight: 500;
-
+  margin: 0;
 }
 
 .container .contact-info ul.info {
   position: relative;
-  margin: 20px 0;
+  /* background-color: red; */
+  margin: 10px 0;
 }
 
 .container .contact-info ul.info li {
   position: relative;
   list-style: none;
   display: flex;
-  margin: 20px 0;
+  margin: 5px 0;
   cursor: pointer;
   align-items: flex-start;
+}
+
+.container .contact-info ul.info span {
+  color: #fff;
+  margin: 8px;
 }
 
 .container .contact-info ul.info li span:nth-child(1) {
@@ -150,19 +169,12 @@ export default {
 
 .container .contact-info ul.info li span:nth-child(1) .img {
   max-width: 100%;
-  filter: invert(1);
-}
-
-.container .contact-info ul.info li span:nth-child(2) .img {
-  color: #fff;
-  margin-left: 10px;
-  font-weight: 300;
+  font-size: 25px !important;
 }
 
 .container .contact-info ul.sci {
   position: relative;
   display: flex;
-
 }
 
 .container .contact-info ul.sci li {
@@ -174,11 +186,9 @@ export default {
   text-decoration: none;
 }
 
-.container .contact-info ul.sci li a .img {
+/* .container .contact-info ul.sci li a .img {
   filter: invert(1);
-}
-
-
+} */
 .container .contact-form {
   position: absolute;
   padding: 70px 50px;
@@ -201,7 +211,7 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 .container .contact-form .form-box .input-box {
@@ -217,20 +227,15 @@ export default {
   width: 100%;
 }
 
-.container .contact-form .form-box .input-box input,
-.container .contact-form .form-box .input-box textarea {
+.container .contact-form .form-box .input-box .input {
   width: 100%;
   resize: none;
   padding: 5px 0;
   font-weight: 300;
+  /* background-color: yellow; */
   color: #333;
   border: none;
   outline: none;
-  border-bottom: 1px solid #7777;
-}
-
-.container .contact-form .form-box .input-box textarea {
-  height: 120px;
 }
 
 .container .contact-form .form-box .input-box span {
@@ -244,9 +249,7 @@ export default {
 }
 
 .container .contact-form .form-box .input-box input:focus~span,
-.container .contact-form .form-box .input-box input:valid~span,
-.container .contact-form .form-box .input-box textarea:focus~span,
-.container .contact-form .form-box .input-box textarea:valid~span {
+.container .contact-form .form-box .input-box input:valid~span {
   transform: translateY(-20px);
   font-size: 12px;
   font-weight: 400;
@@ -255,18 +258,17 @@ export default {
   font-weight: 500;
 }
 
-.container .contact-form .form-box .input-box input[type="submit"] {
-  position: relative;
-  cursor: pointer;
-  color: #fff;
-  background: #055a55;
-  border: none;
-  max-width: 150px;
-  padding: 12px;
+.container .contact-form .form-box .input-box .submit {
+  position: relative !important;
+  background: #0f3959 !important;
+  border: none !important;
+  max-width: 160px !important;
+  width: 160px;
+  padding: 12px !important;
 }
 
-.container .contact-form .form-box .input-box input[type="submit"]:hover {
-  background: #0eb157;
+.container .contact-form .form-box .input-box .submit:hover {
+  background: #18b991;
 }
 
 @media (max-width: 1200px) {
@@ -277,16 +279,16 @@ export default {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   }
 
-  .contact-info {
+  .container .contact-info {
     top: 0;
     height: 500px;
     position: relative;
     box-shadow: none;
   }
 
-  .container .contact-info {
+  .container .contact-form {
     position: relative;
-    width: calc(100% -350xp);
+    width: calc(100% - 350xp);
     padding-left: 0;
     margin-left: 0;
     padding: 40px;
@@ -295,9 +297,36 @@ export default {
 
   }
 
+  @media (max-width: 1024px) {
+    .container {
+      width: 85%;
+      min-width: auto;
+      margin: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .container .contact-info {
+      top: 0;
+      height: 500px;
+      position: relative;
+      box-shadow: none;
+    }
+
+    .container .contact-form {
+      position: relative;
+      width: calc(100% - 350xp);
+      padding-left: 0;
+      margin-left: 0;
+      padding: 40px;
+      height: 550px;
+      box-shadow: none;
+
+    }
+  }
+
   @media (max-width: 991px) {
     .section {
-      background: #fff38e;
+      /* background: #fff38e; */
     }
 
     .section:before {
@@ -305,6 +334,7 @@ export default {
     }
 
     .container {
+      min-height: auto;
       display: flex;
       flex-direction: column-reverse;
     }
@@ -317,13 +347,14 @@ export default {
     .container .contact-info {
       width: 100%;
       height: auto;
-      flex-direction: column;
+      flex-direction: row;
     }
 
     .container .contact-info ul.sci {
       position: relative;
       display: flex;
       justify-content: center;
+      align-items: center;
     }
   }
 
