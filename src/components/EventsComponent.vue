@@ -6,7 +6,7 @@
           <q-card-section class="text-center col-12 section-title">
             <div class="text-h3">CONOCE NUESTROS EVENTOS</div>
           </q-card-section>
-          <q-card-section class="col-6 q-mt-xl row justify-center section-face-to-face">
+          <q-card-section class="col-xs-12 col-sm-6 col-md-6 q-mt-xl row justify-center section-face-to-face event-face">
             <q-parallax class="parallax rounded-borders" src="../statics/images/inPerson44.jpg">
               <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
                 <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos precensiales</span>
@@ -20,7 +20,8 @@
               <q-btn class="q-mt-md" unelevated rounded color="primary" label="ver eventos"></q-btn>
             </q-card-section>
           </q-card-section>
-          <q-card-section class="col-6 q-mt-xl row justify-center section-face-to-face">
+          <q-card-section
+            class="col-xs-12 col-sm-6 col-md-6 q-mt-xl row justify-center section-face-to-face event-online">
             <q-parallax class="parallax rounded-borders" src="../statics/images/online88.jpg">
               <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
                 <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos en linea</span>
@@ -90,5 +91,17 @@ export default {
   background-color: #e0dddd4f;
   margin-top: 0;
   font-size: 17px;
+}
+
+.event-face:hover .event-online {
+  overflow: hidden;
+}
+
+@media (min-width: 414px) and (max-width: 800px) {
+  .parallax {
+    border-radius: 20px 20px 20px 20px;
+    width: 150px;
+    transition: all 400ms cubic-bezier(0.5, 0, 0, 1);
+  }
 }
 </style>
