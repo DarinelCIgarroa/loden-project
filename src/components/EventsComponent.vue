@@ -1,44 +1,50 @@
 <template>
-  <q-layout>
-    <q-page-container class="flex flex-center q-mx-sm" style="max-height: 850px;">
-      <q-page>
-        <q-card flat bordered class="row my-card q-mt-lg no-border justify-center">
-          <q-card-section class="text-center col-12 section-title">
-            <div class="text-h3">CONOCE NUESTROS EVENTOS</div>
-          </q-card-section>
-          <q-card-section class="col-xs-12 col-sm-6 col-md-6 q-mt-xl row justify-center section-face-to-face event-face">
-            <q-parallax class="parallax rounded-borders" src="../statics/images/inPerson44.jpg">
-              <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
-                <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos precensiales</span>
-              </div>
-            </q-parallax>
-            <q-card-section class="info-description">
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minima natus quam possimus est voluptas
-                porro
-                soluta, culpa laudantium nobis placeat et aperiam ut, iure officiis nihil ipsam quibusdam.</span>
-              <br>
-              <q-btn class="q-mt-md" unelevated rounded color="primary" label="ver eventos"></q-btn>
+  <q-page-container class="flex flex-center q-mx-sm">
+    <q-page style="min-height: 255px; ">
+      <q-card flat bordered class="row my-card q-mt-lg no-border justify-center">
+        <q-card-section class="text-center col-12 section-title">
+          <div class="text-h3">CONOCE NUESTROS EVENTOS</div>
+        </q-card-section>
+        <div class="row justify-center content-center padding-xl margen-conten">
+          <div class="col-lg-5 col-xl-6 col-md-5 col-sm-5 col-xs-7 q-pl-lg">
+            <q-card-section class="col q-mx-lg q-mt-xl row justify-center section-face-to-face">
+              <q-parallax class="parallax rounded-borders" src="../statics/images/inPerson44.jpg">
+                <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
+                  <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos precensiales</span>
+                </div>
+              </q-parallax>
+              <q-card-section class="info-description col-xs-7">
+                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minima natus quam possimus est
+                  voluptas
+                  porro
+                  soluta, culpa laudantium nobis placeat et aperiam ut, iure officiis nihil ipsam quibusdam.</span>
+                <br>
+                <q-btn class="q-mt-md" unelevated rounded color="primary" label="ver eventos"></q-btn>
+              </q-card-section>
             </q-card-section>
-          </q-card-section>
-          <q-card-section
-            class="col-xs-12 col-sm-6 col-md-6 q-mt-xl row justify-center section-face-to-face event-online">
-            <q-parallax class="parallax rounded-borders" src="../statics/images/online88.jpg">
-              <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
-                <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos en linea</span>
-              </div>
-            </q-parallax>
-            <q-card-section class="info-description">
-              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minima natus quam possimus est voluptas
-                porro
-                soluta, culpa laudantium nobis placeat et aperiam ut, iure officiis nihil ipsam quibusdam.</span>
-              <br>
-              <q-btn class="q-mt-md" unelevated rounded color="primary" label="ver eventos"></q-btn>
+          </div>
+
+          <div class="col-lg-5 col-xl-6  col-md-5 col-sm-5 col-xs-7 q-pl-lg">
+            <q-card-section class="col q-mx-lg q-mt-xl row justify-center section-face-to-face">
+              <q-parallax class="parallax rounded-borders" src="../statics/images/online88.jpg">
+                <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
+                  <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos en linea</span>
+                </div>
+              </q-parallax>
+              <q-card-section class="info-description col-xs-7">
+                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet minima natus quam possimus est
+                  voluptas
+                  porro
+                  soluta, culpa laudantium nobis placeat et aperiam ut, iure officiis nihil ipsam quibusdam.</span>
+                <br>
+                <q-btn class="q-mt-md" unelevated rounded color="primary" label="ver eventos"></q-btn>
+              </q-card-section>
             </q-card-section>
-          </q-card-section>
-        </q-card>
-      </q-page>
-    </q-page-container>
-  </q-layout>
+          </div>
+        </div>
+      </q-card>
+    </q-page>
+  </q-page-container>
 </template>
 <script>
 import 'animate.css/animate.min.css';
@@ -76,7 +82,7 @@ export default {
 
 .parallax {
   border-radius: 20px 20px 20px 20px;
-  height: 450px;
+  height: 350px !important;
   transition: all 400ms cubic-bezier(0.5, 0, 0, 1);
 }
 
@@ -93,15 +99,39 @@ export default {
   font-size: 17px;
 }
 
-.event-face:hover .event-online {
-  overflow: hidden;
+
+@media (min-width: 845px) and (max-width: 1000px) {
+  .margen-conten {
+    margin-left: 7%;
+    margin-right: 8%;
+  }
 }
 
-@media (min-width: 414px) and (max-width: 800px) {
-  .parallax {
-    border-radius: 20px 20px 20px 20px;
-    width: 150px;
-    transition: all 400ms cubic-bezier(0.5, 0, 0, 1);
+@media (min-width: 90px) and (max-width: 875px) {
+  .margen-conten {
+    margin-left: 114px;
+    margin-right: 121px;
+  }
+
+  .section-face-to-face {
+    transition: none;
+  }
+
+  .info-description {
+    padding: 22px;
+    margin-top: 0px !important;
+    width: 530PX;
+  }
+
+  .section-face-to-face .parallax {
+    margin-top: 40px !important;
+  }
+}
+
+@media (min-width: 52px) and (max-width:512px) {
+  .info-description {
+    padding: 20px;
+    width: 293PX;
   }
 }
 </style>

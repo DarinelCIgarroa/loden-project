@@ -4,7 +4,7 @@
     <q-page-container class="window-height window-width row justify-center items-center container">
       <div class="column q-pa-lg">
         <div class="row">
-          <q-card square class="shadow-24" style="width:400px;height:540px;">
+          <q-card square class="shadow-24 col-5 col-xs-12 siz-content">
             <q-card-section style="background-color: #26A69A;">
               <h4 class="text-h5 text-white q-my-md">Bienvenido(a)</h4>
 
@@ -96,6 +96,13 @@ export default defineComponent({
 
   100% {
     filter: hue-rotate(360deg);
+  }
+}
+
+@media (min-width: 410px) {
+  .siz-content {
+    width: 400px;
+    height: 540px;
   }
 }
 </style>

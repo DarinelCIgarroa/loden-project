@@ -7,41 +7,52 @@
           <q-card-section class="text-center col-12 section-title">
             <div class="text-h3">Acerca de nosotros</div>
           </q-card-section>
-          <q-card-section class="col-lg-6 col-sm-6 col-xs-10">
-            <span style="font-size: 20px">
+          <q-card-section class="row flex flex-center text-center col-lg-6  col-md-6 col-sm-12 col-xs-10">
+            <span style="font-size: 20px;" class="text-center lista">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore
               magna aliqua.
             </span>
-            <q-list>
-              <q-item style="font-size: 17px">
-                <q-item-section avatar top>
-                  <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label lines="1">Ullamco laboris nisi ut aliquip ex ea commodo consequat</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item style="font-size: 17px">
-                <q-item-section avatar top>
-                  <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label lines="1">Ullamco laboris nisi ut aliquip ex ea commodo consequat</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item style="font-size: 17px">
-                <q-item-section avatar top>
-                  <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label lines="1">Ullamco laboris nisi ut aliquip ex ea commodo consequat</q-item-label>
-                </q-item-section>
-              </q-item>
+            <div class="flex row flex-center text-center">
+              <div class="q-pa-md col-12 lista">
+                <q-list>
+                  <q-item>
+                    <q-item-section side top>
+                      <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
+                    </q-item-section>
+                    <q-item-section>
+                      <q-item-label lines="2">Ullamco laboris nisi ut aliquip ex ea commodo consequat</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-item>
+                    <q-item-section side top>
+                      <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
+                    </q-item-section>
+                    <q-item-section>
+                      <q-item-label lines="2">Ullamco laboris nisi ut aliquip ex ea commodo consequat</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                  <q-item>
+                    <q-item-section side top>
+                      <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
+                    </q-item-section>
+                    <q-item-section>
+                      <q-item-label lines="2">Ullamco laboris nisi ut aliquip ex ea commodo consequat</q-item-label>
+                    </q-item-section>
+                  </q-item> <q-item>
+                    <q-item-section side top>
+                      <q-icon name="fa-solid fa-check-double" color="primary"></q-icon>
+                    </q-item-section>
+                    <q-item-section>
+                      <q-item-label lines="2">Ullamco laboris nisi ut aliquip ex ea commodo consequat</q-item-label>
+                    </q-item-section>
+                  </q-item>
+                </q-list>
+              </div>
 
-            </q-list>
+            </div>
           </q-card-section>
-          <q-card-section class="col-lg-6 col-sm-6 col-xs-10">
+          <q-card-section class="col-lg-6 col-md-6 col-sm-12 col-xs-10">
             <span>
               Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
               voluptate
@@ -51,11 +62,11 @@
             <br>
             <q-btn size="md" class="q-mt-lg" outline rounded color="primary" label="Contáctanos"></q-btn>
           </q-card-section>
-          <q-card-section class="col-lg-6 col-sm-6 col-xs-10 flex justify-center items-center">
+          <q-card-section class="col-lg-6 col-md-6 col-sm-12 col-xs-10 flex justify-center items-center">
             <q-img src="../statics/images/counts-img.svg" style="height: 400px; max-width: 650px">
             </q-img>
           </q-card-section>
-          <q-card-section class="col-lg-6 col-sm-6 col-xs-10 " style="font-size: 20px;">
+          <q-card-section class="col-lg-6 col-md-6 col-sm-12 col-xs-10 " style="font-size: 20px;">
             <div class="row">
 
               <div class="col-md-6">
@@ -142,5 +153,17 @@ export default {
   font-family: "Raleway", sans-serif;
   font-size: 15px;
   color: #484848;
+}
+
+.lista {
+  font-size: 17px
+}
+
+@media (min-width: 64px) and (max-width: 600px) {
+
+  .lista {
+    max-width: 400px !important;
+    font-size: 13px !important;
+  }
 }
 </style>
