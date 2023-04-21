@@ -99,7 +99,7 @@ export default defineComponent({
   }
 }
 
-@media (min-width: 410px) {
+@media (min-width: 485px) {
   .siz-content {
     width: 400px;
     height: 540px;
