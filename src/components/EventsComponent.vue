@@ -1,13 +1,14 @@
 <template>
-  <q-page-container class="flex flex-center q-mx-sm">
-    <q-page style="min-height: 255px; ">
-      <q-card flat bordered class="row my-card q-mt-lg no-border justify-center">
-        <q-card-section class="text-center col-12 section-title">
+  <q-page-container class="flex flex-center">
+    <q-page>
+      <br>
+      <q-card flat bordered class="my-card row q-px-lg q-mt-lg no-border justify-center">
+        <q-card-section class="text-center col-md-12 col-sm-12 col-xs-3 section-title">
           <div class="text-h3">CONOCE NUESTROS EVENTOS</div>
         </q-card-section>
         <div class="row justify-center content-center padding-xl margen-conten">
           <div class="col-lg-5 col-xl-6 col-md-5 col-sm-5 col-xs-7 q-pl-lg">
-            <q-card-section class="col q-mx-lg q-mt-xl row justify-center section-face-to-face">
+            <q-card-section class="col q-mx-lg row justify-center section-face-to-face">
               <q-parallax class="parallax rounded-borders" src="../statics/images/inPerson44.jpg">
                 <div class="absolute-bottom text-subtitle2 text-center text-white q-pb-md">
                   <span class="text-h4 q-mx-sm" style="font-family: Tinos-italic;">Eventos precensiales</span>
@@ -132,6 +133,10 @@ export default {
   .info-description {
     padding: 20px;
     width: 293PX;
+  }
+
+  .text-h3 {
+    font-size: 19px;
   }
 }
 </style>

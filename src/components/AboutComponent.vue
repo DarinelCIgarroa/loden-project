@@ -7,7 +7,7 @@
           <q-card-section class="text-center col-12 section-title">
             <div class="text-h3">Acerca de nosotros</div>
           </q-card-section>
-          <q-card-section class="row flex flex-center text-center col-lg-6  col-md-6 col-sm-12 col-xs-10">
+          <q-card-section class="row flex flex-center text-center col-lg-6  col-md-6 col-sm-12 col-xs-12">
             <span style="font-size: 20px;" class="text-center lista">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore
@@ -52,7 +52,7 @@
 
             </div>
           </q-card-section>
-          <q-card-section class="col-lg-6 col-md-6 col-sm-12 col-xs-10">
+          <q-card-section class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <span>
               Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
               voluptate
@@ -62,7 +62,7 @@
             <br>
             <q-btn size="md" class="q-mt-lg" outline rounded color="primary" label="Contáctanos"></q-btn>
           </q-card-section>
-          <q-card-section class="col-lg-6 col-md-6 col-sm-12 col-xs-10 flex justify-center items-center">
+          <q-card-section class="col-lg-6 col-md-6 col-sm-12 col-xs-10 flex justify-center items-center img-content">
             <q-img src="../statics/images/counts-img.svg" style="height: 400px; max-width: 650px">
             </q-img>
           </q-card-section>
@@ -164,6 +164,10 @@ export default {
   .lista {
     max-width: 400px !important;
     font-size: 13px !important;
+  }
+
+  .img-content {
+    display: none;
   }
 }
 </style>
