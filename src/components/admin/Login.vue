@@ -11,13 +11,13 @@
             </q-card-section>
             <q-card-section>
               <q-form class="q-px-sm q-pt-xl">
-                <q-input square clearable v-model="email" type="email" lazy-rules label="Correo electronico"
+                <q-input square clearable v-model="form.email" type="email" lazy-rules label="Correo electronico"
                   autocomplete="current-email" :rules="rulesEmail">
                   <template v-slot:prepend>
                     <q-icon name="email" />
                   </template>
                 </q-input>
-                <q-input square clearable v-model="password" lazy-rules label="Contraseña" :type="passwordFieldType"
+                <q-input square clearable v-model="form.password" lazy-rules label="Contraseña" :type="passwordFieldType"
                   autocomplete="current-password" :rules="rulesPassword">
                   <template v-slot:prepend>
                     <q-icon name="lock" />
@@ -45,26 +45,31 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, reactive, ref } from 'vue'
 
 export default defineComponent({
   name: 'LoginAdmin',
 
   setup() {
-    const email = ref('')
-    const password = ref('')
-    const visibility = ref(false)
-    const visibilityIcon = ref('visibility')
-    const passwordFieldType = ref('password')
-
-    const submit = (() => {
-      console.log('submit');
+    const form = reactive({
+      email: '',
+      password: '',
     })
+
+    const visibility = ref(false)
+    const passwordFieldType = ref('password')
+    const visibilityIcon = ref('visibility')
+
     const switchVisibility = (() => {
       visibility.value = !visibility.value
       passwordFieldType.value = visibility.value ? 'text' : 'password'
       visibilityIcon.value = visibility.value ? 'visibility_off' : 'visibility'
     })
+
+    const submit = (() => {
+      console.log('submit');
+    })
+
     return {
       rulesEmail: [
         val => (val && val.length > 0) || 'Por favor ingresa un correo electrónico'
@@ -72,11 +77,9 @@ export default defineComponent({
       rulesPassword: [
         val => (val && val.length > 0) || 'Por favor ingresa una contraseña'
       ],
-      visibility,
+      form,
       visibilityIcon,
       passwordFieldType,
-      password,
-      email,
       switchVisibility,
       submit
     }
