@@ -3,10 +3,6 @@ import axios from 'axios'
 
 axios.defaults.withCredentials = true;
 
-axios.get(`${process.env.BASE_URL}/sanctum/csrf-cookie`).then(response => {
-  console.log('axios boot', response);
-});
-
 const axiosInstance = axios.create({
   baseURL: process.env.BASE_URL,
   headers: {

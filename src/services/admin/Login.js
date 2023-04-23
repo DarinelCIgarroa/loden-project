@@ -10,9 +10,9 @@ import { axiosInstance } from 'boot/axios'
   * */
 const basePath = 'api';
 
-export const login = async () => {
+export const login = async (payload) => {
   const URL = `${basePath}/login`;
-  const res = await axiosInstance.post(URL);
+  const res = await axiosInstance.post(URL, payload);
 
   return res.data;
 };
