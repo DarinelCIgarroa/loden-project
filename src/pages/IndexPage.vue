@@ -58,7 +58,7 @@ export default defineComponent({
     onMounted(() => {
       observer = new IntersectionObserver(onIntersection, {
         threshold: [0.6, 0.6, 0.6],
-        rootMargin: '-80px 0px 0px 0px', threshold: 0.2
+        rootMargin: "-80px 0px 0px 0px",
       });
       observer.observe(sectionHome.value);
       observer.observe(sectionAbout.value);
@@ -74,7 +74,13 @@ export default defineComponent({
       }
     });
 
-    return { sectionHome, sectionAbout, sectionEvents, sectionTeam, sectionContact };
+    return {
+      sectionHome,
+      sectionAbout,
+      sectionEvents,
+      sectionTeam,
+      sectionContact,
+    };
   },
 });
 </script>

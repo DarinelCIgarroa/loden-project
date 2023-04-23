@@ -79,7 +79,7 @@
                       label="Nombre completo"
                       v-model="form.name"
                     >
-                      <template v-slot:prepend>
+                      <template #prepend>
                         <q-icon
                           class="q-mx-sm"
                           name="fa-regular fa-user"
@@ -93,7 +93,7 @@
                       label="Número de teléfono"
                       v-model="form.phoneNumber"
                     >
-                      <template v-slot:prepend>
+                      <template #prepend>
                         <q-icon class="q-mx-sm" name="phone_iphone"></q-icon>
                       </template>
                     </q-input>
@@ -104,7 +104,7 @@
                       label="Correo electrónico"
                       v-model="form.email"
                     >
-                      <template v-slot:prepend>
+                      <template #prepend>
                         <q-icon
                           class="q-mx-sm"
                           name="fa-regular fa-envelope"
