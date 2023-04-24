@@ -1,8 +1,13 @@
 <template>
   <q-layout>
-    <q-page-container class="flex flex-center" style="margin: 0;">
+    <q-page-container class="flex flex-center" style="margin: 0">
       <q-page>
-        <q-card flat bordered class="my-card row no-border flex flex-center" style="max-width: 1250px;">
+        <q-card
+          flat
+          bordered
+          class="my-card row no-border flex flex-center"
+          style="max-width: 1250px"
+        >
           <q-card-section class="text-center col-12 section-title">
             <div class="text-h3">Contacto</div>
           </q-card-section>
@@ -13,25 +18,55 @@
                   <h2>Infomación de contacto</h2>
                   <ul class="info">
                     <li>
-                      <span><q-icon size="md" class="img" name="face"></q-icon></span>
+                      <span
+                        ><q-icon size="md" class="img" name="face"></q-icon
+                      ></span>
                       <span>Ciudad de México, 12312, 1231</span>
                     </li>
                     <li>
-                      <span><q-icon size="md" class="img" name="mail"></q-icon></span>
+                      <span
+                        ><q-icon size="md" class="img" name="mail"></q-icon
+                      ></span>
                       <span>loden@gmail.com</span>
                     </li>
                     <li>
-                      <span><q-icon size="md" class="img" name="call"></q-icon></span>
+                      <span
+                        ><q-icon size="md" class="img" name="call"></q-icon
+                      ></span>
                       <span>9612365046</span>
                     </li>
                   </ul>
                 </div>
                 <ul class="sci">
-                  <li><a href="#"><q-icon color="white" class="img" size="xl" name="fa-brands fa-facebook"></q-icon></a>
+                  <li>
+                    <a href="#"
+                      ><q-icon
+                        color="white"
+                        class="img"
+                        size="xl"
+                        name="fa-brands fa-facebook"
+                      ></q-icon
+                    ></a>
                   </li>
-                  <li><a href="#"><q-icon color="white" class="img" size="xl" name="fa-brands fa-instagram"></q-icon></a>
+                  <li>
+                    <a href="#"
+                      ><q-icon
+                        color="white"
+                        class="img"
+                        size="xl"
+                        name="fa-brands fa-instagram"
+                      ></q-icon
+                    ></a>
                   </li>
-                  <li><a href="#"><q-icon color="white" class="img" size="xl" name="fa-brands fa-twitter"></q-icon></a>
+                  <li>
+                    <a href="#"
+                      ><q-icon
+                        color="white"
+                        class="img"
+                        size="xl"
+                        name="fa-brands fa-twitter"
+                      ></q-icon
+                    ></a>
                   </li>
                 </ul>
               </div>
@@ -39,39 +74,75 @@
                 <h2>Enviar un mensaje</h2>
                 <div class="form-box">
                   <div class="input-box w50">
-                    <q-input class="input" label="Nombre completo" v-model="text">
-                      <template v-slot:prepend>
-                        <q-icon class="q-mx-sm" name="fa-regular fa-user"></q-icon>
+                    <q-input
+                      class="input"
+                      label="Nombre completo"
+                      v-model="form.name"
+                    >
+                      <template #prepend>
+                        <q-icon
+                          class="q-mx-sm"
+                          name="fa-regular fa-user"
+                        ></q-icon>
                       </template>
                     </q-input>
                   </div>
                   <div class="input-box w50">
-                    <q-input class="input" label="Número de teléfono" v-model="text">
-                      <template v-slot:prepend>
+                    <q-input
+                      class="input"
+                      label="Número de teléfono"
+                      v-model="form.phoneNumber"
+                    >
+                      <template #prepend>
                         <q-icon class="q-mx-sm" name="phone_iphone"></q-icon>
                       </template>
                     </q-input>
                   </div>
                   <div class="input-box w50">
-                    <q-input class="input" label="Correo electrónico" v-model="text">
-                      <template v-slot:prepend>
-                        <q-icon class="q-mx-sm" name="fa-regular fa-envelope"></q-icon>
+                    <q-input
+                      class="input"
+                      label="Correo electrónico"
+                      v-model="form.email"
+                    >
+                      <template #prepend>
+                        <q-icon
+                          class="q-mx-sm"
+                          name="fa-regular fa-envelope"
+                        ></q-icon>
                       </template>
                     </q-input>
                   </div>
                   <div class="input-box w50">
-                    <q-select class="input" v-model="model" :options="options" label="Evento de interes">
-                      <template v-slot:prepend>
-                        <q-icon name="event"></q-icon>
-                      </template>
-                    </q-select>
+                    <q-select
+                      label="Evento de interes"
+                      :rules="[(val) => !!val || 'Este campo es requerido']"
+                      outlined
+                      map-options
+                      emit-value
+                      v-model="form.eventId"
+                      option-value="id"
+                      option-label="name"
+                      :options="options"
+                      clearable
+                    />
                   </div>
                   <div class="input-box w100">
-                    <q-input v-model="textareaModel" dense="false" filled clearable type="textarea" color="red-12"
-                      label="Envía un mensaje" @focus="processTextareaFill"></q-input>
+                    <q-input
+                      v-model="form.message"
+                      filled
+                      clearable
+                      type="textarea"
+                      label="Envía un mensaje"
+                    ></q-input>
                   </div>
                   <div class="input-box w100">
-                    <q-btn class="submit" unelevated rounded color="primary" label="Enviar"></q-btn>
+                    <q-btn
+                      class="submit"
+                      unelevated
+                      rounded
+                      color="primary"
+                      label="Enviar"
+                    ></q-btn>
                   </div>
                 </div>
               </div>
@@ -83,13 +154,28 @@
   </q-layout>
 </template>
 <script>
+import { reactive, readonly } from "vue";
 export default {
-  mounted() {
-  },
+  mounted() {},
   setup() {
+    const options = readonly([
+      { id: 1, name: "Evento 1" },
+      { id: 2, name: "Evento 2" },
+    ]);
 
+    const form = reactive({
+      fullName: "",
+      phoneNumber: "",
+      email: "",
+      eventId: "",
+      message: "",
+    });
+    return {
+      form,
+      options,
+    };
   },
-}
+};
 </script>
 
 <style scoped>
@@ -102,7 +188,7 @@ export default {
 }
 
 .section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -248,8 +334,8 @@ export default {
   transition: 0.3s;
 }
 
-.container .contact-form .form-box .input-box input:focus~span,
-.container .contact-form .form-box .input-box input:valid~span {
+.container .contact-form .form-box .input-box input:focus ~ span,
+.container .contact-form .form-box .input-box input:valid ~ span {
   transform: translateY(-20px);
   font-size: 12px;
   font-weight: 400;
@@ -294,7 +380,6 @@ export default {
     padding: 40px;
     height: 550px;
     box-shadow: none;
-
   }
 
   @media (max-width: 1024px) {
@@ -320,7 +405,6 @@ export default {
       padding: 40px;
       height: 550px;
       box-shadow: none;
-
     }
   }
 
@@ -367,7 +451,6 @@ export default {
       padding: 25px;
       flex-direction: column;
       align-items: flex-start;
-
     }
 
     .container .contact-info ul.sci {
