@@ -58,14 +58,6 @@
                 class="full-width text-white"
                 label="Iniciar sesión"
               />
-              <q-btn
-                unelevated
-                size="lg"
-                color="secondary"
-                @click="logout"
-                class="full-width text-white"
-                label="Cerrar sesión"
-              />
             </q-card-actions>
             <q-card-section class="text-center q-pa-sm">
               <p class="text-grey-6">¿Olvidaste la contraseña?</p>
@@ -102,10 +94,6 @@ const submit = async () => {
   await store.getSanctumCookie();
   const response = await store.login(form);
   store.setUser(response);
-};
-
-const logout = async () => {
-  await store.logout(store.getId);
 };
 </script>
 
