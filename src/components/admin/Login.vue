@@ -1,4 +1,4 @@
-
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <q-layout>
     <q-page-container
@@ -20,7 +20,7 @@
                   lazy-rules
                   label="Correo electronico"
                   autocomplete="current-email"
-                  :rules="rulesEmail"
+                  :rules="[(val) => !!val || 'El campo es requerido']"
                 >
                   <template #prepend>
                     <q-icon name="email" />
@@ -34,7 +34,7 @@
                   label="Contraseña"
                   :type="passwordFieldType"
                   autocomplete="current-password"
-                  :rules="rulesPassword"
+                  :rules="[(val) => !!val || 'El campo es requerido']"
                 >
                   <template #prepend>
                     <q-icon name="lock" />
@@ -49,7 +49,6 @@
                 </q-input>
               </q-form>
             </q-card-section>
-
             <q-card-actions class="q-px-lg">
               <q-btn
                 unelevated
@@ -58,6 +57,14 @@
                 @click="submit"
                 class="full-width text-white"
                 label="Iniciar sesión"
+              />
+              <q-btn
+                unelevated
+                size="lg"
+                color="secondary"
+                @click="logout"
+                class="full-width text-white"
+                label="Cerrar sesión"
               />
             </q-card-actions>
             <q-card-section class="text-center q-pa-sm">
@@ -70,51 +77,38 @@
   </q-layout>
 </template>
 
-<script>
-import { defineComponent, reactive, ref } from "vue";
-import { userStore } from "../../stores/userStore";
+<script setup>
+import { user } from "stores/user";
+import { reactive, ref } from "vue";
 
-export default defineComponent({
-  name: "LoginAdmin",
+const store = user();
 
-  setup() {
-    // const userStore = userStore();
-    const form = reactive({
-      email: "",
-      password: "",
-    });
-
-    const visibility = ref(false);
-    const passwordFieldType = ref("password");
-    const visibilityIcon = ref("visibility");
-
-    const submit = async () => {
-      await userStore().getSanctumCookie;
-    };
-
-    const switchVisibility = () => {
-      visibility.value = !visibility.value;
-      passwordFieldType.value = visibility.value ? "text" : "password";
-      visibilityIcon.value = visibility.value ? "visibility_off" : "visibility";
-    };
-
-    return {
-      rulesEmail: [
-        (val) =>
-          (val && val.length > 0) || "Por favor ingresa un correo electrónico",
-      ],
-      rulesPassword: [
-        (val) => (val && val.length > 0) || "Por favor ingresa una contraseña",
-      ],
-      form,
-      visibilityIcon,
-      passwordFieldType,
-      switchVisibility,
-      submit,
-    };
-  },
+const form = reactive({
+  email: "",
+  password: "",
 });
+
+const visibility = ref(false);
+const passwordFieldType = ref("password");
+const visibilityIcon = ref("visibility");
+
+const switchVisibility = () => {
+  visibility.value = !visibility.value;
+  passwordFieldType.value = visibility.value ? "text" : "password";
+  visibilityIcon.value = visibility.value ? "visibility_off" : "visibility";
+};
+
+const submit = async () => {
+  await store.getSanctumCookie();
+  const response = await store.login(form);
+  store.setUser(response);
+};
+
+const logout = async () => {
+  await store.logout(store.getId);
+};
 </script>
+
 <style scoped>
 .container {
   background: linear-gradient(

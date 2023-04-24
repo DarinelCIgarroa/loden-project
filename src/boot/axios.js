@@ -1,5 +1,6 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
+import { user } from "stores/user";
 
 axios.defaults.withCredentials = true;
 
@@ -9,6 +10,13 @@ const axiosInstance = axios.create({
     'Content-Type': 'application/json'
   }
 })
+
+if (user().getToken) {
+  axiosInstance.interceptors.request.use(((config) => {
+    config.headers.Authorization = `Bearer ${user().getToken}`;
+    return config;
+  }));
+}
 
 
 export default boot(({ app }) => {
