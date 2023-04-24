@@ -1,42 +1,75 @@
 
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header class="custom-header row justify-around" style="font-family: Arial, Helvetica, sans-serif;">
+    <q-header
+      class="custom-header row justify-around"
+      style="font-family: Arial, Helvetica, sans-serif"
+    >
       <div class="logo">
         <h1><a href="index.html">LONDEN</a></h1>
       </div>
       <nav id="navbar" class="navbar row">
         <ul>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'home' ? 'active' : ''"
-            @click="current_section = 'home'">
+          <q-item
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            :class="current_section === 'home' ? 'active' : ''"
+            @click="current_section = 'home'"
+          >
             <q-item-section no-hover class="li-nav">
               <q-icon class="icon" name="home"></q-icon>
               <span class="text">Inicio</span>
             </q-item-section>
           </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'about-us' ? 'active' : ''"
-            @click="current_section = 'about-us'">
+          <q-item
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            :class="current_section === 'about-us' ? 'active' : ''"
+            @click="current_section = 'about-us'"
+          >
             <q-item-section no-hover class="li-nav second li-nav-wide">
               <q-icon class="icon" name="store"></q-icon>
               <span class="text">Nostros</span>
             </q-item-section>
           </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'events' ? 'active' : ''"
-            @click="current_section = 'events'">
+          <q-item
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            :class="current_section === 'events' ? 'active' : ''"
+            @click="current_section = 'events'"
+          >
             <q-item-section no-hover class="li-nav second li-nav-wide">
               <q-icon class="icon" name="date_range"></q-icon>
               <span class="text">Eventos</span>
             </q-item-section>
           </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'team' ? 'active' : ''"
-            @click="current_section = 'team'">
+          <q-item
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            :class="current_section === 'team' ? 'active' : ''"
+            @click="current_section = 'team'"
+          >
             <q-item-section no-hover class="li-nav second li-nav-wide">
               <q-icon class="icon" name="fa-solid fa-user-group"></q-icon>
               <span class="text">Equipo</span>
             </q-item-section>
           </q-item>
-          <q-item exact clickable v-ripple="false" manual-focus :class="current_section === 'contact' ? 'active' : ''"
-            @click="current_section = 'contact'">
+          <q-item
+            exact
+            clickable
+            v-ripple="false"
+            manual-focus
+            :class="current_section === 'contact' ? 'active' : ''"
+            @click="current_section = 'contact'"
+          >
             <q-item-section no-hover class="li-nav second li-nav-wide">
               <q-icon class="icon" name="fa-solid fa-file-contract"></q-icon>
               <span class="text">Contacto</span>
@@ -52,23 +85,23 @@
 </template>
 
 <script>
-import { defineComponent, onMounted, ref } from 'vue'
-import bus from 'src/utils/event-bus';
+import { defineComponent, ref } from "vue";
+import bus from "src/utils/event-bus";
 
 export default defineComponent({
-  name: 'MainLayout',
+  name: "MainLayout",
 
   setup() {
-    const current_section = ref()
-    bus.on('section', (section) => {
-      current_section.value = section
+    const current_section = ref();
+    bus.on("section", (section) => {
+      current_section.value = section;
     });
 
     return {
-      current_section
-    }
-  }
-})
+      current_section,
+    };
+  },
+});
 </script>
 
 <style scoped>
