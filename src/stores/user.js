@@ -25,9 +25,9 @@ export const user = defineStore('user', {
         notifyError()
       }
     },
-    async login(data) {
+    login(data) {
       try {
-        const response = await loginService.login(data)
+        const response = loginService.login(data)
         notifySuccess(response.message)
         return response
       } catch (error) {
@@ -37,6 +37,7 @@ export const user = defineStore('user', {
     async logout(id) {
       try {
         const response = await loginService.logout(id)
+        notifySuccess();
         return response
       } catch (error) {
         console.log('error', error);
