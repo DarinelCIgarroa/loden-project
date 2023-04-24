@@ -75,9 +75,9 @@
                 <div class="form-box">
                   <div class="input-box w50">
                     <q-input
+                      v-model="form.name"
                       class="input"
                       label="Nombre completo"
-                      v-model="form.name"
                     >
                       <template #prepend>
                         <q-icon
@@ -89,9 +89,9 @@
                   </div>
                   <div class="input-box w50">
                     <q-input
+                      v-model="form.phoneNumber"
                       class="input"
                       label="Número de teléfono"
-                      v-model="form.phoneNumber"
                     >
                       <template #prepend>
                         <q-icon class="q-mx-sm" name="phone_iphone"></q-icon>
@@ -100,9 +100,9 @@
                   </div>
                   <div class="input-box w50">
                     <q-input
+                      v-model="form.email"
                       class="input"
                       label="Correo electrónico"
-                      v-model="form.email"
                     >
                       <template #prepend>
                         <q-icon
@@ -114,12 +114,12 @@
                   </div>
                   <div class="input-box w50">
                     <q-select
+                      v-model="form.eventId"
                       label="Evento de interes"
                       :rules="[(val) => !!val || 'Este campo es requerido']"
                       outlined
                       map-options
                       emit-value
-                      v-model="form.eventId"
                       option-value="id"
                       option-label="name"
                       :options="options"
@@ -153,29 +153,21 @@
     </q-page-container>
   </q-layout>
 </template>
-<script>
+<script setup>
 import { reactive, readonly } from "vue";
-export default {
-  mounted() {},
-  setup() {
-    const options = readonly([
-      { id: 1, name: "Evento 1" },
-      { id: 2, name: "Evento 2" },
-    ]);
 
-    const form = reactive({
-      fullName: "",
-      phoneNumber: "",
-      email: "",
-      eventId: "",
-      message: "",
-    });
-    return {
-      form,
-      options,
-    };
-  },
-};
+const options = readonly([
+  { id: 1, name: "Evento 1" },
+  { id: 2, name: "Evento 2" },
+]);
+
+const form = reactive({
+  fullName: "",
+  phoneNumber: "",
+  email: "",
+  eventId: "",
+  message: "",
+});
 </script>
 
 <style scoped>

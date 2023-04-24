@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <q-layout>
     <q-page-container
@@ -13,9 +12,9 @@
             <q-card-section>
               <q-form class="q-px-sm q-pt-xl">
                 <q-input
+                  v-model="form.email"
                   square
                   clearable
-                  v-model="form.email"
                   type="email"
                   lazy-rules
                   label="Correo electronico"
@@ -27,9 +26,9 @@
                   </template>
                 </q-input>
                 <q-input
+                  v-model="form.password"
                   square
                   clearable
-                  v-model="form.password"
                   lazy-rules
                   label="Contraseña"
                   :type="passwordFieldType"
@@ -42,8 +41,8 @@
                   <template #append>
                     <q-icon
                       :name="visibilityIcon"
-                      @click="switchVisibility"
                       class="cursor-pointer"
+                      @click="switchVisibility"
                     />
                   </template>
                 </q-input>
@@ -54,9 +53,9 @@
                 unelevated
                 size="lg"
                 color="secondary"
-                @click="submit"
                 class="full-width text-white"
                 label="Iniciar sesión"
+                @click="submit"
               />
             </q-card-actions>
             <q-card-section class="text-center q-pa-sm">
@@ -70,9 +69,11 @@
 </template>
 
 <script setup>
-import { user } from "stores/user";
+import { user } from "src/stores/user-store";
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const store = user();
 
 const form = reactive({
@@ -94,6 +95,7 @@ const submit = async () => {
   await store.getSanctumCookie();
   const response = await store.login(form);
   store.setUser(response);
+  router.push("/admin/dashboard");
 };
 </script>
 

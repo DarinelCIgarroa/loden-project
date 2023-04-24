@@ -1,6 +1,6 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
-import { user } from "stores/user";
+import { user } from "src/stores/user-store";
 
 axios.defaults.withCredentials = true;
 

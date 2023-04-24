@@ -11,9 +11,9 @@
       <nav id="navbar" class="navbar row">
         <ul>
           <q-item
+            v-ripple="false"
             exact
             clickable
-            v-ripple="false"
             manual-focus
             :class="current_section === 'home' ? 'active' : ''"
             @click="current_section = 'home'"
@@ -24,9 +24,9 @@
             </q-item-section>
           </q-item>
           <q-item
+            v-ripple="false"
             exact
             clickable
-            v-ripple="false"
             manual-focus
             :class="current_section === 'about-us' ? 'active' : ''"
             @click="current_section = 'about-us'"
@@ -37,9 +37,9 @@
             </q-item-section>
           </q-item>
           <q-item
+            v-ripple="false"
             exact
             clickable
-            v-ripple="false"
             manual-focus
             :class="current_section === 'events' ? 'active' : ''"
             @click="current_section = 'events'"
@@ -50,9 +50,9 @@
             </q-item-section>
           </q-item>
           <q-item
+            v-ripple="false"
             exact
             clickable
-            v-ripple="false"
             manual-focus
             :class="current_section === 'team' ? 'active' : ''"
             @click="current_section = 'team'"
@@ -63,9 +63,9 @@
             </q-item-section>
           </q-item>
           <q-item
+            v-ripple="false"
             exact
             clickable
-            v-ripple="false"
             manual-focus
             :class="current_section === 'contact' ? 'active' : ''"
             @click="current_section = 'contact'"
@@ -84,23 +84,13 @@
   </q-layout>
 </template>
 
-<script>
-import { defineComponent, ref } from "vue";
+<script setup>
+import { ref } from "vue";
 import bus from "src/utils/event-bus";
 
-export default defineComponent({
-  name: "MainLayout",
-
-  setup() {
-    const current_section = ref();
-    bus.on("section", (section) => {
-      current_section.value = section;
-    });
-
-    return {
-      current_section,
-    };
-  },
+const current_section = ref();
+bus.on("section", (section) => {
+  current_section.value = section;
 });
 </script>
 
