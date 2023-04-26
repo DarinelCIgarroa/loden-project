@@ -23,7 +23,7 @@
                     flat
                     bordered
                   >
-                    <q-img src="../statics/images/team-1.jpg">
+                    <q-img src="../../statics/images/team-1.jpg">
                       <div class="social">
                         <div class="q-pa-md q-gutter-sm">
                           <q-btn
@@ -71,7 +71,7 @@
                     flat
                     bordered
                   >
-                    <q-img src="../statics/images/team-1.jpg">
+                    <q-img src="../../statics/images/team-1.jpg">
                       <div class="social">
                         <div class="q-pa-md q-gutter-sm">
                           <q-btn
@@ -119,7 +119,7 @@
                     flat
                     bordered
                   >
-                    <q-img src="../statics/images/team-1.jpg">
+                    <q-img src="../../statics/images/team-1.jpg">
                       <div class="social">
                         <div class="q-pa-md q-gutter-sm">
                           <q-btn
@@ -168,7 +168,7 @@
                     flat
                     bordered
                   >
-                    <q-img src="../statics/images/team-1.jpg">
+                    <q-img src="../../statics/images/team-1.jpg">
                       <div class="social">
                         <div class="q-pa-md q-gutter-sm">
                           <q-btn

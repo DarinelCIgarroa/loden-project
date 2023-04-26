@@ -104,7 +104,7 @@
             class="col-lg-6 col-md-6 col-sm-12 col-xs-10 flex justify-center items-center img-content"
           >
             <q-img
-              src="../statics/images/counts-img.svg"
+              src="../../statics/images/counts-img.svg"
               style="height: 400px; max-width: 650px"
             >
             </q-img>

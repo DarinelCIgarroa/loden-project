@@ -8,7 +8,12 @@ const routes = [
   },
   {
     path: '/admin/dashboard',
-    component: () => import('components/admin/AdminMainLayout.vue'),
+    component: () => import('src/components/admin/DashboardComponent.vue'),
+    children: [
+      { path: '/admin/team', component: () => import('src/components/admin/pages/AdministratorTeam.vue') },
+      { path: '/admin/messages', component: () => import('src/components/admin/pages/AdministratorMessages.vue') },
+      { path: '/admin/events', component: () => import('src/components/admin/pages/AdministratorEvents.vue') },
+    ],
     beforeEnter: (to, from, next) => {
       if (sessionStorage.getItem('authentication_token')) {
         next();

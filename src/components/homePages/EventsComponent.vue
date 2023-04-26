@@ -19,7 +19,7 @@
             >
               <q-parallax
                 class="parallax rounded-borders"
-                src="../statics/images/inPerson44.jpg"
+                src="../../statics/images/inPerson44.jpg"
               >
                 <div
                   class="absolute-bottom text-subtitle2 text-center text-white q-pb-md"
@@ -56,7 +56,7 @@
             >
               <q-parallax
                 class="parallax rounded-borders"
-                src="../statics/images/online88.jpg"
+                src="../../statics/images/online88.jpg"
               >
                 <div
                   class="absolute-bottom text-subtitle2 text-center text-white q-pb-md"

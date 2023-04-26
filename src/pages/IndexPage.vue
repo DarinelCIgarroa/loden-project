@@ -19,12 +19,12 @@
 </template>
 
 <script setup>
-import AboutComponent from "src/components/AboutComponent.vue";
+import AboutComponent from "src/components/homePages/AboutComponent.vue";
 
-import EventsComponent from "src/components/EventsComponent.vue";
-import HomeComponent from "src/components/HomeComponent.vue";
-import TeamComponent from "src/components/TeamComponent.vue";
-import ContactComponent from "src/components/ContacComponent.vue";
+import EventsComponent from "src/components/homePages/EventsComponent.vue";
+import HomeComponent from "src/components/homePages/HomeComponent.vue";
+import TeamComponent from "src/components/homePages/TeamComponent.vue";
+import ContactComponent from "src/components/homePages/ContactComponent.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 import bus from "src/utils/event-bus";
 
