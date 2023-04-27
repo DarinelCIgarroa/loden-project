@@ -82,15 +82,29 @@
       </q-img>
     </q-drawer>
 
-    <q-page-container class="bg-grey-1 q-ma-xl">
+    <q-page-container class="bg-grey-1 q-ma-md">
       <router-view />
     </q-page-container>
+
+    <q-footer reveal class="bg-grey-1 text-white">
+      <div class="q-pa-lg flex flex-center">
+        <q-pagination
+          v-model="pagination.current"
+          :max="pagination.max"
+          input
+          color="black"
+          :boundary-numbers="false"
+          input-class="black"
+        ></q-pagination>
+      </div>
+    </q-footer>
   </q-layout>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 const leftDrawerOpen = ref(false);
+const pagination = reactive({ current: 0, max: 10 });
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 };

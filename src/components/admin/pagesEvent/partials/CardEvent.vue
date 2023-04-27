@@ -1,6 +1,6 @@
 <template>
   <q-card class="">
-    <q-img src="../../../statics/images/online2.jpg" height="160px">
+    <q-img src="src/statics/images/inPerson44.jpg" height="160px">
       <q-chip
         v-if="data.chip"
         :class="data.chip_class"

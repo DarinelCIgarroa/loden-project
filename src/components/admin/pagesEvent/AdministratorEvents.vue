@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-import EventCard from "../partials/CardEvent.vue";
+import EventCard from "./partials/CardEvent.vue";
 import { ref } from "vue";
 
 const data = [
