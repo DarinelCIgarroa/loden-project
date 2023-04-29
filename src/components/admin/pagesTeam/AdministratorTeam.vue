@@ -20,25 +20,44 @@
 <script setup>
 import DirectoryCard from "./partials/TeamCard.vue";
 import * as TeamService from "src/services/admin/TeamService";
-import { onMounted, ref } from "vue";
+import { onMounted, watch, ref } from "vue";
 import { notifyError } from "src/utils/notify";
 import { useTeamStore } from "src/stores/team-store";
+import { usePaginationStore } from "src/stores/pagination-store";
 
 const teamStore = useTeamStore();
+const storePagination = usePaginationStore();
+const data = ref([]);
+// const pagination = ref({
+//   currentPage: 1,
+//   rowsPage: 2,
+//   lastPage: 5,
+// });
 
 onMounted(() => {
   getTeam();
 });
 
-const data = ref([]);
-
+watch(
+  () => storePagination.getCurrentPage,
+  () => {
+    console.log("watchhhhhhhhhhhhhhhhhhhhhhhh");
+    // hacer algo con la variable actualizada
+  }
+);
 const getTeam = async () => {
   try {
-    const response = await TeamService.index();
-    teamStore.setTeam(response);
-    data.value = response;
-  } catch (error) {
-    notifyError(error);
+    console.log("ok", storePagination.getCurrentPage);
+    const response = await TeamService.index({
+      page: storePagination.getCurrentPage,
+      rows_page: storePagination.getRowPage,
+    });
+    console.log("response", response);
+    storePagination.setLastPage = response.pagination.last_page;
+    data.value = response.members.data;
+    teamStore.setTeam(data.value);
+  } catch (e) {
+    notifyError("error al obtener los registros");
   }
 };
 </script>

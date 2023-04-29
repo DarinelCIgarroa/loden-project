@@ -15,7 +15,7 @@
         <div class="q-gutter-sm row items-center no-wrap">
           <q-btn round flat>
             <q-avatar size="26px">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png" alt="logo" />
             </q-avatar>
           </q-btn>
           <q-btn
@@ -89,12 +89,13 @@
     <q-footer reveal class="bg-grey-1 text-white">
       <div class="q-pa-lg flex flex-center">
         <q-pagination
-          v-model="pagination.current"
-          :max="pagination.max"
+          v-model="currentPage"
+          :max="storePagination.getLastPage"
           input
           color="black"
           :boundary-numbers="false"
           input-class="black"
+          @click="nextPage"
         ></q-pagination>
       </div>
     </q-footer>
@@ -102,13 +103,24 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
+import { ref } from "vue";
+import { usePaginationStore } from "src/stores/pagination-store";
+
 const leftDrawerOpen = ref(false);
-const pagination = reactive({ current: 0, max: 10 });
+
+const storePagination = usePaginationStore();
+const currentPage = ref(1);
+
+const nextPage = () => {
+  console.log("nex page", currentPage.value);
+  storePagination.setCurrentPage();
+};
+
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 };
 </script>
+
 <style  scoped>
 .toolbar {
   background-color: #4e342e !important;

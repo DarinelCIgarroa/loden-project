@@ -10,10 +10,10 @@ import { axiosInstance } from 'boot/axios'
   * */
 const basePath = 'api/team';
 
-export const index = async () => {
-  const URL = basePath;
-  const res = await axiosInstance.get(URL);
-  return res.data.members;
+export const index = async (payload) => {
+  const URL = `${basePath}/index`;
+  const res = await axiosInstance.post(URL, payload);
+  return res.data;
 };
 
 export const store = async (payload) => {
