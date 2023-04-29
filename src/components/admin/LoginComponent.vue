@@ -75,7 +75,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const store = user();
-
+//const newevent = event();
 const form = reactive({
   email: "",
   password: "",
@@ -97,6 +97,11 @@ const submit = async () => {
   store.setUser(response);
   router.push("/admin/dashboard");
 };
+/*
+const allEvents = async () => {
+  const value = await serviceEvent.getEvents();
+  newevent.setevents(value);
+};*/
 </script>
 
 <style scoped>

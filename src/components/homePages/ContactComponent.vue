@@ -75,7 +75,7 @@
                 <div class="form-box">
                   <div class="input-box w50">
                     <q-input
-                      v-model="form.name"
+                      v-model="form.full_name"
                       class="input"
                       label="Nombre completo"
                     >
@@ -89,7 +89,7 @@
                   </div>
                   <div class="input-box w50">
                     <q-input
-                      v-model="form.phoneNumber"
+                      v-model="form.phone_number"
                       class="input"
                       label="Número de teléfono"
                     >
@@ -100,7 +100,7 @@
                   </div>
                   <div class="input-box w50">
                     <q-input
-                      v-model="form.email"
+                      v-model="form.mail"
                       class="input"
                       label="Correo electrónico"
                     >
@@ -142,6 +142,7 @@
                       rounded
                       color="primary"
                       label="Enviar"
+                      @click="submit"
                     ></q-btn>
                   </div>
                 </div>
@@ -154,20 +155,53 @@
   </q-layout>
 </template>
 <script setup>
-import { reactive, readonly } from "vue";
-
-const options = readonly([
-  { id: 1, name: "Evento 1" },
-  { id: 2, name: "Evento 2" },
-]);
+import { reactive, ref, onMounted } from "vue";
+import { event } from "stores/event";
+import * as serviceEmail from "src/services/HomePage/emailServices.js";
+import * as serviceEvent from "src/services/HomePage/eventService.js";
+import { notifySuccess, notifyError } from "src/utils/notify.js";
+const options = ref([]);
+onMounted(() => {
+  getEvnts();
+  allEvents();
+});
+const newEvents = event();
 
 const form = reactive({
-  fullName: "",
-  phoneNumber: "",
-  email: "",
-  eventId: "",
+  full_name: "",
+  phone_number: "",
+  mail: "",
+  event_id: "",
   message: "",
 });
+const submit = async () => {
+  try {
+    const response = await serviceEmail.submitEmail(form);
+    if (response.success) {
+      notifySuccess();
+      clearForm();
+      return true;
+    }
+    notifyError();
+  } catch (error) {
+    notifyError();
+  }
+};
+const clearForm = () => {
+  form.full_name = "";
+  form.phone_number = "";
+  form.mail = "";
+  form.event_id = "";
+  form.message = "";
+};
+const getEvnts = async () => {
+  const response = await serviceEvent.getEvent();
+  options.value = response.events;
+};
+const allEvents = async () => {
+  const value = await serviceEvent.getEvents();
+  newEvents.setevents(value);
+};
 </script>
 
 <style scoped>
