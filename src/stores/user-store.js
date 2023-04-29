@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import * as loginService from 'src/services/admin/Login.js';
 import axios from 'axios'
 import { notifySuccess, notifyError } from 'src/utils/notify'
+import { axiosInstance } from 'boot/axios'
 
 export const user = defineStore('user', {
   state: () => ({
@@ -25,10 +26,12 @@ export const user = defineStore('user', {
         notifyError()
       }
     },
-    login(data) {
+    async login(data) {
       try {
-        const response = loginService.login(data)
+        const response = await loginService.login(data)
         notifySuccess(response.message)
+        axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.token}`;
+        window.sessionStorage.setItem('authentication_token', response.token);
         return response
       } catch (error) {
         notifyError(error.response.data.message)

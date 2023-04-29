@@ -13,7 +13,6 @@ const basePath = 'api';
 export const login = async (payload) => {
   const URL = `${basePath}/login`;
   const res = await axiosInstance.post(URL, payload);
-  axiosInstance.defaults.headers.common.Authorization = `Bearer ${res.data.token}`;
 
   return res.data;
 };

@@ -1,86 +1,65 @@
 <template>
   <main>
-    <section ref="sectionHome" class="section" id="home">
+    <section id="home" ref="sectionHome" class="section">
       <HomeComponent></HomeComponent>
     </section>
-    <section ref="sectionAbout" class="section" id="about-us">
+    <section id="about-us" ref="sectionAbout" class="section">
       <AboutComponent></AboutComponent>
     </section>
-    <section ref="sectionEvents" class="section" id="events">
+    <section id="events" ref="sectionEvents" class="section">
       <EventsComponent></EventsComponent>
     </section>
-    <section ref="sectionTeam" class="section" id="team">
+    <section id="team" ref="sectionTeam" class="section">
       <TeamComponent></TeamComponent>
     </section>
-    <section ref="sectionContact" class="section" id="contact">
-      <ContacComponent></ContacComponent>
+    <section id="contact" ref="sectionContact" class="section">
+      <ContactComponent></ContactComponent>
     </section>
   </main>
 </template>
 
-<script>
-import AboutComponent from "src/components/AboutComponent.vue";
+<script setup>
+import AboutComponent from "src/components/homePages/AboutComponent.vue";
 
-import EventsComponent from "src/components/EventsComponent.vue";
-import HomeComponent from "src/components/HomeComponent.vue";
-import TeamComponent from "src/components/TeamComponent.vue";
-import ContacComponent from "src/components/ContacComponent.vue";
-import { defineComponent, ref, onMounted, onUnmounted } from "vue";
+import EventsComponent from "src/components/homePages/EventsComponent.vue";
+import HomeComponent from "src/components/homePages/HomeComponent.vue";
+import TeamComponent from "src/components/homePages/TeamComponent.vue";
+import ContactComponent from "src/components/homePages/ContactComponent.vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import bus from "src/utils/event-bus";
 
-export default defineComponent({
-  name: "MainLayout",
-  components: {
-    HomeComponent,
-    AboutComponent,
-    EventsComponent,
-    TeamComponent,
-    ContacComponent,
-  },
+const sectionHome = ref(null);
+const sectionAbout = ref(null);
+const sectionEvents = ref(null);
+const sectionTeam = ref(null);
+const sectionContact = ref(null);
 
-  setup() {
-    const sectionHome = ref(null);
-    const sectionAbout = ref(null);
-    const sectionEvents = ref(null);
-    const sectionTeam = ref(null);
-    const sectionContact = ref(null);
+const onIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      bus.emit("section", entry.target.id);
+    }
+  });
+};
 
-    const onIntersection = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          bus.emit("section", entry.target.id);
-        }
-      });
-    };
+let observer = null;
 
-    let observer = null;
+onMounted(() => {
+  observer = new IntersectionObserver(onIntersection, {
+    threshold: [0.6, 0.6, 0.6],
+    rootMargin: "-80px 0px 0px 0px",
+  });
+  observer.observe(sectionHome.value);
+  observer.observe(sectionAbout.value);
+  observer.observe(sectionEvents.value);
+  observer.observe(sectionTeam.value);
+  observer.observe(sectionContact.value);
+});
 
-    onMounted(() => {
-      observer = new IntersectionObserver(onIntersection, {
-        threshold: [0.6, 0.6, 0.6],
-        rootMargin: "-80px 0px 0px 0px",
-      });
-      observer.observe(sectionHome.value);
-      observer.observe(sectionAbout.value);
-      observer.observe(sectionEvents.value);
-      observer.observe(sectionTeam.value);
-      observer.observe(sectionContact.value);
-    });
-
-    onUnmounted(() => {
-      if (observer) {
-        observer.disconnect();
-        observer = null;
-      }
-    });
-
-    return {
-      sectionHome,
-      sectionAbout,
-      sectionEvents,
-      sectionTeam,
-      sectionContact,
-    };
-  },
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect();
+    observer = null;
+  }
 });
 </script>

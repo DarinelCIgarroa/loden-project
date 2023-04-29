@@ -75,9 +75,9 @@
                 <div class="form-box">
                   <div class="input-box w50">
                     <q-input
+                      v-model="form.full_name"
                       class="input"
                       label="Nombre completo"
-                      v-model="form.full_name"
                     >
                       <template #prepend>
                         <q-icon
@@ -89,9 +89,9 @@
                   </div>
                   <div class="input-box w50">
                     <q-input
+                      v-model="form.phone_number"
                       class="input"
                       label="Número de teléfono"
-                      v-model="form.phone_number"
                     >
                       <template #prepend>
                         <q-icon class="q-mx-sm" name="phone_iphone"></q-icon>
@@ -100,9 +100,9 @@
                   </div>
                   <div class="input-box w50">
                     <q-input
+                      v-model="form.mail"
                       class="input"
                       label="Correo electrónico"
-                      v-model="form.mail"
                     >
                       <template #prepend>
                         <q-icon
@@ -114,12 +114,12 @@
                   </div>
                   <div class="input-box w50">
                     <q-select
+                      v-model="form.eventId"
                       label="Evento de interes"
                       :rules="[(val) => !!val || 'Este campo es requerido']"
                       outlined
                       map-options
                       emit-value
-                      v-model="form.event_id"
                       option-value="id"
                       option-label="name"
                       :options="options"
