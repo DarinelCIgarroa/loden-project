@@ -71,10 +71,14 @@
 
 <script setup>
 import { user } from "stores/user";
+//import { event } from "stores/event";
+//import * as serviceEvent from "src/services/HomePage/eventService.js";
 import { reactive, ref } from "vue";
-
+/*onMounted(() => {
+  allEvents();
+});*/
 const store = user();
-
+//const newevent = event();
 const form = reactive({
   email: "",
   password: "",
@@ -95,6 +99,11 @@ const submit = async () => {
   const response = await store.login(form);
   store.setUser(response);
 };
+/*
+const allEvents = async () => {
+  const value = await serviceEvent.getEvents();
+  newevent.setevents(value);
+};*/
 </script>
 
 <style scoped>
