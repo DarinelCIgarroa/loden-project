@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated color="bg-grey-8">
       <q-toolbar class="toolbar">
         <q-btn
           flat
@@ -33,7 +33,7 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-      class="bg-brown-4 text-white"
+      class="bg-white-10 text-dark"
     >
       <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px">
         <q-list>
@@ -124,8 +124,8 @@ const toggleLeftDrawer = () => {
 </script>
 
 <style  scoped>
-.toolbar {
+/* .toolbar {
   background-color: #4e342e !important;
-}
+} */
 </style>
 

@@ -1,5 +1,14 @@
 <template>
   <q-page class="q-pa-sm">
+    <div class="q-ma-md row justify-end">
+      <q-icon
+        name="fa-solid fa-circle-plus fa-beat"
+        color="teal"
+        size="3em"
+        style="cursor: pointer"
+        @click="createItem()"
+      ></q-icon>
+    </div>
     <div class="row q-col-gutter-lg">
       <div
         v-for="item in teamStore.getTeamList"
@@ -13,6 +22,11 @@
           :occupation="item.occupation"
         ></DirectoryCard>
       </div>
+      <DialogCreated
+        v-if="activateCreation"
+        :status="activateCreation"
+        @statusDialogCreate="changeStatusDialogCreate"
+      ></DialogCreated>
     </div>
   </q-page>
 </template>
@@ -20,14 +34,15 @@
 <script setup>
 import DirectoryCard from "./partials/TeamCard.vue";
 import * as TeamService from "src/services/admin/TeamService";
-import { onMounted, watch } from "vue";
+import { onMounted, watch, ref } from "vue";
 import { notifyError } from "src/utils/notify";
 import { useTeamStore } from "src/stores/team-store";
 import { usePaginationStore } from "src/stores/pagination-store";
+import DialogCreated from "./partials/CreateTeam.vue";
 
 const teamStore = useTeamStore();
 const storePagination = usePaginationStore();
-
+const activateCreation = ref(false);
 onMounted(() => {
   getTeam();
 });
@@ -49,5 +64,12 @@ const getTeam = async () => {
   } catch (e) {
     notifyError(e);
   }
+};
+const changeStatusDialogCreate = (value) => {
+  activateCreation.value = value;
+};
+
+const createItem = () => {
+  activateCreation.value = true;
 };
 </script>
