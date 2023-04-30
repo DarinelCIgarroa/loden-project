@@ -8,5 +8,8 @@
   "[vue]": {
     "editor.defaultFormatter": "octref.vetur"
   },
-  "vue.features.codeActions.enable": false
+  "vue.features.codeActions.enable": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
