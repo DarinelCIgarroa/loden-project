@@ -113,7 +113,7 @@ const currentPage = ref(1);
 
 const nextPage = () => {
   console.log("nex page", currentPage.value);
-  storePagination.setCurrentPage();
+  storePagination.setCurrentPage(currentPage.value);
 };
 
 const toggleLeftDrawer = () => {
