@@ -74,7 +74,10 @@
       >
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="56px" class="q-mb-sm">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            <img
+              src="https://cdn.quasar.dev/img/boy-avatar.png"
+              alt="profile"
+            />
           </q-avatar>
           <div class="text-weight-bold">Darinel Cigarroa</div>
           <div>loden@loden.com</div>
@@ -112,8 +115,7 @@ const storePagination = usePaginationStore();
 const currentPage = ref(1);
 
 const nextPage = () => {
-  console.log("nex page", currentPage.value);
-  storePagination.setCurrentPage();
+  storePagination.setCurrentPage(currentPage.value);
 };
 
 const toggleLeftDrawer = () => {
