@@ -6,7 +6,6 @@ export const usePaginationStore = defineStore('pagination', {
       current_page: 1,
       rows_page: 2,
       last_page: 5,
-      max: 10,
     }
   }),
   getters: {

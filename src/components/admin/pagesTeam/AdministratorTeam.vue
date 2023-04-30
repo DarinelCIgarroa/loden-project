@@ -44,8 +44,7 @@ const getTeam = async () => {
       page: storePagination.getCurrentPage,
       rows_page: storePagination.getRowPage,
     });
-    storePagination.setLastPage = response.pagination.last_page;
-    console.log("response", response);
+    storePagination.setLastPage(response.members.last_page);
     teamStore.setTeam(response.members.data);
   } catch (e) {
     notifyError(e);
