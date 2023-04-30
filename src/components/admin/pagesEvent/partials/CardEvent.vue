@@ -1,6 +1,6 @@
 <template>
   <q-card class="">
-    <q-img src="src/statics/images/inPerson44.jpg" height="160px">
+    <q-img src="{{ image }}" height="160px">
       <q-chip
         v-if="data.chip"
         :class="data.chip_class"
@@ -22,16 +22,16 @@
 
     <q-card-section>
       <div class="text-h6">
-        {{ data.title }}
+        {{ address }}
       </div>
       <div class="text-subtitle1 text-justify q-mt-sm">
-        {{ data.caption }}
+        {{ description }}
       </div>
       <div></div>
     </q-card-section>
     <q-card-section>
       <div class="col-12" style="min-height: 40px">
-        <span class="">{{ data.date }}</span>
+        <span class="">{{ start_date }} - {{ end_date }}</span>
         <span class="float-right q-mx-xl">
           <q-btn label="See Details" rounded color="secondary" outline></q-btn>
         </span>
@@ -40,13 +40,43 @@
   </q-card>
 </template>
 
-<script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "CardProduct",
-
-  props: ["data"],
+<script setup>
+defineProps({
+  // eslint-disable-next-line vue/prop-name-casing
+  address: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  // eslint-disable-next-line vue/prop-name-casing
+  end_date: {
+    type: String,
+    required: true,
+  },
+  // eslint-disable-next-line vue/prop-name-casing
+  start_date: {
+    type: String,
+    required: true,
+  },
+  id: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
+  },
+  place: {
+    type: String,
+    required: true,
+  },
 });
 </script>
 

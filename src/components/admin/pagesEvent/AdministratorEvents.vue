@@ -24,52 +24,34 @@
     </div>
     <div class="row q-col-gutter-sm">
       <div
-        v-for="(item, item_index) in data"
-        :key="item_index"
+        v-for="item in storeEvents.getListEvents"
+        :key="item.id"
         class="col-md-4 col-lg-4 col-sm-12 col-xs-12"
       >
-        <EventCard :data="item"></EventCard>
+        <EventCard
+          :address="item.address"
+          :description="item.description"
+          :end_date="item.end_date"
+          :start_date="item.start_date"
+        ></EventCard>
       </div>
     </div>
   </q-page>
 </template>
 
 <script setup>
-import EventCard from "./partials/CardEvent.vue";
-import { ref } from "vue";
+import EventCard from "./partials/CardEvent";
+import { useEventStore } from "src/stores/events-store";
+import { onMounted, ref } from "vue";
+onMounted(() => {
+  getEvents();
+});
+const storeEvents = useEventStore();
 
-const data = [
-  {
-    title: "Our Changing Planet",
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating: 2,
-    date: "15 de diciembre del 2023",
-    img: "../../../statics/images/inPerson1.jpg",
-    chip: "Activo",
-    chip_color: "teal",
-    chip_class: "text-white absolute-top-right",
-  },
-  {
-    title: "Our Changing Planet",
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating: 4,
-    date: "15 de diciembre del 2023",
-    img: "../../../statics/images/inPerson1.jpg",
-    chip_color: "teal",
-    chip_class: "text-white absolute-top-right",
-  },
-  {
-    title: "Our Changing Planet",
-    caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating: 2,
-    date: "15 de diciembre del 2023",
-    img: "../../../statics/images/inPerson1.jpg",
-    chip: "Activo",
-    chip_color: "teal",
-    chip_class: "text-white absolute-top-right",
-  },
-];
-
+const getEvents = async () => {
+  const data = await storeEvents.getEvents();
+  storeEvents.setListEvents(data.events);
+};
 const search = ref("");
 </script>
 

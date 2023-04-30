@@ -8,52 +8,32 @@
       </q-card-section>
       <q-separator></q-separator>
       <q-list>
-        <q-item v-ripple clickable>
-          <q-item-section avatar>
-            <q-avatar>
-              <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-            </q-avatar>
-          </q-item-section>
-
-          <q-item-section>
-            <q-item-label lines="1">Brunch this weekend?</q-item-label>
-            <q-item-label caption lines="2">
-              <span class="text-weight-bold">Janet</span>
-              -- I'll be in your neighborhood doing errands this weekend. Do you
-              want to grab brunch?
-            </q-item-label>
-          </q-item-section>
-
-          <q-item-section side top> 1 min ago </q-item-section>
-        </q-item>
-        <q-item v-ripple clickable>
-          <q-item-section avatar>
-            <q-avatar>
-              <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
-            </q-avatar>
-          </q-item-section>
-
-          <q-item-section>
-            <q-item-label lines="1">Brunch this weekend?</q-item-label>
-            <q-item-label caption lines="2">
-              <span class="text-weight-bold">Janet</span>
-              -- I'll be in your neighborhood doing errands this weekend. Do you
-              want to grab brunch?
-            </q-item-label>
-          </q-item-section>
-
-          <q-item-section side top> 1 min ago </q-item-section>
-        </q-item>
-
-        <q-separator inset="item" />
+        <di v-for="item in storeMessage.getListMessages" :key="item.id">
+          <MessageCard
+            :full_name="item.full_name"
+            :mail="item.mail"
+            :message="item.message"
+            :phone_number="item.phone_number"
+          >
+          </MessageCard>
+        </di>
       </q-list>
     </q-card>
   </q-page>
 </template>
 
-<script>
-export default {
-  name: "CardHeader",
+<script setup>
+import MessageCard from "./partials/messageCard";
+import { useMessageStore } from "src/stores/message-store";
+import { onMounted } from "vue";
+onMounted(() => {
+  getMessag();
+});
+const storeMessage = useMessageStore();
+const getMessag = async () => {
+  const response = await storeMessage.getMessages();
+  //console.log(response.messages);
+  storeMessage.setMessage(response.messages);
 };
 </script>
 
