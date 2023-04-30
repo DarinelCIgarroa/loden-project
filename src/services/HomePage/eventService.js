@@ -10,14 +10,14 @@ import { axiosInstance } from "boot/axios";
   * */
 const basePath = "api/event";
 
-export const getEvent = async (payload) => {
+export const getEvent = async () => {
   const URL = `${basePath}/get-event`;
-  const res = await axiosInstance.get(URL, payload);
+  const res = await axiosInstance.get(URL);
   return res.data;
 };
 
-export const getEvents = async (payload) => {
+export const getEvents = async () => {
   const url = `${basePath}/get-events`;
-  const res = await axiosInstance.get(url, payload);
+  const res = await axiosInstance.get(url);
   return res.data;
 };

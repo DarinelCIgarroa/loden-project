@@ -8,7 +8,7 @@ export const event = defineStore("event", {
     event: [],
   }),
   getters: {
-    getoption: (state) => state.option,
+    getevents: (state) => state.event,
   },
   actions: {
     getEvents() {
