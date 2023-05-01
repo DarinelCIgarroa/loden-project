@@ -18,7 +18,7 @@
           >
             <q-card>
               <q-card-section>
-                {{ message }}
+                <h6>{{ message }}</h6>
               </q-card-section>
             </q-card>
           </q-expansion-item>
