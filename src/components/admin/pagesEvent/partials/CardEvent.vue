@@ -1,14 +1,9 @@
 <template>
   <q-card class="">
-    <q-img src="{{ image }}" height="160px">
-      <q-chip
-        v-if="data.chip"
-        :class="data.chip_class"
-        :color="data.chip_color"
-        :label="data.chip"
-      ></q-chip>
+    <q-img :src="`http://127.0.0.1:8000/storage${image}`" height="160px">
+      <q-chip></q-chip>
     </q-img>
-
+    <div></div>
     <q-card-section>
       <q-btn
         fab
@@ -29,11 +24,20 @@
       </div>
       <div></div>
     </q-card-section>
-    <q-card-section>
+    <q-card-section class="q-py-xl">
       <div class="col-12" style="min-height: 40px">
-        <span class="">{{ start_date }} - {{ end_date }}</span>
+        <div class="q-gutter-md">
+          <q-badge rounded color="red">{{ start_date }}</q-badge>
+          <span>-</span>
+          <q-badge rounded>{{ end_date }}</q-badge>
+        </div>
         <span class="float-right q-mx-xl">
-          <q-btn label="See Details" rounded color="secondary" outline></q-btn>
+          <q-btn
+            class="glossy"
+            round
+            color="deep-orange"
+            icon="local_activity"
+          />
         </span>
       </div>
     </q-card-section>

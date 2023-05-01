@@ -30,9 +30,12 @@
       >
         <EventCard
           :address="item.address"
+          :city="item.city"
           :description="item.description"
           :end_date="item.end_date"
           :start_date="item.start_date"
+          :image="item.image"
+          :place="item.place"
         ></EventCard>
       </div>
     </div>
