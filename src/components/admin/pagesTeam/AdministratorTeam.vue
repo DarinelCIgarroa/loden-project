@@ -15,24 +15,24 @@
         :key="item.id"
         class="xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12"
       >
-        <DirectoryCard
-          :name="item.name"
-          :email="item.email"
-          :intro="item.intro"
-          :occupation="item.occupation"
-        ></DirectoryCard>
+        <TeamCard
+          :data="item"
+          @update-integrant="($event) => updateIntegrant($event)"
+          @remove-integrant="($event) => removeIntegrant($event)"
+        ></TeamCard>
       </div>
       <DialogCreated
         v-if="activateCreation"
         :status="activateCreation"
-        @statusDialogCreate="changeStatusDialogCreate"
+        :data-update="dataUPdate"
+        @status-dialog-create="changeStatusDialogCreate"
       ></DialogCreated>
     </div>
   </q-page>
 </template>
 
 <script setup>
-import DirectoryCard from "./partials/TeamCard.vue";
+import TeamCard from "./partials/TeamCard.vue";
 import * as TeamService from "src/services/admin/TeamService";
 import { onMounted, watch, ref } from "vue";
 import { notifyError } from "src/utils/notify";
@@ -53,6 +53,7 @@ watch(
     getTeam();
   }
 );
+const dataUPdate = ref([]);
 const getTeam = async () => {
   try {
     const response = await TeamService.index({
@@ -70,6 +71,14 @@ const changeStatusDialogCreate = (value) => {
 };
 
 const createItem = () => {
+  dataUPdate.value = [];
   activateCreation.value = true;
+};
+const updateIntegrant = (data) => {
+  dataUPdate.value = data;
+  activateCreation.value = true;
+};
+const removeIntegrant = (data) => {
+  teamStore.delete(data.id);
 };
 </script>

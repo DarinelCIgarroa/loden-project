@@ -2,27 +2,25 @@
   <q-dialog v-model="dialogVisible">
     <q-card style="min-width: 700px">
       <q-card-section>
-        <div class="title">Crear nuveo integrante del equipo</div>
+        <div class="title">{{ titleDynamic }}</div>
       </q-card-section>
       <q-card-section style="max-height: 50vh" class="scroll">
-        <q-form ref="myForm" class="q-gutter-md" @reset="onReset">
+        <q-form ref="formTeam" class="q-gutter-md" @reset="onReset">
           <div class="row col-12">
             <q-input
               v-model="form.name"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
               label="Nombre"
-              lazy-rules
               :rules="[
                 (val) => (val && val.length > 0) || 'Este campo es requerido',
               ]"
-            ></q-input>
+            />
             <q-input
-              v-model="form.lastName"
+              v-model="form.last_name"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
               label="Primer apellido"
-              lazy-rules
               style="max-width: 100%"
               :rules="[
                 (val) => (val && val.length > 0) || 'Este campo es requerido',
@@ -31,7 +29,7 @@
           </div>
           <div class="row col-12">
             <q-input
-              v-model="form.secondLastName"
+              v-model="form.second_last_name"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
               label="Segundo apellido"
@@ -44,17 +42,20 @@
               v-model="form.email"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
-              label="Correo eléctronico"
-              lazy-rules
-              style="max-width: 100%"
+              label="Correo electrónico"
               :rules="[
-                (val) => (val && val.length > 0) || 'Este campo es requerido',
+                (val) =>
+                  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(val) ||
+                  'Debe ser un correo electrónico válido',
+                (val) =>
+                  /^.+@.+\..+$/.test(val) ||
+                  'Debe ser un correo electrónico válido',
               ]"
             ></q-input>
           </div>
           <div class="row col-12">
             <q-input
-              v-model="form.phoneNumber"
+              v-model="form.phone_number"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
               label="Número de telefono"
@@ -64,7 +65,7 @@
               ]"
             ></q-input>
             <q-input
-              v-model="form.instagramLink"
+              v-model="form.instagram_link"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
               label="Enlace de instagram"
@@ -77,7 +78,7 @@
           </div>
           <div class="row col-12">
             <q-input
-              v-model="form.facebookLink"
+              v-model="form.facebook_link"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
               label="Enlace de facebook"
@@ -90,7 +91,7 @@
               v-model="form.occupation"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
-              label="Descripción"
+              label="Ocupación"
               lazy-rules
               style="max-width: 100%"
               :rules="[
@@ -101,11 +102,13 @@
           <div class="row col-12">
             <q-input
               v-model="form.intro"
+              :rules="[
+                (val) => (val && val.length > 0) || 'Este campo es requerido',
+              ]"
               class="col-12"
               outlined
               clearable
               type="textarea"
-              color="red-12"
               label="Descripción del integrante"
             ></q-input>
           </div>
@@ -114,14 +117,13 @@
 
       <q-separator></q-separator>
 
-      <q-card-actions align="right">
+      <q-card-actions align="right" class="q-ma-md">
         <q-btn v-close-popup flat label="Cancelar" color="dark"></q-btn>
         <q-btn
-          v-close-popup
-          flat
-          color="secondary"
-          label="Crear"
-          @click="onSubmit()"
+          :label="buttonDynamic"
+          type="submit"
+          color="primary"
+          @click="validate()"
         ></q-btn>
       </q-card-actions>
     </q-card>
@@ -129,18 +131,34 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
-
-const emit = defineEmits(["statusDialogCreate"]);
+import { notifyWarning } from "src/utils/notify";
+import { computed, ref, defineEmits, onMounted } from "vue";
+import { useTeamStore } from "stores/team-store";
+const props = defineProps({
+  dataUpdate: {
+    type: Object,
+    default: null,
+  },
+});
+const teamStore = useTeamStore();
+const emit = defineEmits(["statusDialogCreate", "updateTeam"]);
+const formTeam = ref(null);
 const status = ref(true);
+
+onMounted(() => {
+  if (props.dataUpdate.id !== undefined) {
+    form.value = props.dataUpdate;
+  }
+});
+
 const form = ref({
   name: null,
-  lastName: null,
-  secondLastName: null,
+  last_name: null,
+  second_last_name: null,
   email: null,
-  phoneNumber: null,
-  instagramLink: null,
-  facebookLink: null,
+  phone_number: null,
+  instagram_link: null,
+  facebook_link: null,
   intro: null,
   occupation: null,
 });
@@ -156,20 +174,42 @@ const dialogVisible = computed({
     }
   },
 });
-const onSubmit = () => {
-  console.log("subbmit");
-  this.$refs.myForm.validate().then((isValid) => {
-    if (isValid) {
-      // Todos los campos son válidos, enviar el formulario
-      // ...
-    } else {
-      // Mostrar un mensaje de error al usuario
-      this.$q.notify({
-        color: "negative",
-        message: "Debe llenar todos los campos requeridos",
-      });
+
+const titleDynamic = computed({
+  get() {
+    return form.value.id
+      ? "Actualizar el integrante del equipo"
+      : "Crear nuveo integrante del equipo";
+  },
+});
+
+const buttonDynamic = computed({
+  get() {
+    return form.value.id ? "Actualizar" : "Crear";
+  },
+});
+const store = async () => {
+  const response = await teamStore.store(form.value);
+  return response;
+};
+
+const update = async () => {
+  const response = await teamStore.update(form.value, form.value.id);
+  return response;
+};
+
+const validate = async () => {
+  const success = await formTeam.value.validate();
+  if (success) {
+    const response = form.value.id ? await update() : await store();
+    if (response.success) {
+      onReset();
+      dialogVisible.value = false;
     }
-  });
+    return true;
+  }
+  notifyWarning("Por favor, ingresa correctamente los datos");
+  return false;
 };
 const onReset = () => {
   form.value = [];

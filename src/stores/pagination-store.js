@@ -4,7 +4,7 @@ export const usePaginationStore = defineStore('pagination', {
   state: () => ({
     pagination: {
       current_page: 1,
-      rows_page: 2,
+      rows_page: 6,
       last_page: 5,
     }
   }),

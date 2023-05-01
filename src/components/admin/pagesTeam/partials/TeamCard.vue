@@ -12,20 +12,22 @@
 
       <q-item-section>
         <q-item-label class="text-grey-8 text-weight-bold">
-          {{ name }}
+          {{ data.name }}
         </q-item-label>
         <q-item-label caption>
-          {{ occupation }}
+          {{ data.occupation }}
         </q-item-label>
         <q-item-label class="text-grey-8">
-          {{ email }}
+          {{ data.email }}
         </q-item-label>
       </q-item-section>
 
       <q-item-section side>
         <q-item-label>
           <q-btn
-            size="sm"
+            :href="data.facebook_link"
+            target="_blank"
+            size="md"
             flat
             round
             icon="fab fa-facebook"
@@ -34,40 +36,58 @@
         </q-item-label>
         <q-item-label>
           <q-btn
-            size="sm"
+            :href="data.instagram_link"
+            target="_blank"
+            size="md"
             flat
             round
-            icon="fab fa-twitter"
-            class="bg-info text-white"
+            icon="fa-brands fa-instagram"
+            class="bg-pink-8 text-white"
           />
         </q-item-label>
       </q-item-section>
     </q-item>
 
     <q-separator></q-separator>
-    <q-card-section style="min-width: 200px">
-      <div class="q-pa-sm text-grey-8">Intro : {{ intro }}</div>
+    <q-card-section class="row column" style="min-width: 200px">
+      <div class="q-pa-sm text-grey-8">Intro : {{ data.intro }}</div>
+      <div>
+        <q-btn
+          size="sm"
+          flat
+          round
+          icon="fa-solid fa-pen-to-square"
+          class="bg-teal text-white"
+          @click="updateIntegrant()"
+        />
+        <q-btn
+          size="sm"
+          flat
+          round
+          icon="fa-solid fa-trash"
+          class="bg-negative text-white q-mx-xs"
+          @click="deleteIntegrant()"
+        />
+      </div>
     </q-card-section>
   </q-card>
 </template>
 
 <script setup>
-defineProps({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  intro: {
-    type: String,
-    required: true,
-  },
-  occupation: {
-    type: String,
+import { defineProps, defineEmits } from "vue";
+
+const props = defineProps({
+  data: {
+    type: Object,
     required: true,
   },
 });
+const emit = defineEmits(["updateIntegrant", "removeIntegrant"]);
+function updateIntegrant() {
+  emit("updateIntegrant", props.data);
+}
+function deleteIntegrant() {
+  console.log("remove");
+  emit("removeIntegrant", props.data);
+}
 </script>
