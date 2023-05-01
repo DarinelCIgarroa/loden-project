@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated color="bg-grey-8">
       <q-toolbar class="toolbar">
         <q-btn
           flat
@@ -33,7 +33,7 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-      class="bg-brown-4 text-white"
+      class="bg-white-10 text-dark"
     >
       <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px">
         <q-list>
@@ -74,7 +74,10 @@
       >
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="56px" class="q-mb-sm">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            <img
+              src="https://cdn.quasar.dev/img/boy-avatar.png"
+              alt="profile"
+            />
           </q-avatar>
           <div class="text-weight-bold">Darinel Cigarroa</div>
           <div>loden@loden.com</div>
@@ -112,8 +115,7 @@ const storePagination = usePaginationStore();
 const currentPage = ref(1);
 
 const nextPage = () => {
-  console.log("nex page", currentPage.value);
-  storePagination.setCurrentPage();
+  storePagination.setCurrentPage(currentPage.value);
 };
 
 const toggleLeftDrawer = () => {
@@ -122,8 +124,8 @@ const toggleLeftDrawer = () => {
 </script>
 
 <style  scoped>
-.toolbar {
+/* .toolbar {
   background-color: #4e342e !important;
-}
+} */
 </style>
 

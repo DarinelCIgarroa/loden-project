@@ -1,4 +1,6 @@
 import { defineStore } from 'pinia'
+import * as TeamService from 'src/services/admin/TeamService';
+import { notifySuccess, notifyError } from 'src/utils/notify';
 
 export const useTeamStore = defineStore('team', {
   state: () => ({
@@ -8,9 +10,44 @@ export const useTeamStore = defineStore('team', {
     getTeamList: (state) => state.teamList
   },
   actions: {
+    async store(payload) {
+      try {
+        const response = await TeamService.store(payload)
+        this.teamList.unshift(response.integrant)
+        notifySuccess(response.message)
+        return response
+      } catch (error) {
+        notifyError(error.response.data.message)
+      }
+    },
+    async update(payload, id) {
+      try {
+        const response = await TeamService.update(payload, id)
+        const index = this.teamList.findIndex(integrant => integrant.id === id);
+        this.teamList.splice(index, 1, response.integrant);
+        notifySuccess(response.message)
+        return response
+      } catch (error) {
+        notifyError(error.response.data.message)
+      }
+    },
+    async delete(idIntegrant) {
+      try {
+        const response = await TeamService.destroy(idIntegrant)
+        const filter = this.teamList.filter((element) => element.id != response.integrant.id)
+        this.teamList = filter
+        notifySuccess(response.message)
+        return response
+      } catch (error) {
+        notifyError(error.response.data.message)
+      }
+    },
     setTeam(payload) {
       this.clearData()
       this.teamList = payload
+    },
+    addIntegrant(payload) {
+      this.teamList.push(payload)
     },
     clearData() {
       this.teamList = []

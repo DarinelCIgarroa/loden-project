@@ -27,11 +27,10 @@ export const edit = async (id) => {
   const res = await axiosInstance.get(URL);
   return res.data;
 };
-
 export const update = async (payload, id) => {
   const URL = `${basePath}/${id}`;
-  const res = await axiosInstance.put(URL, payload);
-  return res.data;
+  const res = await axiosInstance.patch(URL, payload)
+  return res.data
 };
 
 export const destroy = async (id) => {

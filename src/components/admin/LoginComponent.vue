@@ -97,11 +97,6 @@ const submit = async () => {
   store.setUser(response);
   router.push("/admin/dashboard");
 };
-/*
-const allEvents = async () => {
-  const value = await serviceEvent.getEvents();
-  newevent.setevents(value);
-};*/
 </script>
 
 <style scoped>

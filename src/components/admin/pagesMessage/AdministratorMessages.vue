@@ -26,16 +26,14 @@
 import MessageCard from "./partials/messageCard";
 import { useMessageStore } from "src/stores/message-store";
 import { onMounted } from "vue";
+
 onMounted(() => {
-  getMessag();
+  getMessage();
 });
+
 const storeMessage = useMessageStore();
-const getMessag = async () => {
+const getMessage = async () => {
   const response = await storeMessage.getMessages();
-  //console.log(response.messages);
   storeMessage.setMessage(response.messages);
 };
 </script>
-
-<style scoped>
-</style>
