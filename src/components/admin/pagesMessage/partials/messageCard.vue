@@ -3,15 +3,25 @@
     <q-item v-ripple clickable>
       <q-item-section avatar>
         <q-avatar>
-          <i class="fa-solid fa-circle-user fa-xl fa-shake"></i>
+          <img
+            src="https://cdn.quasar.dev/img/boy-avatar.png"
+            alt="profile-client"
+          />
         </q-avatar>
       </q-item-section>
-
       <q-item-section>
-        <q-item-label lines="1">{{ mail }}</q-item-label>
         <q-item-label caption lines="2">
-          <span class="text-weight-bold">{{ full_name }}</span>
-          {{ message }}
+          <q-expansion-item
+            v-model="expanded"
+            :label="mail"
+            :caption="full_name"
+          >
+            <q-card>
+              <q-card-section>
+                {{ message }}
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
         </q-item-label>
       </q-item-section>
       <q-item-section side top>

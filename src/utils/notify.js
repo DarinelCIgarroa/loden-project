@@ -36,6 +36,7 @@ export const notifySuccess = (personalizedMessage) => {
     message: personalizedMessage !== undefined ? personalizedMessage : 'Operación completada exitosamente'
   })
 }
+
 export const notifyError = (personalizedMessage) => {
   Notify.create({
     ...notifyOptionsError,
@@ -46,6 +47,6 @@ export const notifyError = (personalizedMessage) => {
 export const notifyWarning = (personalizedMessage) => {
   Notify.create({
     ...notifyOptionsWarning,
-    message: personalizedMessage !== undefined ? notifyOptionsWarning : 'Alerta'
+    message: personalizedMessage !== undefined ? personalizedMessage : '¡Opps! Algo salió mal, contacta con el administrador'
   })
 }
