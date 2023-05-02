@@ -23,7 +23,7 @@ export const useTeamStore = defineStore('team', {
     async update(payload, id) {
       try {
         const response = await TeamService.update(payload, id)
-        const index = this.teamList.findIndex(integrant => integrant.id === id);
+        const index = this.teamList.findIndex((integrant) => integrant.id === id);
         this.teamList.splice(index, 1, response.integrant);
         notifySuccess(response.message)
         return response
