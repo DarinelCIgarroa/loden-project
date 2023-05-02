@@ -29,20 +29,22 @@
 
                 <span class="q-mt-sm" style="font-size: 17px"
                   >Evento de interes:
-                  <span class="text-overline" style="font-size: 15px">{{
-                    data.event.name
-                  }}</span></span
+                  <span
+                    class="text-overline text-uppercase q-pl-xs"
+                    style="font-size: 15px"
+                    >{{ data.event.name }}</span
+                  ></span
                 >
                 <span style="font-size: 17px"
                   >Inicio del evento:
-                  <span class="text-overline" style="font-size: 15px">
-                    {{ data.event.start_date }}</span
+                  <span class="text-overline q-pl-xs" style="font-size: 15px">
+                    {{ formatDate(data.event.start_date) }}</span
                   >
                 </span>
                 <span style="font-size: 17px"
                   >Fin del evento:
-                  <span class="text-overline" style="font-size: 15px">
-                    {{ data.event.end_date }}</span
+                  <span class="text-overline q-pl-xs" style="font-size: 15px">
+                    {{ formatDate(data.event.end_date) }}</span
                   >
                 </span>
               </q-card-section>
@@ -51,7 +53,7 @@
         </q-item-label>
       </q-item-section>
       <q-item-section side top>
-        <q-item-label caption>5 min ago</q-item-label>
+        <q-item-label caption>{{ timeElapsed(data.created_at) }}</q-item-label>
         <q-item-section side top class="text-weight-bold">
           {{ data.phone_number }}
         </q-item-section>
@@ -96,23 +98,50 @@
   </q-dialog>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useMessageStore } from "stores/message-store";
+import { parseISO, format, formatDistance } from "date-fns";
+import { es } from "date-fns/locale";
 
 const messageStore = useMessageStore();
 const confirmDelete = ref(false);
 const messageId = ref(null);
+
 defineProps({
   data: {
     type: Object,
     required: true,
   },
 });
+
 const expanded = ref(false);
+
+const formatDate = computed(() => {
+  return (date) => {
+    const startDate = date;
+    const dateObj = parseISO(startDate);
+
+    const humanDate = format(dateObj, "d 'de' MMMM 'de' yyyy", {
+      locale: es,
+    });
+
+    return humanDate;
+  };
+});
+
+const timeElapsed = computed(() => {
+  return (date) => {
+    const startDate = parseISO(date);
+    return formatDistance(startDate, new Date(), {
+      locale: es,
+    });
+  };
+});
 
 const confirmDeleteMessage = () => {
   confirmDelete.value = true;
 };
+
 const deleteMessage = () => {
   messageStore.deleteMessage(messageId);
 };

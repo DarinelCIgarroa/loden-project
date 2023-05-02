@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-pa-sm">
-    <q-card>
+    <q-card class="q-pa-sm">
       <q-card-section class="row">
         <div class="text-h6 text-weight-bolder text-grey-8">
           Lista de mensajes
