@@ -37,6 +37,17 @@
     >
       <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px">
         <q-list>
+          <q-item
+            to="/admin/company"
+            active-class="q-item-no-link-highlighting"
+          >
+            <q-item-section avatar>
+              <q-icon name="fa-solid fa-globe" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Compañia</q-item-label>
+            </q-item-section>
+          </q-item>
           <q-item to="/admin/team" active-class="q-item-no-link-highlighting">
             <q-item-section avatar>
               <q-icon name="diversity_1" />

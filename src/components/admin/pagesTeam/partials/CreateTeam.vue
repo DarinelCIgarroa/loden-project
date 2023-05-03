@@ -134,16 +134,18 @@
 import { notifyWarning } from "src/utils/notify";
 import { computed, ref, defineEmits, onMounted } from "vue";
 import { useTeamStore } from "stores/team-store";
+
+const teamStore = useTeamStore();
+const emit = defineEmits(["statusDialogCreate", "updateTeam"]);
+const formTeam = ref(null);
+const status = ref(true);
+
 const props = defineProps({
   dataUpdate: {
     type: Object,
     default: null,
   },
 });
-const teamStore = useTeamStore();
-const emit = defineEmits(["statusDialogCreate", "updateTeam"]);
-const formTeam = ref(null);
-const status = ref(true);
 
 onMounted(() => {
   if (props.dataUpdate.id !== undefined) {

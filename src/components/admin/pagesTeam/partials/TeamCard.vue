@@ -83,6 +83,7 @@ const props = defineProps({
   },
 });
 const emit = defineEmits(["updateIntegrant", "removeIntegrant"]);
+
 function updateIntegrant() {
   emit("updateIntegrant", props.data);
 }
