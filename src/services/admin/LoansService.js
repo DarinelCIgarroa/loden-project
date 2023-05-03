@@ -18,24 +18,20 @@ export const index = async () => {
 
 export const store = async (payload) => {
   const URL = basePath;
-  const res = await axiosInstance.post(URL, payload);
-  return res.data;
+
+  return axiosInstance.post(URL, payload, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  }).then((res) => res);
 };
 
-export const edit = async (id) => {
-  const URL = `${basePath}/${id}/edit`;
-  const res = await axiosInstance.get(URL);
-  return res.data;
-};
 
-export const update = async (payload, id) => {
-  const URL = `${basePath}/${id}`;
-  const res = await axiosInstance.put(URL, payload);
-  return res.data;
-};
 
-export const destroy = async (id) => {
-  const URL = `${basePath}/${id}`;
-  const res = await axiosInstance.delete(URL);
-  return res.data;
+export const uploadLogo = (payload) => {
+  const URL = `${basePath}/upload/logo`;
+  const headers = {
+    'Content-Type': 'multipart/form-data'
+  };
+  return axiosInstance.post(URL, payload, { headers }).then((res) => res.data.file);
 };
