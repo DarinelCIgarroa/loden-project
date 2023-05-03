@@ -254,9 +254,9 @@ const buttonDynamic = computed({
     return form.value.id ? "Actualizar" : "Agregar";
   },
 });
+
 const store = async () => {
   const response = await eventStore.store(form.value);
-  console.log(response);
   return response;
 };
 

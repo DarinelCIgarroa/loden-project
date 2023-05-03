@@ -9,6 +9,9 @@ export const index = async (payload) => {
 
 export const store = async (payload) => {
   const URL = basePath;
-  const res = await axiosInstance.post(URL, payload)
+  const headers = {
+    'Content-Type': 'multipart/form-data'
+  };
+  const res = await axiosInstance.post(URL, payload, { headers }).then((res) => res.data.file)
   return res.data;
 }

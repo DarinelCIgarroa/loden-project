@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { notifyError, notifySuccess } from "src/utils/notify";
+import { notifyError } from "src/utils/notify";
 import * as eventEvent from "src/services/admin/EventsService";
 import { ref } from "vue";
 export const useEventStore = defineStore("events", {
@@ -21,9 +21,10 @@ export const useEventStore = defineStore("events", {
     async store(payload) {
       try {
         const response = await eventEvent.store(payload)
-        this.events.unshift(response.event)
-        notifySuccess(response.message);
-        return response
+        console.log(response)
+        /* this.events.unshift(response.event)
+         notifySuccess(response.message);
+         return response*/
       } catch (error) {
         notifyError()
       }
