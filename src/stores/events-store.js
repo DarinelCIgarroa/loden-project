@@ -10,9 +10,9 @@ export const useEventStore = defineStore("events", {
     getListEvents: (state) => state.events,
   },
   actions: {
-    getEvents() {
+    getEvents(payload) {
       try {
-        const response = eventEvent.index();
+        const response = eventEvent.index(payload);
         return response;
       } catch (error) {
         notifyError();

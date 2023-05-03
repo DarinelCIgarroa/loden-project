@@ -28,12 +28,7 @@
         :key="item.id"
         class="col-md-4 col-lg-4 col-sm-12 col-xs-12"
       >
-        <EventCard
-          :address="item.address"
-          :description="item.description"
-          :end_date="item.end_date"
-          :start_date="item.start_date"
-        ></EventCard>
+        <EventCard :data="item"></EventCard>
       </div>
     </div>
   </q-page>
@@ -42,15 +37,29 @@
 <script setup>
 import EventCard from "./partials/CardEvent";
 import { useEventStore } from "src/stores/events-store";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
+import { usePaginationStore } from "src/stores/pagination-store";
+const storePagination = usePaginationStore();
+
 onMounted(() => {
   getEvents();
 });
+watch(
+  () => storePagination.getCurrentPage,
+  () => {
+    getEvents();
+  }
+);
+
 const storeEvents = useEventStore();
 
 const getEvents = async () => {
-  const data = await storeEvents.getEvents();
-  storeEvents.setListEvents(data.events);
+  const response = await storeEvents.getEvents({
+    page: storePagination.getCurrentPage,
+    rows_page: storePagination.getRowPage,
+  });
+  storePagination.setLastPage(response.events.data.last_page);
+  storeEvents.setListEvents(response.events.data.data);
 };
 const search = ref("");
 </script>

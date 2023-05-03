@@ -201,7 +201,7 @@ const props = defineProps({
 });
 
 const options = ref([
-  { code: 0, name: "inactivo" },
+  { code: 0, name: "Inactivo" },
   { code: 1, name: "Activo" },
 ]);
 const typeOption = ref(["Presencial", "En linea"]);
