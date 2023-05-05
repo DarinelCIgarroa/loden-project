@@ -10,7 +10,7 @@ const routes = [
     path: '/admin/dashboard',
     component: () => import('src/components/admin/DashboardComponent.vue'),
     children: [
-      { path: '/admin/company', component: () => import('src/components/admin/pagesCompany/AdministratorCompany.vue') },
+      { path: '/admin/company', component: () => import('src/components/admin/pagesCompany/AdministratorCompany.vue'), meta: { hideFooter: true } },
       { path: '/admin/team', component: () => import('src/components/admin/pagesTeam/AdministratorTeam.vue') },
       { path: '/admin/messages', component: () => import('src/components/admin/pagesMessage/AdministratorMessages.vue') },
       { path: '/admin/events', component: () => import('src/components/admin/pagesEvent/AdministratorEvents.vue') },
