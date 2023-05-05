@@ -13,7 +13,7 @@ export const store = async (payload) => {
   const headers = {
     'Content-Type': 'multipart/form-data'
   };
-  const res = await axiosInstance.post(URL, payload, { headers }).then((res) => res.data.file)
+  const res = await axiosInstance.post(URL, payload, { headers }).then((res) => res)
   return res.data;
 }
 export const update = async (payload, id) => {
@@ -21,7 +21,7 @@ export const update = async (payload, id) => {
   const headers = {
     'Content-Type': 'multipart/form-data'
   };
-  const res = await axiosInstance.post(URL, payload, { headers }).then((res) => res.data.file)
+  const res = await axiosInstance.post(URL, payload, { headers }).then((res) => res)
   return res.data
 };
 

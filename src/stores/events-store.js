@@ -32,6 +32,8 @@ export const useEventStore = defineStore("events", {
     async update(payload, id) {
       try {
         const response = await eventEvent.update(payload, id)
+        //console.log("1: ", response)
+        //console.log("this ->", this.events)
         const index = this.events.findIndex((event) => event.id === id);
         this.events.splice(index, 1, response.event)
         notifySuccess()
@@ -43,7 +45,6 @@ export const useEventStore = defineStore("events", {
     async remove(idEvent) {
       try {
         const response = await eventEvent.destroy(idEvent);
-        console.log(" Resp:  ", response)
         const filter = this.events.filter((Element) => Element.id != response.event.id)
         this.events = filter;
         notifySuccess(response.message)
