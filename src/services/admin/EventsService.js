@@ -29,10 +29,4 @@ export const destroy = async (id) => {
   const URL = `${basePath}/${id}`;
   const res = await axiosInstance.delete(URL);
   return res.data;
-
-  return axiosInstance.post(URL, payload, {
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
-  }).then((res) => res);
 };
