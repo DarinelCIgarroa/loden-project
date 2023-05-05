@@ -107,5 +107,4 @@ const removeEvent = (data) => {
 };
 </script>
 
-<style scoped>
-</style>
+
