@@ -1,6 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated color="bg-grey-8">
+    <q-header
+      elevated
+      color="bg-grey-8"
+      :class="{ 'bg-dark': $q.dark.isActive }"
+    >
       <q-toolbar class="toolbar">
         <q-btn
           flat
@@ -10,12 +14,16 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
-        <q-toolbar-title> ADMINISTRACIÓN LODEN </q-toolbar-title>
+        <q-toolbar-title>
+          <span class="text-uppercase"
+            >ADMINISTRACIÓN {{ companyStore.getStateCompany.name }}</span
+          >
+        </q-toolbar-title>
         <q-space />
         <div class="q-gutter-sm row items-center no-wrap">
           <q-btn round flat>
             <q-avatar size="26px">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png" alt="logo" />
+              <img :src="companyStore.getStateCurrentLogo" alt="logo" />
             </q-avatar>
           </q-btn>
           <q-btn
@@ -100,7 +108,11 @@
       <router-view />
     </q-page-container>
 
-    <q-footer reveal class="bg-grey-1 text-white">
+    <q-footer
+      v-if="!$route.meta.hideFooter"
+      reveal
+      class="bg-grey-1 text-white"
+    >
       <div class="q-pa-lg flex flex-center">
         <q-pagination
           v-model="currentPage"
@@ -117,14 +129,32 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { usePaginationStore } from "src/stores/pagination-store";
+import { useCompanyStore } from "stores/company-store";
+import { notifyError } from "src/utils/notify";
 
 const leftDrawerOpen = ref(false);
 
 const storePagination = usePaginationStore();
+const companyStore = useCompanyStore();
 const currentPage = ref(1);
 
+onMounted(async () => {
+  try {
+    await getCompany();
+    await getLogo();
+  } catch (e) {
+    notifyError();
+  }
+});
+
+const getCompany = async () => {
+  await companyStore.getDataCompany();
+};
+const getLogo = async () => {
+  await companyStore.getCompanyLogo();
+};
 const nextPage = () => {
   storePagination.setCurrentPage(currentPage.value);
 };
@@ -134,9 +164,4 @@ const toggleLeftDrawer = () => {
 };
 </script>
 
-<style  scoped>
-/* .toolbar {
-  background-color: #4e342e !important;
-} */
-</style>
 
