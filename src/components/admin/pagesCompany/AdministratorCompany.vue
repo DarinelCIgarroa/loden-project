@@ -1,5 +1,8 @@
 <template>
-  <q-page class="q-pa-sm bg-white flex flex-center">
+  <q-page
+    class="bg-white flex flex-center"
+    :class="{ 'bg-dark': $q.dark.isActive }"
+  >
     <div class="row q-col-gutter-sm color">
       <q-stepper
         ref="stepper"
@@ -52,18 +55,24 @@
             </div>
             <div class="col-6">
               <q-item>
-                <input type="file" class="form-control" @change="onChange" />
-                <!-- <q-input
+                <q-file
                   v-model="company.logo"
-                  type="file"
-                  outlined
                   dense
-                  class="full-width"
-                  accept=".jpg, png, image/*"
-                  hint="Selecciona el logo"
-                  @change="selectFile($event)"
-                ></q-input> -->
+                  outlined
+                  label="Subir nuevo logo"
+                  class="col-12"
+                  accept=".png, image/*"
+                >
+                  <template #prepend>
+                    <q-icon name="cloud_upload" />
+                  </template>
+                </q-file>
               </q-item>
+            </div>
+            <div class="col-12 text-center q-mt-lg">
+              <q-avatar size="350px">
+                <img :src="companyStore.getStateCurrentLogo" alt="logo" />
+              </q-avatar>
             </div>
           </div>
 
@@ -170,7 +179,6 @@ import { onMounted, ref } from "vue";
 import { useCompanyStore } from "stores/company-store";
 
 const companyStore = useCompanyStore();
-
 const step = ref(1);
 const company = ref({
   name: null,
@@ -183,20 +191,22 @@ const company = ref({
   email: null,
   logo: null,
 });
+
 onMounted(() => {
-  getCompany();
+  assignCompanyData();
+  getLogo();
 });
-const onChange = (event) => {
-  company.value.logo = event.target.files[0];
+
+const getLogo = async () => {
+  await companyStore.getCompanyLogo();
 };
-const getCompany = async () => {
-  await companyStore.getDataCompany();
-  company.value = companyStore.getCompany;
+
+const assignCompanyData = () => {
+  company.value = companyStore.getStateCompany;
 };
 const storeCompany = async () => {
-  let data = new FormData();
-  data.append("image", company.value.logo);
-  await companyStore.store(data);
+  await companyStore.store(company.value);
+  step.value = 1;
 };
 </script>
 
@@ -204,5 +214,9 @@ const storeCompany = async () => {
 .color {
   background-color: aquamarine !important;
   min-height: 80vh;
+}
+.bg-dark {
+  background-color: #706b6b !important;
+  color: #ffffff;
 }
 </style>

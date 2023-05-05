@@ -2,8 +2,9 @@ import { defineStore } from 'pinia'
 import * as LoanService from 'src/services/admin/LoansService';
 import { notifySuccess, notifyError } from 'src/utils/notify';
 
-export const useCompanyStore = defineStore('team', {
+export const useCompanyStore = defineStore('company', {
   state: () => ({
+    currentLogo: null,
     company: {
       address: null,
       city: null,
@@ -18,7 +19,8 @@ export const useCompanyStore = defineStore('team', {
     }
   }),
   getters: {
-    getCompany: (state) => state.company
+    getStateCompany: (state) => state.company,
+    getStateCurrentLogo: (state) => state.currentLogo
   },
   actions: {
     async getDataCompany() {
@@ -31,11 +33,29 @@ export const useCompanyStore = defineStore('team', {
         notifyError(error.response.data.message)
       }
     },
+    async getDataHomeCompany() {
+      try {
+        console.log('holaaaaaaaaaaaaaaaa')
+        const response = await LoanService.getDataHomeCompany()
+        console.log('response', response.data.company)
+        this.company = response.company
+      } catch (error) {
+        notifyError(error.response.data.message)
+      }
+    },
+    async getCompanyLogo() {
+      try {
+        const response = await LoanService.getLogo({ path: this.company.logo })
+        this.currentLogo = response.data.url
+      } catch (error) {
+        notifyError(error.response.data.message)
+      }
+    },
     async store(payload) {
       try {
-        console.log('payload store', payload);
         const response = await LoanService.store(payload)
         this.company = response.company
+        await this.getCompanyLogo()
         notifySuccess(response.message)
         return response
       } catch (error) {

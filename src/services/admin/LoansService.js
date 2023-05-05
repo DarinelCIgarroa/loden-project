@@ -18,20 +18,21 @@ export const index = async () => {
 
 export const store = async (payload) => {
   const URL = basePath;
-
-  return axiosInstance.post(URL, payload, {
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
-  }).then((res) => res);
-};
-
-
-
-export const uploadLogo = (payload) => {
-  const URL = `${basePath}/upload/logo`;
   const headers = {
     'Content-Type': 'multipart/form-data'
   };
-  return axiosInstance.post(URL, payload, { headers }).then((res) => res.data.file);
+  const res = await axiosInstance.post(URL, payload, { headers }).then((res) => res)
+  return res.data;
+
+}
+export const getLogo = async (payload) => {
+  const URL = `${basePath}/logo`;
+  const res = await axiosInstance.post(URL, payload);
+  return res;
+};
+
+export const getDataHomeCompany = async () => {
+  const URL = '/api/home/company';
+  const res = await axiosInstance.get(URL);
+  return res;
 };
