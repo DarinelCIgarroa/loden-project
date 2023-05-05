@@ -99,11 +99,12 @@ const updateEvent = (data) => {
   dataUPdate.value = data;
   activateCreation.value = true;
 };
-const changesEventsDialogCreate = (value) => {
-  activateCreation.value = value;
-};
 const removeEvent = (data) => {
   storeEvents.remove(data.id);
+};
+
+const changesEventsDialogCreate = (value) => {
+  activateCreation.value = value;
 };
 </script>
 
