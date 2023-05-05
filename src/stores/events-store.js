@@ -10,7 +10,7 @@ export const useEventStore = defineStore("events", {
     getListEvents: (state) => state.events,
   },
   actions: {
-    async getEvents(payload) {
+    getEvents(payload) {
       try {
         const response = eventEvent.index(payload);
         return response;
@@ -18,24 +18,9 @@ export const useEventStore = defineStore("events", {
         notifyError();
       }
     },
-    async store(payload) {
-      try {
-        const response = await eventEvent.store(payload)
-        console.log(response)
-        /* this.events.unshift(response.event)
-         notifySuccess(response.message);
-         return response*/
-      } catch (error) {
-        notifyError()
-      }
-    },
     setListEvents(payload) {
-      this.clearData()
       this.events = payload;
     },
-    clearData() {
-      this.events = []
-    }
   },
   persist: true,
 });

@@ -1,63 +1,53 @@
 <template>
   <q-card class="">
-    <q-img :src="`http://127.0.0.1:8000/storage${data.image}`" height="160px">
-      <q-chip></q-chip>
+    <q-img src="src/statics/images/inPerson44.jpg" height="160px">
+      <q-chip
+        v-if="data.chip"
+        :class="data.chip_class"
+        :color="data.chip_color"
+        :label="data.chip"
+      ></q-chip>
     </q-img>
-    <div></div>
+
     <q-card-section>
       <q-btn
+        fab
+        color="teal-10"
+        icon="fas fa-eye"
+        padding="sm"
+        class="absolute"
         style="top: 0; right: 12px; transform: translateY(-50%)"
-        size="sm"
-        round
-        icon="fa-solid fa-pen-to-square"
-        class="bg-teal text-white absolute"
-        @click="updateEvent()"
       />
     </q-card-section>
 
     <q-card-section>
       <div class="text-h6">
-        {{ data.address }}
+        {{ data.title }}
       </div>
       <div class="text-subtitle1 text-justify q-mt-sm">
-        {{ data.description }}
+        {{ data.caption }}
       </div>
       <div></div>
     </q-card-section>
-    <q-card-section class="q-py-xl">
-      <q-card-actions align="around">
-        <div class="q-gutter-lg">
-          <q-badge rounded color="red">{{ data.start_date }}</q-badge>
-          <span>-</span>
-          <q-badge rounded>{{ data.end_date }}</q-badge>
-        </div>
-        <q-separator dark />
-        <q-btn
-          push
-          round
-          size="sm"
-          icon="fa-solid fa-trash"
-          class="bg-negative text-white q-mx-xs"
-          @click="deleteIntegrant()"
-        />
-      </q-card-actions>
+    <q-card-section>
+      <div class="col-12" style="min-height: 40px">
+        <span class="">{{ data.date }}</span>
+        <span class="float-right q-mx-xl">
+          <q-btn label="See Details" rounded color="secondary" outline></q-btn>
+        </span>
+      </div>
     </q-card-section>
   </q-card>
 </template>
 
-<script setup>
-import { defineProps } from "vue";
+<script>
+import { defineComponent } from "vue";
 
-const props = defineProps({
-  data: {
-    type: Object,
-    required: true,
-  },
+export default defineComponent({
+  name: "CardProduct",
+
+  props: ["data"],
 });
-const emit = defineEmits(["updateEvent"]);
-function updateEvent() {
-  emit("updateEvent", props.data);
-}
 </script>
 
 <style scoped>
