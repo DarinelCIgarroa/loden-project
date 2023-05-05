@@ -27,6 +27,7 @@ import TeamComponent from "src/components/homePages/TeamComponent.vue";
 import ContactComponent from "src/components/homePages/ContactComponent.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 import bus from "src/utils/event-bus";
+import { useCompanyStore } from "stores/company-store";
 
 const sectionHome = ref(null);
 const sectionAbout = ref(null);
@@ -42,9 +43,11 @@ const onIntersection = (entries) => {
   });
 };
 
+const storeCompany = useCompanyStore();
 let observer = null;
 
 onMounted(() => {
+  storeCompany.getDataHomeCompany();
   observer = new IntersectionObserver(onIntersection, {
     threshold: [0.6, 0.6, 0.6],
     rootMargin: "-80px 0px 0px 0px",

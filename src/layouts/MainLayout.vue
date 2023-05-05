@@ -6,7 +6,9 @@
       style="font-family: Arial, Helvetica, sans-serif"
     >
       <div class="logo">
-        <h1><a href="index.html">LONDEN</a></h1>
+        <h1>
+          <a href="index.html"></a>
+        </h1>
       </div>
       <nav id="navbar" class="navbar row">
         <ul>
@@ -87,7 +89,10 @@
 <script setup>
 import { ref } from "vue";
 import bus from "src/utils/event-bus";
+import { useCompanyStore } from "stores/company-store";
 
+const storeCompany = useCompanyStore();
+console.log("sd", storeCompany.getStateCompany.name);
 const current_section = ref();
 bus.on("section", (section) => {
   current_section.value = section;
