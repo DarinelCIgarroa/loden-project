@@ -144,7 +144,7 @@
           <div class="row col-12">
             <div class="q-gutter-md col-xs-12 col-sm-6 col-md-6 q-pa-xs">
               <q-select
-                v-model="form.tipe"
+                v-model="form.type"
                 :options="typeOption"
                 label="Tipo"
                 option-label="name"
@@ -229,8 +229,8 @@ const form = ref({
   address: null,
   city: null,
   status: null, //
-  tipe: null,
-  image: null,
+  type: null,
+  image: [],
 });
 
 const dialogVisible = computed({
@@ -267,7 +267,7 @@ const update = async () => {
 const validate = async () => {
   const success = await formStatus.value.validate();
   if (success) {
-    const response = form.value.id ? update() : await store();
+    const response = form.value.id ? await update() : await store();
     if (response.success) {
       onReset();
       dialogVisible.value = false;

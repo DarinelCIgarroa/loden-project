@@ -28,7 +28,11 @@
         :key="item.id"
         class="col-md-4 col-lg-4 col-sm-12 col-xs-12"
       >
-        <EventCard :data="item"></EventCard>
+        <EventCard
+          :data="item"
+          @update-event="($event) => updateEvent($event)"
+          @remove-event="($event) => removeEvent($event)"
+        ></EventCard>
       </div>
     </div>
   </q-page>
@@ -38,9 +42,12 @@
 import EventCard from "./partials/CardEvent";
 import { useEventStore } from "src/stores/events-store";
 import { onMounted, ref, watch } from "vue";
+
+import * as StoreService from "src/services/admin/EventsService.js";
+import { notifyError } from "src/utils/notify";
+const activateCreation = ref(false);
 import { usePaginationStore } from "src/stores/pagination-store";
 const storePagination = usePaginationStore();
-
 onMounted(() => {
   getEvents();
 });
@@ -54,6 +61,36 @@ watch(
 const storeEvents = useEventStore();
 
 const getEvents = async () => {
+
+  try {
+    const response = await StoreService.index({
+      page: storePagination.getCurrentPage,
+      rows_page: storePagination.getRowPage,
+    });
+    storePagination.setLastPage(response.events.last_page);
+    storeEvents.setListEvents(response.events.data);
+  } catch (e) {
+    notifyError();
+  }
+};
+const search = ref("");
+const dataUPdate = ref([]);
+
+const createItem = () => {
+  dataUPdate.value = [];
+  activateCreation.value = true;
+};
+const updateEvent = (data) => {
+  dataUPdate.value = data;
+  activateCreation.value = true;
+};
+const changesEventsDialogCreate = (value) => {
+  activateCreation.value = value;
+};
+const removeEvent = (data) => {
+  storeEvents.remove(data.id);
+};
+
   const response = await storeEvents.getEvents({
     page: storePagination.getCurrentPage,
     rows_page: storePagination.getRowPage,
@@ -62,6 +99,7 @@ const getEvents = async () => {
   storeEvents.setListEvents(response.events.data.data);
 };
 const search = ref("");
+
 </script>
 
 <style scoped>
