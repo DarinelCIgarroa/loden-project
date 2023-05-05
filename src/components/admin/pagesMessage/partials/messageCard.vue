@@ -75,9 +75,9 @@
     <q-card>
       <q-card-section class="row items-center">
         <q-avatar
-          icon="signal_wifi_off"
-          color="primary"
-          text-color="white"
+          icon="fa-solid fa-triangle-exclamation fa-xl"
+          style="background-color: #fff"
+          text-color="red"
         ></q-avatar>
         <span class="q-ml-sm"
           >You are currently not connected to any network.</span

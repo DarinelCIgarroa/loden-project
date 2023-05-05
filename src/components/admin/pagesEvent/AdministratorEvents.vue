@@ -36,9 +36,12 @@
         v-for="item in storeEvents.getListEvents"
         :key="item.id"
         class="col-md-4 col-lg-4 col-sm-12 col-xs-12"
-        @update-event="($event) => updateEvent($event)"
       >
-        <EventCard :data="item"></EventCard>
+        <EventCard
+          :data="item"
+          @update-event="($event) => updateEvent($event)"
+          @remove-event="($event) => removeEvent($event)"
+        ></EventCard>
       </div>
       <DialogCreated
         v-if="activateCreation"
@@ -57,7 +60,9 @@ import { useEventStore } from "src/stores/events-store";
 import DialogCreated from "./partials/CreateEvent";
 import { usePaginationStore } from "src/stores/pagination-store";
 import { onMounted, ref, watch } from "vue";
+import * as StoreService from "src/services/admin/EventsService.js";
 import { notifyError } from "src/utils/notify";
+
 const activateCreation = ref(false);
 onMounted(() => {
   getEvents();
@@ -73,7 +78,7 @@ watch(
 );
 const getEvents = async () => {
   try {
-    const response = await storeEvents.getEvents({
+    const response = await StoreService.index({
       page: storePagination.getCurrentPage,
       rows_page: storePagination.getRowPage,
     });
@@ -96,6 +101,9 @@ const updateEvent = (data) => {
 };
 const changesEventsDialogCreate = (value) => {
   activateCreation.value = value;
+};
+const removeEvent = (data) => {
+  storeEvents.remove(data.id);
 };
 </script>
 
