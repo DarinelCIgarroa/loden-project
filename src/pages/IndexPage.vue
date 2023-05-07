@@ -1,21 +1,23 @@
 <template>
-  <main>
-    <section id="home" ref="sectionHome" class="section">
-      <HomeComponent></HomeComponent>
-    </section>
-    <section id="about-us" ref="sectionAbout" class="section">
-      <AboutComponent></AboutComponent>
-    </section>
-    <section id="events" ref="sectionEvents" class="section">
-      <EventsComponent></EventsComponent>
-    </section>
-    <section id="team" ref="sectionTeam" class="section">
-      <TeamComponent></TeamComponent>
-    </section>
-    <section id="contact" ref="sectionContact" class="section">
-      <ContactComponent></ContactComponent>
-    </section>
-  </main>
+  <div class="scroll-container">
+    <main>
+      <section id="home" ref="sectionHome" class="section">
+        <HomeComponent></HomeComponent>
+      </section>
+      <section id="about-us" ref="sectionAbout" class="section">
+        <AboutComponent></AboutComponent>
+      </section>
+      <section id="events" ref="sectionEvents" class="section">
+        <EventsComponent></EventsComponent>
+      </section>
+      <section id="team" ref="sectionTeam" class="section">
+        <TeamComponent></TeamComponent>
+      </section>
+      <section id="contact" ref="sectionContact" class="section">
+        <ContactComponent></ContactComponent>
+      </section>
+    </main>
+  </div>
 </template>
 
 <script setup>
