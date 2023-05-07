@@ -220,7 +220,7 @@ const allEvents = async () => {
 .container {
   position: relative;
   min-width: 1400px;
-  min-height: 720px;
+  height: 720px;
 }
 
 .container .contact-info {
