@@ -176,6 +176,10 @@
 </template>
 
 <style scoped>
+.page {
+  padding: 0 !important;
+  margin: 0 !important;
+}
 .my-card {
   width: 1400px;
   background-size: cover;
@@ -217,7 +221,15 @@
 .lista {
   font-size: 17px;
 }
-
+@media (max-width: 1536px) {
+  .my-card {
+    max-width: 390px;
+    padding: 15px;
+  }
+  .padding-xl {
+    padding-left: 20px 16px !important;
+  }
+}
 @media (min-width: 64px) and (max-width: 600px) {
   .lista {
     max-width: 400px !important;
