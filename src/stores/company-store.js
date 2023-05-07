@@ -35,10 +35,8 @@ export const useCompanyStore = defineStore('company', {
     },
     async getDataHomeCompany() {
       try {
-        console.log('holaaaaaaaaaaaaaaaa')
         const response = await LoanService.getDataHomeCompany()
-        console.log('response', response.data.company)
-        this.company = response.company
+        this.company = response.data.company
       } catch (error) {
         notifyError(error.response.data.message)
       }

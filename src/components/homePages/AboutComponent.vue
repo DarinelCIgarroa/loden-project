@@ -2,13 +2,7 @@
   <q-layout>
     <q-page-container class="flex flex-center">
       <q-page>
-        <br />
-        <q-card
-          flat
-          bordered
-          class="my-card row no-border q-px-lg q-mt-lg"
-          style="max-width: 1250px"
-        >
+        <q-card flat bordered class="my-card row no-border q-px-lg q-mt-lg">
           <q-card-section class="text-center col-12 section-title">
             <div class="text-h3">Acerca de nosotros</div>
           </q-card-section>
@@ -180,13 +174,13 @@
     </q-page-container>
   </q-layout>
 </template>
-<script setup>
-</script>
 
 <style scoped>
-/*--------------------------------------------------------------
-# Counts
---------------------------------------------------------------*/
+.my-card {
+  width: 1400px;
+  background-size: cover;
+  background-position: center;
+}
 .counts {
   padding-top: 0;
 }

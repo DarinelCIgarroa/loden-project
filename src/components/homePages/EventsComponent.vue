@@ -1,94 +1,162 @@
 <template>
-  <q-page-container class="flex flex-center">
-    <q-page>
-      <br />
-      <q-card
-        flat
-        bordered
-        class="my-card row q-px-lg q-mt-lg no-border justify-center"
-      >
-        <q-card-section
-          class="text-center col-md-12 col-sm-12 col-xs-3 section-title"
-        >
-          <div class="text-h3">CONOCE NUESTROS EVENTOS</div>
-        </q-card-section>
-        <div class="row justify-center content-center padding-xl margen-conten">
-          <div class="col-lg-5 col-xl-6 col-md-5 col-sm-5 col-xs-7 q-pl-lg">
-            <q-card-section
-              class="col q-mx-lg row justify-center section-face-to-face"
-            >
-              <q-parallax
-                class="parallax rounded-borders"
-                src="../../statics/images/inPerson44.jpg"
+  <q-page-container class="page flex flex-center">
+    <q-card flat bordered class="my-card row col-12 no-border justify-center">
+      <q-card-section class="text-center col-12 section-title">
+        <span class="text-h3">NUESTROS EVENTOS</span>
+      </q-card-section>
+      <q-card-section class="row col-12 section-online">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <q-parallax
+            class="img-online"
+            src="https://cdn.quasar.dev/img/parallax2.jpg"
+          >
+          </q-parallax>
+        </div>
+        <div class="events-online-content col-xs-12 col-sm-12 col-md-6">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="text-center text-weight-bolder" style="font-size: 17px">
+              <span
+                >Voluptatem dignissimos provident quasi corporis voluptates sit
+                assumenda.</span
               >
-                <div
-                  class="absolute-bottom text-subtitle2 text-center text-white q-pb-md"
-                >
-                  <span
-                    class="text-h4 q-mx-sm"
-                    style="font-family: Tinos-italic"
-                    >Eventos precensiales</span
-                  >
-                </div>
-              </q-parallax>
-              <q-card-section class="info-description col-xs-7">
-                <span
-                  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-                  minima natus quam possimus est voluptas porro soluta, culpa
-                  laudantium nobis placeat et aperiam ut, iure officiis nihil
-                  ipsam quibusdam.</span
-                >
-                <br />
-                <q-btn
-                  class="q-mt-md"
-                  unelevated
-                  rounded
-                  color="primary"
-                  label="ver eventos"
-                ></q-btn>
-              </q-card-section>
-            </q-card-section>
+            </div>
+            <br />
+            <div class="text-center content-text">
+              <span>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </span>
+            </div>
           </div>
-
-          <div class="col-lg-5 col-xl-6 col-md-5 col-sm-5 col-xs-7 q-pl-lg">
-            <q-card-section
-              class="col q-mx-lg q-mt-xl row justify-center section-face-to-face"
-            >
-              <q-parallax
-                class="parallax rounded-borders"
-                src="../../statics/images/online88.jpg"
+          <div
+            class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
+          >
+            <div class="col-2 flex flex-center content-icon">
+              <q-avatar
+                size="60px"
+                font-size="40px"
+                color="primary"
+                text-color="white"
+                icon="directions"
+              ></q-avatar>
+            </div>
+            <div class="row column col-10 content-text">
+              <span class="text-weight-bold content-title">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                doloremqu
+              </span>
+              <span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                doloremqu
+              </span>
+            </div>
+            <div class="content-icon col-2 flex flex-center">
+              <q-avatar
+                size="60px"
+                font-size="40px"
+                color="primary"
+                text-color="white"
+                icon="directions"
+              ></q-avatar>
+            </div>
+            <div class="content-text row column col-10">
+              <span class="text-weight-bold content-title">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                doloremqu
+              </span>
+              <span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                doloremqu
+              </span>
+            </div>
+            <div class="col-12 text-center q-mt-md" style="font-size: 18px">
+              <span
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+                porro vitae aspernatur labore officia provident, ullam at nam
+                alias, explicabo neque nihil corporis enim dolores temporibus
+                impedit quasi et minima.</span
               >
-                <div
-                  class="absolute-bottom text-subtitle2 text-center text-white q-pb-md"
-                >
-                  <span
-                    class="text-h4 q-mx-sm"
-                    style="font-family: Tinos-italic"
-                    >Eventos en linea</span
-                  >
-                </div>
-              </q-parallax>
-              <q-card-section class="info-description col-xs-7">
-                <span
-                  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-                  minima natus quam possimus est voluptas porro soluta, culpa
-                  laudantium nobis placeat et aperiam ut, iure officiis nihil
-                  ipsam quibusdam.</span
-                >
-                <br />
-                <q-btn
-                  class="q-mt-md"
-                  unelevated
-                  rounded
-                  color="primary"
-                  label="ver eventos"
-                ></q-btn>
-              </q-card-section>
-            </q-card-section>
+            </div>
           </div>
         </div>
-      </q-card>
-    </q-page>
+      </q-card-section>
+      <q-card-section class="row col-12 section-online">
+        <div class="events-online-content col-xs-12 col-sm-12 col-md-6">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="text-center text-weight-bolder" style="font-size: 17px">
+              <span
+                >Voluptatem dignissimos provident quasi corporis voluptates sit
+                assumenda.</span
+              >
+            </div>
+            <br />
+            <div class="text-center content-text">
+              <span>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </span>
+            </div>
+          </div>
+          <div
+            class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
+          >
+            <div class="col-2 flex flex-center content-icon">
+              <q-avatar
+                size="60px"
+                font-size="40px"
+                color="primary"
+                text-color="white"
+                icon="directions"
+              ></q-avatar>
+            </div>
+            <div class="row column col-10 content-text">
+              <span class="text-weight-bold content-title">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                doloremqu
+              </span>
+              <span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                doloremqu
+              </span>
+            </div>
+            <div class="content-icon col-2 flex flex-center">
+              <q-avatar
+                size="60px"
+                font-size="40px"
+                color="primary"
+                text-color="white"
+                icon="directions"
+              ></q-avatar>
+            </div>
+            <div class="content-text row column col-10">
+              <span class="text-weight-bold content-title">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                doloremqu
+              </span>
+              <span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                doloremqu
+              </span>
+            </div>
+            <div class="col-12 text-center q-mt-md" style="font-size: 18px">
+              <span
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+                porro vitae aspernatur labore officia provident, ullam at nam
+                alias, explicabo neque nihil corporis enim dolores temporibus
+                impedit quasi et minima.</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <q-parallax
+            class="img-online"
+            src="https://cdn.quasar.dev/img/parallax2.jpg"
+          >
+          </q-parallax>
+        </div>
+      </q-card-section>
+    </q-card>
   </q-page-container>
 </template>
 <script setup>
@@ -96,86 +164,68 @@ import "animate.css/animate.min.css";
 </script>
 
 <style scoped>
+.page {
+  padding: 0 !important;
+  margin: 0 !important;
+}
 .my-card {
-  width: 1250px;
+  width: 1400px;
   background-size: cover;
   background-position: center;
 }
-
-.section-face-to-face {
-  margin-top: 60px;
-  height: auto;
-  position: relative;
-  z-index: 1;
-  transition: all 300ms;
-  border-radius: 0px 0px 20px 20px;
+.img-online {
+  min-height: 100%;
 }
-
-.info-description {
-  padding: 20px;
-  margin-top: -220px;
-  position: relative;
-  z-index: -1;
-  width: 530px;
-  border-radius: 0px 0px 20px 20px;
-  transition: all 400ms cubic-bezier(0.5, 0, 0, 1);
-}
-
-.parallax {
-  border-radius: 20px 20px 20px 20px;
-  height: 350px !important;
-  transition: all 400ms cubic-bezier(0.5, 0, 0, 1);
-}
-
-.section-face-to-face:hover .parallax {
-  margin-top: -40px;
-  border-radius: 20px 20px 0px 0px;
-  height: 530px;
-  width: 530px;
-}
-
-.section-face-to-face:hover .info-description {
-  background-color: #e0dddd4f;
-  margin-top: 0;
+.content-title {
   font-size: 17px;
 }
+.events-online-content {
+  padding: 50px 20px;
+}
+.content-icon {
+  padding: 20px !important;
+}
+.content-text {
+  font-size: 15px;
+  padding: 10px;
+  text-align: justify;
+}
 
-@media (min-width: 845px) and (max-width: 1000px) {
-  .margen-conten {
-    margin-left: 7%;
-    margin-right: 8%;
+@media (min-width: 64px) and (max-width: 800px) {
+  .section-title span {
+    font-size: 15px;
+  }
+  .social {
+    opacity: 1;
   }
 }
 
-@media (min-width: 90px) and (max-width: 875px) {
-  .margen-conten {
-    margin-left: 114px;
-    margin-right: 121px;
+@media (min-width: 64px) and (max-width: 694px) {
+  .img-online {
+    max-height: 400px !important;
   }
-
-  .section-face-to-face {
-    transition: none;
+  .section-title span {
+    font-size: 35px;
   }
-
-  .info-description {
-    padding: 22px;
-    margin-top: 0px !important;
-    width: 530px;
+  .event-info {
+    flex-direction: column;
+    align-items: center;
   }
-
-  .section-face-to-face .parallax {
-    margin-top: 40px !important;
+  .content-icon {
+    min-width: 100%;
+  }
+  .content-text {
+    min-width: 100%;
   }
 }
 
-@media (min-width: 52px) and (max-width: 512px) {
-  .info-description {
-    padding: 20px;
-    width: 293px;
+@media (max-width: 1536px) {
+  .my-card {
+    max-width: 390px;
+    padding: 15px;
   }
-
-  .text-h3 {
-    font-size: 19px;
+  .padding-xl {
+    padding-left: 20px 16px !important;
   }
 }
 </style>
