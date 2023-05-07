@@ -1,158 +1,146 @@
 <template>
-  <q-layout>
-    <q-page-container class="flex flex-center" style="margin: 0">
-      <q-page>
-        <q-card
-          flat
-          bordered
-          class="my-card row no-border flex flex-center"
-          style="max-width: 1250px"
-        >
-          <q-card-section class="text-center col-12 section-title">
-            <div class="text-h3">Contacto</div>
-          </q-card-section>
-          <q-card-section class="section">
-            <div class="container">
-              <div class="contact-info">
-                <div>
-                  <h2>Infomación de contacto</h2>
-                  <ul class="info">
-                    <li>
-                      <span
-                        ><q-icon size="md" class="img" name="face"></q-icon
-                      ></span>
-                      <span>Ciudad de México, 12312, 1231</span>
-                    </li>
-                    <li>
-                      <span
-                        ><q-icon size="md" class="img" name="mail"></q-icon
-                      ></span>
-                      <span>loden@gmail.com</span>
-                    </li>
-                    <li>
-                      <span
-                        ><q-icon size="md" class="img" name="call"></q-icon
-                      ></span>
-                      <span>9612365046</span>
-                    </li>
-                  </ul>
-                </div>
-                <ul class="sci">
-                  <li>
-                    <a href="#"
-                      ><q-icon
-                        color="white"
-                        class="img"
-                        size="xl"
-                        name="fa-brands fa-facebook"
-                      ></q-icon
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><q-icon
-                        color="white"
-                        class="img"
-                        size="xl"
-                        name="fa-brands fa-instagram"
-                      ></q-icon
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="#"
-                      ><q-icon
-                        color="white"
-                        class="img"
-                        size="xl"
-                        name="fa-brands fa-twitter"
-                      ></q-icon
-                    ></a>
-                  </li>
-                </ul>
+  <q-page-container class="page flex flex-center">
+    <q-card flat bordered class="my-card row col-12 no-border justify-center">
+      <q-card-section class="text-center col-12 section-title">
+        <div class="text-h3">Contacto</div>
+      </q-card-section>
+      <q-card-section class="section">
+        <div class="container">
+          <div class="contact-info">
+            <div>
+              <h2>Infomación de contacto</h2>
+              <ul class="info">
+                <li>
+                  <span
+                    ><q-icon size="md" class="img" name="face"></q-icon
+                  ></span>
+                  <span>Ciudad de México, 12312, 1231</span>
+                </li>
+                <li>
+                  <span
+                    ><q-icon size="md" class="img" name="mail"></q-icon
+                  ></span>
+                  <span>loden@gmail.com</span>
+                </li>
+                <li>
+                  <span
+                    ><q-icon size="md" class="img" name="call"></q-icon
+                  ></span>
+                  <span>9612365046</span>
+                </li>
+              </ul>
+            </div>
+            <ul class="sci">
+              <li>
+                <a href="#"
+                  ><q-icon
+                    color="white"
+                    class="img"
+                    size="xl"
+                    name="fa-brands fa-facebook"
+                  ></q-icon
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><q-icon
+                    color="white"
+                    class="img"
+                    size="xl"
+                    name="fa-brands fa-instagram"
+                  ></q-icon
+                ></a>
+              </li>
+              <li>
+                <a href="#"
+                  ><q-icon
+                    color="white"
+                    class="img"
+                    size="xl"
+                    name="fa-brands fa-twitter"
+                  ></q-icon
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="contact-form">
+            <h2>Enviar un mensaje</h2>
+            <div class="form-box">
+              <div class="input-box w50">
+                <q-input
+                  v-model="form.full_name"
+                  class="input"
+                  label="Nombre completo"
+                >
+                  <template #prepend>
+                    <q-icon class="q-mx-sm" name="fa-regular fa-user"></q-icon>
+                  </template>
+                </q-input>
               </div>
-              <div class="contact-form">
-                <h2>Enviar un mensaje</h2>
-                <div class="form-box">
-                  <div class="input-box w50">
-                    <q-input
-                      v-model="form.full_name"
-                      class="input"
-                      label="Nombre completo"
-                    >
-                      <template #prepend>
-                        <q-icon
-                          class="q-mx-sm"
-                          name="fa-regular fa-user"
-                        ></q-icon>
-                      </template>
-                    </q-input>
-                  </div>
-                  <div class="input-box w50">
-                    <q-input
-                      v-model="form.phone_number"
-                      class="input"
-                      label="Número de teléfono"
-                    >
-                      <template #prepend>
-                        <q-icon class="q-mx-sm" name="phone_iphone"></q-icon>
-                      </template>
-                    </q-input>
-                  </div>
-                  <div class="input-box w50">
-                    <q-input
-                      v-model="form.mail"
-                      class="input"
-                      label="Correo electrónico"
-                    >
-                      <template #prepend>
-                        <q-icon
-                          class="q-mx-sm"
-                          name="fa-regular fa-envelope"
-                        ></q-icon>
-                      </template>
-                    </q-input>
-                  </div>
-                  <div class="input-box w50">
-                    <q-select
-                      v-model="form.eventId"
-                      label="Evento de interes"
-                      :rules="[(val) => !!val || 'Este campo es requerido']"
-                      outlined
-                      map-options
-                      emit-value
-                      option-value="id"
-                      option-label="name"
-                      :options="options"
-                      clearable
-                    />
-                  </div>
-                  <div class="input-box w100">
-                    <q-input
-                      v-model="form.message"
-                      filled
-                      clearable
-                      type="textarea"
-                      label="Envía un mensaje"
-                    ></q-input>
-                  </div>
-                  <div class="input-box w100">
-                    <q-btn
-                      class="submit"
-                      unelevated
-                      rounded
-                      color="primary"
-                      label="Enviar"
-                      @click="submit"
-                    ></q-btn>
-                  </div>
-                </div>
+              <div class="input-box w50">
+                <q-input
+                  v-model="form.phone_number"
+                  class="input"
+                  label="Número de teléfono"
+                >
+                  <template #prepend>
+                    <q-icon class="q-mx-sm" name="phone_iphone"></q-icon>
+                  </template>
+                </q-input>
+              </div>
+              <div class="input-box w50">
+                <q-input
+                  v-model="form.mail"
+                  class="input"
+                  label="Correo electrónico"
+                >
+                  <template #prepend>
+                    <q-icon
+                      class="q-mx-sm"
+                      name="fa-regular fa-envelope"
+                    ></q-icon>
+                  </template>
+                </q-input>
+              </div>
+              <div class="input-box w50">
+                <q-select
+                  v-model="form.eventId"
+                  label="Evento de interes"
+                  :rules="[(val) => !!val || 'Este campo es requerido']"
+                  outlined
+                  map-options
+                  emit-value
+                  option-value="id"
+                  option-label="name"
+                  :options="options"
+                  clearable
+                />
+              </div>
+              <div class="input-box w100">
+                <q-input
+                  v-model="form.message"
+                  filled
+                  clearable
+                  type="textarea"
+                  label="Envía un mensaje"
+                ></q-input>
+              </div>
+              <div class="input-box w100">
+                <q-btn
+                  class="submit"
+                  unelevated
+                  rounded
+                  color="primary"
+                  label="Enviar"
+                  @click="submit"
+                ></q-btn>
               </div>
             </div>
-          </q-card-section>
-        </q-card>
-      </q-page>
-    </q-page-container>
-  </q-layout>
+          </div>
+        </div>
+      </q-card-section>
+    </q-card>
+  </q-page-container>
 </template>
 <script setup>
 import { reactive, ref, onMounted } from "vue";
@@ -162,7 +150,7 @@ import * as serviceEvent from "src/services/HomePage/eventService.js";
 import { notifySuccess, notifyError } from "src/utils/notify.js";
 const options = ref([]);
 onMounted(() => {
-  getEvnts();
+  getEvents();
   allEvents();
 });
 const newEvents = event();
@@ -194,7 +182,7 @@ const clearForm = () => {
   form.event_id = "";
   form.message = "";
 };
-const getEvnts = async () => {
+const getEvents = async () => {
   const response = await serviceEvent.getEvent();
   options.value = response.events;
 };
@@ -205,12 +193,19 @@ const allEvents = async () => {
 </script>
 
 <style scoped>
+.page {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.my-card {
+  width: 1400px;
+  background-size: cover;
+  background-position: center;
+}
 .section {
-  /* background-color: #0f3959; */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
 .section::before {
@@ -224,12 +219,8 @@ const allEvents = async () => {
 
 .container {
   position: relative;
-  min-width: 1200px;
+  min-width: 1400px;
   min-height: 720px;
-  display: flex;
-  /* border: solid 0.2px rgba(82, 80, 80, 0.274); */
-  /* background-color: #1c6799; */
-  /* z-index: 1000; */
 }
 
 .container .contact-info {
