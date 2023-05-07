@@ -226,26 +226,7 @@
 .list span {
   font-size: 20px;
 }
-@media (max-width: 1536px) {
-  .my-card {
-    max-width: 390px;
-    padding: 15px;
-  }
-  .padding-xl {
-    padding-left: 20px 16px !important;
-  }
-  .advantages {
-    font-size: 25px;
-    width: 100%;
-  }
-  .advantages-info {
-    margin-top: 30px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-}
+
 @media (min-width: 64px) and (max-width: 600px) {
   .list span {
     font-size: 18px;

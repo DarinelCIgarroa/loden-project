@@ -78,34 +78,32 @@
           flat
           bordered
         >
-          <q-intersection transition="scale">
-            <q-img src="../../statics/images/team-1.jpg">
-              <div class="social">
-                <div class="q-pa-md q-gutter-sm">
-                  <q-btn
-                    round
-                    push
-                    style="--fa-secondary-opacity: 0.6; background-color: beige"
-                  >
-                    <i class="fa-brands fa-instagram insta fa-bounce"></i>
-                  </q-btn>
-                  <q-btn round push glossy class="face"
-                    ><i class="fa-brands fa-facebook-f fa-lg"></i
-                  ></q-btn>
-                  <q-btn round push glossy class="twitt"
-                    ><i class="fa-brands fa-twitter fa-lg"></i>
-                  </q-btn>
-                </div>
+          <q-img src="../../statics/images/team-1.jpg">
+            <div class="social">
+              <div class="q-pa-md q-gutter-sm">
+                <q-btn
+                  round
+                  push
+                  style="--fa-secondary-opacity: 0.6; background-color: beige"
+                >
+                  <i class="fa-brands fa-instagram insta fa-bounce"></i>
+                </q-btn>
+                <q-btn round push glossy class="face"
+                  ><i class="fa-brands fa-facebook-f fa-lg"></i
+                ></q-btn>
+                <q-btn round push glossy class="twitt"
+                  ><i class="fa-brands fa-twitter fa-lg"></i>
+                </q-btn>
               </div>
-            </q-img>
-            <q-card-section>
-              <div class="text-h5 q-mt-sm q-mb-xs text-center">Title</div>
-              <div class="text-caption text-grey text-justify text-center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </q-card-section>
-          </q-intersection>
+            </div>
+          </q-img>
+          <q-card-section>
+            <div class="text-h5 q-mt-sm q-mb-xs text-center">Title</div>
+            <div class="text-caption text-grey text-justify text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </q-card-section>
         </q-card>
       </q-card-section>
     </q-card>
@@ -192,17 +190,6 @@
   .col-sm-6 {
     height: auto;
     width: 100% !important;
-  }
-}
-
-@media (max-width: 1536px) {
-  .my-card {
-    max-width: 390px !important;
-    padding: 15px;
-  }
-
-  .padding-xl {
-    padding-left: 20px 16px !important;
   }
 }
 </style>

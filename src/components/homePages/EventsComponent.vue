@@ -223,14 +223,4 @@
     min-width: 100%;
   }
 }
-
-@media (max-width: 1536px) {
-  .my-card {
-    max-width: 390px;
-    padding: 15px;
-  }
-  .padding-xl {
-    padding-left: 20px 16px !important;
-  }
-}
 </style>
