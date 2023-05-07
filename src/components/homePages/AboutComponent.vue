@@ -16,7 +16,7 @@
             class="row flex flex-center text-center col-lg-6 col-md-6 col-sm-12 col-xs-12"
           >
             <span style="font-size: 20px" class="text-center lista">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              Lorem ipsum dolor sit amet, consectetur adipiscing eli, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </span>
             <div class="flex row flex-center text-center">
