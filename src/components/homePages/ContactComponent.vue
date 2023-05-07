@@ -289,9 +289,6 @@ const allEvents = async () => {
   text-decoration: none;
 }
 
-/* .container .contact-info ul.sci li a .img {
-  filter: invert(1);
-} */
 .container .contact-form {
   position: absolute;
   padding: 70px 50px;
@@ -426,10 +423,6 @@ const allEvents = async () => {
   }
 
   @media (max-width: 991px) {
-    .section {
-      /* background: #fff38e; */
-    }
-
     .section:before {
       display: none;
     }

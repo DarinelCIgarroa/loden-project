@@ -12,7 +12,7 @@
           >
           </q-parallax>
         </div>
-        <div class="events-online-content col-xs-12 col-sm-12 col-md-6">
+        <div class="events-content col-xs-12 col-sm-12 col-md-6">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="text-center text-weight-bolder" style="font-size: 17px">
               <span
@@ -80,8 +80,15 @@
           </div>
         </div>
       </q-card-section>
-      <q-card-section class="row col-12 section-online">
-        <div class="events-online-content col-xs-12 col-sm-12 col-md-6">
+      <q-card-section class="row col-12 section-in-person">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+          <q-parallax
+            class="img-online"
+            src="https://cdn.quasar.dev/img/parallax2.jpg"
+          >
+          </q-parallax>
+        </div>
+        <div class="events-content col-xs-12 col-sm-12 col-md-6">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="text-center text-weight-bolder" style="font-size: 17px">
               <span
@@ -138,7 +145,7 @@
                 doloremqu
               </span>
             </div>
-            <div class="col-12 text-center q-mt-md" style="font-size: 18px">
+            <div class="col-12 text-center" style="font-size: 18px">
               <span
                 >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
                 porro vitae aspernatur labore officia provident, ullam at nam
@@ -147,13 +154,6 @@
               >
             </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
-          <q-parallax
-            class="img-online"
-            src="https://cdn.quasar.dev/img/parallax2.jpg"
-          >
-          </q-parallax>
         </div>
       </q-card-section>
     </q-card>
@@ -169,7 +169,7 @@ import "animate.css/animate.min.css";
   margin: 0 !important;
 }
 .my-card {
-  width: 1400px;
+  width: 1250px;
   background-size: cover;
   background-position: center;
 }
@@ -179,7 +179,7 @@ import "animate.css/animate.min.css";
 .content-title {
   font-size: 17px;
 }
-.events-online-content {
+.events-content {
   padding: 50px 20px;
 }
 .content-icon {
@@ -189,6 +189,10 @@ import "animate.css/animate.min.css";
   font-size: 15px;
   padding: 10px;
   text-align: justify;
+}
+.section-in-person {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 @media (min-width: 64px) and (max-width: 800px) {
