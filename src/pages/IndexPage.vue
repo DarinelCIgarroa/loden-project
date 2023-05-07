@@ -26,7 +26,7 @@ import HomeComponent from "src/components/homePages/HomeComponent.vue";
 import TeamComponent from "src/components/homePages/TeamComponent.vue";
 import ContactComponent from "src/components/homePages/ContactComponent.vue";
 import { ref, onMounted, onUnmounted } from "vue";
-// import bus from "src/utils/event-bus";
+import bus from "src/utils/event-bus";
 import { useCompanyStore } from "stores/company-store";
 
 const sectionHome = ref(null);
@@ -35,28 +35,28 @@ const sectionEvents = ref(null);
 const sectionTeam = ref(null);
 const sectionContact = ref(null);
 
-// const onIntersection = (entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       bus.emit("section", entry.target.id);
-//     }
-//   });
-// };
+const onIntersection = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      bus.emit("section", entry.target.id);
+    }
+  });
+};
 
 const storeCompany = useCompanyStore();
 let observer = null;
 
 onMounted(() => {
   storeCompany.getDataHomeCompany();
-  // observer = new IntersectionObserver(onIntersection, {
-  //   threshold: [0.6, 0.6, 0.6],
-  //   rootMargin: "-80px 0px 0px 0px",
-  // });
-  // observer.observe(sectionHome.value);
-  // observer.observe(sectionAbout.value);
-  // observer.observe(sectionEvents.value);
-  // observer.observe(sectionTeam.value);
-  // observer.observe(sectionContact.value);
+  observer = new IntersectionObserver(onIntersection, {
+    threshold: [0.6, 0.6, 0.6],
+    rootMargin: "-80px 0px 0px 0px",
+  });
+  observer.observe(sectionHome.value);
+  observer.observe(sectionAbout.value);
+  observer.observe(sectionEvents.value);
+  observer.observe(sectionTeam.value);
+  observer.observe(sectionContact.value);
 });
 
 onUnmounted(() => {
