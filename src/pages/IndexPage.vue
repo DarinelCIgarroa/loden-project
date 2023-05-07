@@ -41,8 +41,6 @@ const onIntersection = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       bus.emit("section", entry.target.id);
-    } else {
-      console.log("ok");
     }
   });
 };

@@ -14,6 +14,7 @@
 
 body {
   font-family: "Bitter";
+  // overflow: hidden;
 }
 
 /*--------------------------------------------------------------
@@ -49,6 +50,23 @@ body {
   margin: 15px 0 0 0;
 }
 
+.scroll-container {
+  width: 100%;
+  height: 100vh;
+  scroll-behavior: smooth;
+  // overflow-y: scroll;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.scroll-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 @media (max-width: 1536px) and (min-width: none) {
   .my-card {
     max-width: 390px !important;
@@ -72,20 +90,3 @@ body {
   }
 }
 
-.scroll-container {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.scroll-container {
-  width: 100%;
-  height: 100vh;
-  scroll-behavior: smooth;
-}
-.scroll-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
