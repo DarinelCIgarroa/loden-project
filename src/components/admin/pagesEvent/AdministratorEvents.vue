@@ -1,13 +1,17 @@
 <template>
   <q-page class="q-pa-sm">
     <div class="col">
-      <q-card class="no-border no-shadow bg-transparent">
+      <q-card
+        class="no-border no-shadow bg-transparent"
+        :class="{ 'bg-dark': $q.dark.isActive }"
+      >
         <q-card-section class="q-pa-sm">
           <q-input
             v-model="search"
             rounded
             outlined
             placeholder="Buscar evento"
+            @keyup="serchEvent()"
           >
             <template #append>
               <q-icon v-if="search === ''" name="search" />
@@ -104,6 +108,10 @@ const changesEventsDialogCreate = (value) => {
 };
 const removeEvent = (data) => {
   storeEvents.remove(data.id);
+};
+//eventos de busqueda
+let serchEvent = () => {
+  storeEvents.search(search.value);
 };
 </script>
 

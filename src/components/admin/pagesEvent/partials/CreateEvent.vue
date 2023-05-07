@@ -1,6 +1,6 @@
 <template>
   <q-dialog v-model="dialogVisible">
-    <q-card style="min-width: 700px">
+    <q-card style="width: 700px">
       <q-card-section>
         <div class="title">{{ titleDynamic }}</div>
       </q-card-section>
