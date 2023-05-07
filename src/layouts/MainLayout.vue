@@ -5,10 +5,13 @@
       class="custom-header row justify-around"
       style="font-family: Arial, Helvetica, sans-serif"
     >
-      <div class="logo">
-        <h1>
-          <a href="index.html"></a>
-        </h1>
+      <div class="logo justify-start flex flex-center">
+        <q-avatar size="50px">
+          <img src="https://cdn.quasar.dev/img/avatar.png" />
+        </q-avatar>
+        <span class="name-company q-mx-md">{{
+          storeCompany.getStateCompany.name
+        }}</span>
       </div>
       <nav id="navbar" class="navbar row">
         <ul>
@@ -92,7 +95,7 @@ import bus from "src/utils/event-bus";
 import { useCompanyStore } from "stores/company-store";
 
 const storeCompany = useCompanyStore();
-console.log("sd", storeCompany.getStateCompany.name);
+
 const current_section = ref();
 bus.on("section", (section) => {
   current_section.value = section;
@@ -107,25 +110,11 @@ bus.on("section", (section) => {
   background: #000000f5;
 }
 
-.custom-header .logo h1 {
+.custom-header .name-company {
   font-size: 25px;
-  margin: 0;
-  padding: 0;
   line-height: 2.5;
   font-weight: 700;
   letter-spacing: 1px;
-}
-
-.custom-header .logo h1 a,
-.custom-header .logo h1 a:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.custom-header .logo img {
-  padding: 0;
-  margin: 0;
-  max-height: 40px;
 }
 
 .nav-link {

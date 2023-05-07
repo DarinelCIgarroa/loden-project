@@ -2,26 +2,20 @@
   <q-layout>
     <q-page-container class="flex flex-center">
       <q-page>
-        <br />
-        <q-card
-          flat
-          bordered
-          class="my-card row no-border q-px-lg q-mt-lg"
-          style="max-width: 1250px"
-        >
+        <q-card flat bordered class="my-card row no-border q-px-lg q-mt-lg">
           <q-card-section class="text-center col-12 section-title">
             <div class="text-h3">Acerca de nosotros</div>
           </q-card-section>
           <q-card-section
-            class="row flex flex-center text-center col-lg-6 col-md-6 col-sm-12 col-xs-12"
+            class="row flex-center text-center col-lg-6 col-md-6 col-sm-12 col-xs-12 marked-advantages"
           >
-            <span style="font-size: 20px" class="text-center lista">
-              Lorem ipsum dolor sit amet, consectetur adipiscing eli, sed do
+            <span style="font-size: 20px" class="text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </span>
             <div class="flex row flex-center text-center">
-              <div class="q-pa-md col-12 lista">
-                <q-list>
+              <div class="q-pa-md col-12">
+                <q-list class="list">
                   <q-item>
                     <q-item-section side top>
                       <q-icon
@@ -30,10 +24,12 @@
                       ></q-icon>
                     </q-item-section>
                     <q-item-section>
-                      <q-item-label lines="2"
-                        >Ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat</q-item-label
-                      >
+                      <q-item-label lines="2">
+                        <span
+                          >Ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat
+                        </span>
+                      </q-item-label>
                     </q-item-section>
                   </q-item>
                   <q-item>
@@ -44,10 +40,12 @@
                       ></q-icon>
                     </q-item-section>
                     <q-item-section>
-                      <q-item-label lines="2"
-                        >Ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat</q-item-label
-                      >
+                      <q-item-label lines="2">
+                        <span>
+                          Ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat
+                        </span>
+                      </q-item-label>
                     </q-item-section>
                   </q-item>
                   <q-item>
@@ -58,10 +56,12 @@
                       ></q-icon>
                     </q-item-section>
                     <q-item-section>
-                      <q-item-label lines="2"
-                        >Ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat</q-item-label
-                      >
+                      <q-item-label lines="2">
+                        <span>
+                          Ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat
+                        </span>
+                      </q-item-label>
                     </q-item-section>
                   </q-item>
                   <q-item>
@@ -72,17 +72,21 @@
                       ></q-icon>
                     </q-item-section>
                     <q-item-section>
-                      <q-item-label lines="2"
-                        >Ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat</q-item-label
-                      >
+                      <q-item-label lines="2">
+                        <span>
+                          Ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat
+                        </span>
+                      </q-item-label>
                     </q-item-section>
                   </q-item>
                 </q-list>
               </div>
             </div>
           </q-card-section>
-          <q-card-section class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <q-card-section
+            class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center home-contact"
+          >
             <span>
               Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
               irure dolor in reprehenderit in voluptate velit esse cillum dolore
@@ -92,7 +96,7 @@
             </span>
             <br />
             <q-btn
-              size="md"
+              size="lg"
               class="q-mt-lg"
               outline
               rounded
@@ -109,70 +113,58 @@
             >
             </q-img>
           </q-card-section>
-          <q-card-section
-            class="col-lg-6 col-md-6 col-sm-12 col-xs-10"
-            style="font-size: 20px"
-          >
-            <div class="row">
-              <div class="col-md-6">
-                <div class="count-box">
-                  <q-icon
-                    class="icon"
-                    color="primary"
-                    name="far fa-smile-beam"
-                  />
-                  <span class="q-ml-md">65</span>
-                  <p>
-                    <strong>Happy Clients</strong> consequuntur voluptas nostrum
-                    aliquid ipsam architecto ut.
-                  </p>
-                </div>
+          <q-card-section class="row col-6 advantages">
+            <div class="col-6 count-box advantages-info">
+              <div>
+                <q-icon class="icon" color="primary" name="far fa-smile-beam" />
+                <span class="q-ml-md">65</span>
               </div>
-
-              <div class="col-md-6">
-                <div class="count-box">
-                  <q-icon
-                    class="icon"
-                    color="primary"
-                    name="fa-regular fa-file"
-                  />
-                  <span class="q-ml-md">80</span>
-                  <p>
-                    <strong>Projects</strong> adipisci atque cum quia aspernatur
-                    totam laudantium et quia dere tan
-                  </p>
-                </div>
+              <p>
+                <strong>Happy Clients</strong> consequuntur voluptas nostrum
+                aliquid ipsam architecto ut.
+              </p>
+            </div>
+            <div class="col-6 count-box advantages-info">
+              <div>
+                <q-icon
+                  class="icon"
+                  color="primary"
+                  name="fa-regular fa-file"
+                />
+                <span class="q-ml-md">65</span>
               </div>
-
-              <div class="col-md-6">
-                <div class="count-box">
-                  <q-icon
-                    class="icon"
-                    color="primary"
-                    name="fa-regular fa-clock"
-                  />
-                  <span class="q-ml-md">90</span>
-                  <p>
-                    <strong>Years of experience</strong> aut commodi quaerat
-                    modi aliquam nam ducimus aut voluptate non vel
-                  </p>
-                </div>
+              <p>
+                <strong>Happy Clients</strong> consequuntur voluptas nostrum
+                aliquid ipsam architecto ut.
+              </p>
+            </div>
+            <div class="col-6 count-box advantages-info">
+              <div>
+                <q-icon
+                  class="icon"
+                  color="primary"
+                  name="fa-regular fa-clock"
+                />
+                <span class="q-ml-md">65</span>
               </div>
-
-              <div class="col-md-6">
-                <div class="count-box">
-                  <q-icon
-                    class="icon"
-                    color="primary"
-                    name="fa-regular fa-chess-queen"
-                  />
-                  <span class="q-ml-md">10</span>
-                  <p>
-                    <strong>Awards</strong> rerum asperiores dolor alias quo
-                    reprehenderit eum et nemo pad der
-                  </p>
-                </div>
+              <p>
+                <strong>Happy Clients</strong> consequuntur voluptas nostrum
+                aliquid ipsam architecto ut.
+              </p>
+            </div>
+            <div class="col-6 count-box advantages-info">
+              <div>
+                <q-icon
+                  class="icon"
+                  color="primary"
+                  name="fa-regular fa-chess-queen"
+                />
+                <span class="q-ml-md">65</span>
               </div>
+              <p>
+                <strong>Happy Clients</strong> consequuntur voluptas nostrum
+                aliquid ipsam architecto ut.
+              </p>
             </div>
           </q-card-section>
         </q-card>
@@ -184,13 +176,21 @@
 </script>
 
 <style scoped>
-/*--------------------------------------------------------------
-# Counts
---------------------------------------------------------------*/
+.page {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.my-card {
+  width: 1400px;
+  background-size: cover;
+  background-position: center;
+}
 .counts {
   padding-top: 0;
 }
-
+.home-contact {
+  font-size: 18px;
+}
 .counts .content .count-box {
   padding: 20px 0;
   width: 100%;
@@ -220,14 +220,35 @@
   color: #484848;
 }
 
-.lista {
-  font-size: 17px;
+.marked-advantages span {
+  font-size: 18px;
 }
-
+.list span {
+  font-size: 20px;
+}
+@media (max-width: 1536px) {
+  .my-card {
+    max-width: 390px;
+    padding: 15px;
+  }
+  .padding-xl {
+    padding-left: 20px 16px !important;
+  }
+  .advantages {
+    font-size: 25px;
+    width: 100%;
+  }
+  .advantages-info {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
 @media (min-width: 64px) and (max-width: 600px) {
-  .lista {
-    max-width: 400px !important;
-    font-size: 13px !important;
+  .list span {
+    font-size: 18px;
   }
 
   .img-content {

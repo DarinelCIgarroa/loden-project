@@ -1,224 +1,129 @@
 <template>
-  <q-layout>
-    <q-page-container class="flex flex-center q-mx-sm">
-      <q-page>
-        <br />
+  <q-page-container class="page flex flex-center">
+    <q-card flat bordered class="my-card row col-12 no-border justify-center">
+      <q-card-section class="text-center col-12 section-title">
+        <div class="text-h3">Equipo</div>
+      </q-card-section>
+      <q-card-section class="row col-xs-12 col-sm-6 col-md-4 q-gutter-md">
         <q-card
+          class="hove-content my-card shadow-9 shadow-up-6 max-w-sm"
           flat
           bordered
-          class="row my-card q-mt-lg no-border justify-center contet-div"
         >
-          <q-card-section class="text-center col-12 section-title">
-            <div class="text-h3">Equipos</div>
-          </q-card-section>
-
-          <div>
-            <div class="row content-center padding-xl">
-              <div
-                class="col-xl-3 col-lg-3 col-md-4 col-sx-12 col-sm-6 q-pa-xs q-gutter-md"
-              >
-                <q-card-section>
-                  <q-card
-                    class="my-card hove-content shadow-9 shadow-up-6"
-                    flat
-                    bordered
-                  >
-                    <q-img src="../../statics/images/team-1.jpg">
-                      <div class="social">
-                        <div class="q-pa-md q-gutter-sm">
-                          <q-btn
-                            round
-                            push
-                            style="
-                              --fa-secondary-opacity: 0.6;
-                              background-color: beige;
-                            "
-                          >
-                            <i
-                              class="fa-brands fa-instagram insta fa-bounce"
-                            ></i>
-                          </q-btn>
-                          <q-btn round push glossy class="face"
-                            ><i class="fa-brands fa-facebook-f fa-lg"></i
-                          ></q-btn>
-                          <q-btn round push glossy class="twitt"
-                            ><i class="fa-brands fa-twitter fa-lg"></i>
-                          </q-btn>
-                        </div>
-                      </div>
-                    </q-img>
-                    <q-card-section>
-                      <div class="text-h5 q-mt-sm q-mb-xs text-center">
-                        Title
-                      </div>
-                      <div
-                        class="text-caption text-grey text-justify text-center animate__animated"
-                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </div>
-                    </q-card-section>
-                  </q-card>
-                </q-card-section>
-              </div>
-              <div
-                class="col-xl-3 col-lg-3 col-md-4 col-sx-12 col-sm-6 q-pa-xs q-gutter-md"
-              >
-                <q-card-section>
-                  <q-card
-                    class="hove-content my-card shadow-9 shadow-up-6"
-                    flat
-                    bordered
-                  >
-                    <q-img src="../../statics/images/team-1.jpg">
-                      <div class="social">
-                        <div class="q-pa-md q-gutter-sm">
-                          <q-btn
-                            round
-                            push
-                            style="
-                              --fa-secondary-opacity: 0.6;
-                              background-color: beige;
-                            "
-                          >
-                            <i
-                              class="fa-brands fa-instagram insta fa-bounce"
-                            ></i>
-                          </q-btn>
-                          <q-btn round push glossy class="face"
-                            ><i class="fa-brands fa-facebook-f fa-lg"></i
-                          ></q-btn>
-                          <q-btn round push glossy class="twitt"
-                            ><i class="fa-brands fa-twitter fa-lg"></i>
-                          </q-btn>
-                        </div>
-                      </div>
-                    </q-img>
-                    <q-card-section>
-                      <div class="text-h5 q-mt-sm q-mb-xs text-center">
-                        Title
-                      </div>
-                      <div
-                        class="text-caption text-grey text-justify text-center animate__animated"
-                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </div>
-                    </q-card-section>
-                  </q-card>
-                </q-card-section>
-              </div>
-              <div
-                class="col-xl-3 col-lg-3 col-md-4 col-sx-12 col-sm-6 q-pa-xs q-gutter-md"
-              >
-                <q-card-section>
-                  <q-card
-                    class="hove-content my-card shadow-9 shadow-up-6"
-                    flat
-                    bordered
-                  >
-                    <q-img src="../../statics/images/team-1.jpg">
-                      <div class="social">
-                        <div class="q-pa-md q-gutter-sm">
-                          <q-btn
-                            round
-                            push
-                            style="
-                              --fa-secondary-opacity: 0.6;
-                              background-color: beige;
-                            "
-                          >
-                            <i
-                              class="fa-brands fa-instagram insta fa-bounce"
-                            ></i>
-                          </q-btn>
-                          <q-btn round push glossy class="face"
-                            ><i class="fa-brands fa-facebook-f fa-lg"></i
-                          ></q-btn>
-                          <q-btn round push glossy class="twitt"
-                            ><i class="fa-brands fa-twitter fa-lg"></i>
-                          </q-btn>
-                        </div>
-                      </div>
-                    </q-img>
-                    <q-card-section>
-                      <div class="text-h5 q-mt-sm q-mb-xs text-center">
-                        Title
-                      </div>
-                      <div
-                        class="text-caption text-grey text-justify text-center animate__animated"
-                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </div>
-                    </q-card-section>
-                  </q-card>
-                </q-card-section>
-              </div>
-
-              <div
-                class="col-xl-3 col-lg-3 col-md-4 col-sx-12 col-sm-6 q-pa-xs q-gutter-md"
-              >
-                <q-card-section>
-                  <q-card
-                    class="hove-content my-card shadow-9 shadow-up-6"
-                    flat
-                    bordered
-                  >
-                    <q-img src="../../statics/images/team-1.jpg">
-                      <div class="social">
-                        <div class="q-pa-md q-gutter-sm">
-                          <q-btn
-                            round
-                            push
-                            style="
-                              --fa-secondary-opacity: 0.6;
-                              background-color: beige;
-                            "
-                          >
-                            <i
-                              class="fa-brands fa-instagram insta fa-bounce"
-                            ></i>
-                          </q-btn>
-                          <q-btn round push glossy class="face"
-                            ><i class="fa-brands fa-facebook-f fa-lg"></i
-                          ></q-btn>
-                          <q-btn round push glossy class="twitt"
-                            ><i class="fa-brands fa-twitter fa-lg"></i>
-                          </q-btn>
-                        </div>
-                      </div>
-                    </q-img>
-                    <q-card-section>
-                      <div class="text-h5 q-mt-sm q-mb-xs text-center">
-                        Title
-                      </div>
-                      <div
-                        class="text-caption text-grey text-justify text-center animate__animated"
-                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </div>
-                    </q-card-section>
-                  </q-card>
-                </q-card-section>
+          <q-img src="../../statics/images/team-1.jpg">
+            <div class="social">
+              <div class="q-pa-md q-gutter-sm">
+                <q-btn
+                  round
+                  push
+                  style="--fa-secondary-opacity: 0.6; background-color: beige"
+                >
+                  <i class="fa-brands fa-instagram insta fa-bounce"></i>
+                </q-btn>
+                <q-btn round push glossy class="face"
+                  ><i class="fa-brands fa-facebook-f fa-lg"></i
+                ></q-btn>
+                <q-btn round push glossy class="twitt"
+                  ><i class="fa-brands fa-twitter fa-lg"></i>
+                </q-btn>
               </div>
             </div>
-          </div>
+          </q-img>
+          <q-card-section>
+            <div class="text-h5 q-mt-sm q-mb-xs text-center">Title</div>
+            <div class="text-caption text-grey text-justify text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </q-card-section>
         </q-card>
-      </q-page>
-    </q-page-container>
-  </q-layout>
+      </q-card-section>
+      <q-card-section class="row col-xs-12 col-sm-6 col-md-4 q-gutter-md">
+        <q-card
+          class="hove-content my-card shadow-9 shadow-up-6 max-w-sm"
+          flat
+          bordered
+        >
+          <q-img src="../../statics/images/team-1.jpg">
+            <div class="social">
+              <div class="q-pa-md q-gutter-sm">
+                <q-btn
+                  round
+                  push
+                  style="--fa-secondary-opacity: 0.6; background-color: beige"
+                >
+                  <i class="fa-brands fa-instagram insta fa-bounce"></i>
+                </q-btn>
+                <q-btn round push glossy class="face"
+                  ><i class="fa-brands fa-facebook-f fa-lg"></i
+                ></q-btn>
+                <q-btn round push glossy class="twitt"
+                  ><i class="fa-brands fa-twitter fa-lg"></i>
+                </q-btn>
+              </div>
+            </div>
+          </q-img>
+          <q-card-section>
+            <div class="text-h5 q-mt-sm q-mb-xs text-center">Title</div>
+            <div class="text-caption text-grey text-justify text-center">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </q-card-section>
+        </q-card>
+      </q-card-section>
+      <q-card-section class="row col-xs-12 col-sm-6 col-md-4 q-gutter-md">
+        <q-card
+          class="hove-content my-card shadow-9 shadow-up-6 max-w-sm"
+          flat
+          bordered
+        >
+          <q-intersection transition="scale">
+            <q-img src="../../statics/images/team-1.jpg">
+              <div class="social">
+                <div class="q-pa-md q-gutter-sm">
+                  <q-btn
+                    round
+                    push
+                    style="--fa-secondary-opacity: 0.6; background-color: beige"
+                  >
+                    <i class="fa-brands fa-instagram insta fa-bounce"></i>
+                  </q-btn>
+                  <q-btn round push glossy class="face"
+                    ><i class="fa-brands fa-facebook-f fa-lg"></i
+                  ></q-btn>
+                  <q-btn round push glossy class="twitt"
+                    ><i class="fa-brands fa-twitter fa-lg"></i>
+                  </q-btn>
+                </div>
+              </div>
+            </q-img>
+            <q-card-section>
+              <div class="text-h5 q-mt-sm q-mb-xs text-center">Title</div>
+              <div class="text-caption text-grey text-justify text-center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </q-card-section>
+          </q-intersection>
+        </q-card>
+      </q-card-section>
+    </q-card>
+  </q-page-container>
 </template>
 <script setup>
-import "animate.css/animate.min.css";
 </script>
 
 <style scoped>
+.page {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.my-card {
+  width: 1400px;
+  background-size: cover;
+  background-position: center;
+}
 .social {
   position: absolute;
   left: 0;
@@ -291,8 +196,9 @@ import "animate.css/animate.min.css";
 }
 
 @media (max-width: 1536px) {
-  .contet-div {
-    max-width: 1250px;
+  .my-card {
+    max-width: 390px !important;
+    padding: 15px;
   }
 
   .padding-xl {
