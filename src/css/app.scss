@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Bitter';
+  font-family: "Bitter";
 }
 
 /*--------------------------------------------------------------
@@ -49,10 +49,25 @@ body {
   margin: 15px 0 0 0;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    -webkit-box-shadow: 0 0 0px 1000px #a3a3a379 inset;
+@media (max-width: 1536px) and (min-width: none) {
+  .my-card {
+    max-width: 390px !important;
+    padding: 15px;
+  }
+
+  .padding-xl {
+    padding-left: 20px 16px !important;
+  }
+
+  .advantages {
+    font-size: 25px;
+    width: 100%;
+  }
+  .advantages-info {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
