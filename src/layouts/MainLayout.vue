@@ -18,6 +18,7 @@
           <q-item
             v-ripple="false"
             exact
+            href="#home"
             clickable
             manual-focus
             :class="current_section === 'home' ? 'active' : ''"
@@ -32,6 +33,7 @@
             v-ripple="false"
             exact
             clickable
+            href="#about-us"
             manual-focus
             :class="current_section === 'about-us' ? 'active' : ''"
             @click="current_section = 'about-us'"
@@ -45,6 +47,7 @@
             v-ripple="false"
             exact
             clickable
+            href="#events"
             manual-focus
             :class="current_section === 'events' ? 'active' : ''"
             @click="current_section = 'events'"
@@ -59,6 +62,7 @@
             exact
             clickable
             manual-focus
+            href="#team"
             :class="current_section === 'team' ? 'active' : ''"
             @click="current_section = 'team'"
           >
@@ -71,6 +75,7 @@
             v-ripple="false"
             exact
             clickable
+            href="#contact"
             manual-focus
             :class="current_section === 'contact' ? 'active' : ''"
             @click="current_section = 'contact'"
