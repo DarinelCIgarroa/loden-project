@@ -71,12 +71,13 @@
               </span>
             </div>
             <div class="col-12 text-center q-mt-md" style="font-size: 18px">
-              <span
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                porro vitae aspernatur labore officia provident, ullam at nam
-                alias, explicabo neque nihil corporis enim dolores temporibus
-                impedit quasi et minima.</span
-              >
+              <q-btn
+                to="/events/online"
+                rounded
+                color="primary"
+                size="size"
+                label="Ir a los eventos"
+              ></q-btn>
             </div>
           </div>
         </div>
@@ -148,12 +149,12 @@
               </span>
             </div>
             <div class="col-12 text-center" style="font-size: 18px">
-              <span
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                porro vitae aspernatur labore officia provident, ullam at nam
-                alias, explicabo neque nihil corporis enim dolores temporibus
-                impedit quasi et minima.</span
-              >
+              <q-btn
+                rounded
+                color="primary"
+                size="size"
+                label="Ir a los eventos"
+              ></q-btn>
             </div>
           </div>
         </div>

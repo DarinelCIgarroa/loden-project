@@ -39,6 +39,8 @@ const onIntersection = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       bus.emit("section", entry.target.id);
+    } else {
+      console.log("ok");
     }
   });
 };
@@ -49,8 +51,8 @@ let observer = null;
 onMounted(() => {
   storeCompany.getDataHomeCompany();
   observer = new IntersectionObserver(onIntersection, {
-    threshold: [0.6, 0.6, 0.6],
-    rootMargin: "-80px 0px 0px 0px",
+    threshold: [0.6, 0.6, 0.6, 0.6, 0.6],
+    rootMargin: "0px 0px 0px 0px",
   });
   observer.observe(sectionHome.value);
   observer.observe(sectionAbout.value);
