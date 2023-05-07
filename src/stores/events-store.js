@@ -52,7 +52,11 @@ export const useEventStore = defineStore("events", {
         notifyError()
       }
     },
-
+    async search(payload) {
+      const response = await eventEvent.search(payload);
+      let fillter = this.events.indexOf(response)
+      console.log(fillter);
+    },
     setListEvents(payload) {
       this.events = payload;
     }, addevents(payload) {

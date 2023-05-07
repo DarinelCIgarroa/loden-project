@@ -30,3 +30,9 @@ export const destroy = async (id) => {
   const res = await axiosInstance.delete(URL);
   return res.data;
 };
+
+export const search = async (payload) => {
+  const url = `${basePath}/search`;
+  const res = await axiosInstance.post(url, payload);
+  return res.data
+}

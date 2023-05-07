@@ -1,6 +1,6 @@
 <template>
   <q-card class="">
-    <q-img :src="`${proces}/storage/image-events/${data.image}`" height="160px">
+    <q-img :src="`${proces}/images/${data.image}`" height="160px">
       <q-chip></q-chip>
     </q-img>
     <div></div>

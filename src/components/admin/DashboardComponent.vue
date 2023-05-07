@@ -23,7 +23,10 @@
         <div class="q-gutter-sm row items-center no-wrap">
           <q-btn round flat>
             <q-avatar size="26px">
-              <img :src="companyStore.getStateCurrentLogo" alt="logo" />
+              <img
+                :src="`${procesTem}/images/company/${companyStore.getStateCurrentLogo}`"
+                alt="logo"
+              />
             </q-avatar>
           </q-btn>
           <q-btn
@@ -104,7 +107,7 @@
       </q-img>
     </q-drawer>
 
-    <q-page-container class="bg-grey-1 q-ma-md">
+    <q-page-container class="q-ma-md" :class="{ 'bg-dark': $q.dark.isActive }">
       <router-view />
     </q-page-container>
 
@@ -113,7 +116,10 @@
       reveal
       class="bg-grey-1 text-white"
     >
-      <div class="q-pa-lg flex flex-center">
+      <div
+        class="q-pa-lg flex flex-center"
+        :class="{ 'bg-dark': $q.dark.isActive }"
+      >
         <q-pagination
           v-model="currentPage"
           :max="storePagination.getLastPage"
@@ -155,6 +161,7 @@ const getCompany = async () => {
 const getLogo = async () => {
   await companyStore.getCompanyLogo();
 };
+//actualiza los
 const nextPage = () => {
   storePagination.setCurrentPage(currentPage.value);
 };
@@ -162,6 +169,11 @@ const nextPage = () => {
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 };
+//mandamos a llamar nuestra ruta.
+let procesTem = ref();
+onMounted(() => {
+  procesTem.value = process.env.BASE_URL;
+});
 </script>
 
 

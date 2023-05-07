@@ -71,7 +71,10 @@
             </div>
             <div class="col-12 text-center q-mt-lg">
               <q-avatar size="350px">
-                <img :src="companyStore.getStateCurrentLogo" alt="logo" />
+                <img
+                  :src="`${procesTem}/images/company/${companyStore.getStateCurrentLogo}`"
+                  alt="logo"
+                />
               </q-avatar>
             </div>
           </div>
@@ -204,10 +207,16 @@ const getLogo = async () => {
 const assignCompanyData = () => {
   company.value = companyStore.getStateCompany;
 };
+//actuzalizamos los campos
 const storeCompany = async () => {
   await companyStore.store(company.value);
   step.value = 1;
 };
+//mandamos a llamar nuestra ruta.
+let procesTem = ref();
+onMounted(() => {
+  procesTem.value = process.env.BASE_URL;
+});
 </script>
 
 <style scoped>
