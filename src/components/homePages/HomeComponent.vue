@@ -18,14 +18,21 @@
                 de manera segura</span
               >
             </div>
-            <div class="q-mt-lg animate__animated animate__backInUp">
-              <q-btn
-                size="lg"
-                rounded
-                color="white"
-                text-color="black"
-                label="Empezar ahora"
-              ></q-btn>
+            <div class="q-mt-lg">
+              <transition
+                appear
+                transition-duration="73000"
+                enter-active-class="animated bounceInUp"
+                leave-active-class="animated bounceOutRight"
+              >
+                <q-btn
+                  size="lg"
+                  rounded
+                  color="white"
+                  text-color="black"
+                  label="Empezar ahora"
+                ></q-btn>
+              </transition>
             </div>
           </div>
         </div>
@@ -35,7 +42,6 @@
 </template>
 <script setup>
 import { onMounted } from "vue";
-import "animate.css";
 onMounted(() => {
   // eslint-disable-next-line no-undef
   particlesJS("particles-js", {

@@ -12,72 +12,78 @@
           >
           </q-parallax>
         </div>
+
         <div class="events-content col-xs-12 col-sm-12 col-md-6">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="text-center text-weight-bolder" style="font-size: 17px">
-              <span
-                >Voluptatem dignissimos provident quasi corporis voluptates sit
-                assumenda.</span
+          <q-intersection transition="slide-left">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div
+                class="text-center text-weight-bolder"
+                style="font-size: 17px"
               >
+                <span
+                  >Voluptatem dignissimos provident quasi corporis voluptates
+                  sit assumenda.</span
+                >
+              </div>
+              <br />
+              <div class="text-center content-text">
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </span>
+              </div>
             </div>
-            <br />
-            <div class="text-center content-text">
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
+            <div
+              class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
+            >
+              <div class="col-2 flex flex-center content-icon">
+                <q-avatar
+                  size="60px"
+                  font-size="40px"
+                  color="primary"
+                  text-color="white"
+                  icon="directions"
+                ></q-avatar>
+              </div>
+              <div class="row column col-10 content-text">
+                <span class="text-weight-bold content-title">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+              </div>
+              <div class="content-icon col-2 flex flex-center">
+                <q-avatar
+                  size="60px"
+                  font-size="40px"
+                  color="primary"
+                  text-color="white"
+                  icon="directions"
+                ></q-avatar>
+              </div>
+              <div class="content-text row column col-10">
+                <span class="text-weight-bold content-title">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+              </div>
+              <div class="col-12 text-center q-mt-md" style="font-size: 18px">
+                <span
+                  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+                  porro vitae aspernatur labore officia provident, ullam at nam
+                  alias, explicabo neque nihil corporis enim dolores temporibus
+                  impedit quasi et minima.</span
+                >
+              </div>
             </div>
-          </div>
-          <div
-            class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
-          >
-            <div class="col-2 flex flex-center content-icon">
-              <q-avatar
-                size="60px"
-                font-size="40px"
-                color="primary"
-                text-color="white"
-                icon="directions"
-              ></q-avatar>
-            </div>
-            <div class="row column col-10 content-text">
-              <span class="text-weight-bold content-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-            </div>
-            <div class="content-icon col-2 flex flex-center">
-              <q-avatar
-                size="60px"
-                font-size="40px"
-                color="primary"
-                text-color="white"
-                icon="directions"
-              ></q-avatar>
-            </div>
-            <div class="content-text row column col-10">
-              <span class="text-weight-bold content-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-            </div>
-            <div class="col-12 text-center q-mt-md" style="font-size: 18px">
-              <span
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                porro vitae aspernatur labore officia provident, ullam at nam
-                alias, explicabo neque nihil corporis enim dolores temporibus
-                impedit quasi et minima.</span
-              >
-            </div>
-          </div>
+          </q-intersection>
         </div>
       </q-card-section>
       <q-card-section class="row col-12 section-in-person">
@@ -88,79 +94,84 @@
           >
           </q-parallax>
         </div>
+
         <div class="events-content col-xs-12 col-sm-12 col-md-6">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="text-center text-weight-bolder" style="font-size: 17px">
-              <span
-                >Voluptatem dignissimos provident quasi corporis voluptates sit
-                assumenda.</span
+          <q-intersection transition="slide-right">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div
+                class="text-center text-weight-bolder"
+                style="font-size: 17px"
               >
+                <span
+                  >Voluptatem dignissimos provident quasi corporis voluptates
+                  sit assumenda.</span
+                >
+              </div>
+              <br />
+              <div class="text-center content-text">
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </span>
+              </div>
             </div>
-            <br />
-            <div class="text-center content-text">
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
+            <div
+              class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
+            >
+              <div class="col-2 flex flex-center content-icon">
+                <q-avatar
+                  size="60px"
+                  font-size="40px"
+                  color="primary"
+                  text-color="white"
+                  icon="directions"
+                ></q-avatar>
+              </div>
+              <div class="row column col-10 content-text">
+                <span class="text-weight-bold content-title">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+              </div>
+              <div class="content-icon col-2 flex flex-center">
+                <q-avatar
+                  size="60px"
+                  font-size="40px"
+                  color="primary"
+                  text-color="white"
+                  icon="directions"
+                ></q-avatar>
+              </div>
+              <div class="content-text row column col-10">
+                <span class="text-weight-bold content-title">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+              </div>
+              <div class="col-12 text-center" style="font-size: 18px">
+                <span
+                  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+                  porro vitae aspernatur labore officia provident, ullam at nam
+                  alias, explicabo neque nihil corporis enim dolores temporibus
+                  impedit quasi et minima.</span
+                >
+              </div>
             </div>
-          </div>
-          <div
-            class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
-          >
-            <div class="col-2 flex flex-center content-icon">
-              <q-avatar
-                size="60px"
-                font-size="40px"
-                color="primary"
-                text-color="white"
-                icon="directions"
-              ></q-avatar>
-            </div>
-            <div class="row column col-10 content-text">
-              <span class="text-weight-bold content-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-            </div>
-            <div class="content-icon col-2 flex flex-center">
-              <q-avatar
-                size="60px"
-                font-size="40px"
-                color="primary"
-                text-color="white"
-                icon="directions"
-              ></q-avatar>
-            </div>
-            <div class="content-text row column col-10">
-              <span class="text-weight-bold content-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-            </div>
-            <div class="col-12 text-center" style="font-size: 18px">
-              <span
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                porro vitae aspernatur labore officia provident, ullam at nam
-                alias, explicabo neque nihil corporis enim dolores temporibus
-                impedit quasi et minima.</span
-              >
-            </div>
-          </div>
+          </q-intersection>
         </div>
       </q-card-section>
     </q-card>
   </q-page-container>
 </template>
 <script setup>
-import "animate.css/animate.min.css";
 </script>
 
 <style scoped>
