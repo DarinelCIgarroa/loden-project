@@ -24,7 +24,7 @@
           <q-btn round flat>
             <q-avatar size="26px">
               <img
-                :src="`${procesTem}/images/company/${companyStore.getStateCurrentLogo}`"
+                :src="`${companyStore.getBaseUrl}/images/${companyStore.getStateCompany.logo}`"
                 alt="logo"
               />
             </q-avatar>
@@ -97,12 +97,14 @@
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="56px" class="q-mb-sm">
             <img
-              src="https://cdn.quasar.dev/img/boy-avatar.png"
+              :src="`${companyStore.getBaseUrl}/images/${companyStore.getStateCompany.logo}`"
               alt="profile"
             />
           </q-avatar>
-          <div class="text-weight-bold">Darinel Cigarroa</div>
-          <div>loden@loden.com</div>
+          <div class="text-weight-bold">
+            {{ companyStore.getStateCompany.name }}
+          </div>
+          <div>{{ companyStore.getStateCompany.email }}</div>
         </div>
       </q-img>
     </q-drawer>
@@ -170,9 +172,8 @@ const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 };
 //mandamos a llamar nuestra ruta.
-let procesTem = ref();
 onMounted(() => {
-  procesTem.value = process.env.BASE_URL;
+  companyStore.setBaseUrl(process.env.BASE_URL);
 });
 </script>
 
