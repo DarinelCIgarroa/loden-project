@@ -11,7 +11,6 @@
             rounded
             outlined
             placeholder="Buscar evento"
-            @keyup="serchEvent()"
           >
             <template #append>
               <q-icon v-if="search === ''" name="search" />
@@ -39,7 +38,7 @@
       <div
         v-for="item in storeEvents.getListEvents"
         :key="item.id"
-        class="col-md-4 col-lg-4 col-sm-12 col-xs-12"
+        class="col-md-4 col-lg-4 col-sm-6 col-xs-12"
       >
         <EventCard
           :data="item"
@@ -66,6 +65,7 @@ import { usePaginationStore } from "src/stores/pagination-store";
 import { onMounted, ref, watch } from "vue";
 import * as StoreService from "src/services/admin/EventsService.js";
 import { notifyError } from "src/utils/notify";
+import { format } from "date-fns";
 
 const activateCreation = ref(false);
 onMounted(() => {
@@ -80,19 +80,28 @@ watch(
     getEvents();
   }
 );
+const search = ref("");
+watch(search, () => {
+  getEvents();
+});
 const getEvents = async () => {
   try {
     const response = await StoreService.index({
       page: storePagination.getCurrentPage,
       rows_page: storePagination.getRowPage,
+      search: search.value,
     });
     storePagination.setLastPage(response.events.last_page);
+    response.events.data.forEach((element) => {
+      element.start_date = format(new Date(element.start_date), "yyy/MM/dd");
+      element.end_date = format(new Date(element.end_date), "yyy/MM/dd");
+    });
     storeEvents.setListEvents(response.events.data);
   } catch (e) {
     notifyError();
   }
 };
-const search = ref("");
+
 const dataUPdate = ref([]);
 
 const createItem = () => {
@@ -108,10 +117,6 @@ const changesEventsDialogCreate = (value) => {
 };
 const removeEvent = (data) => {
   storeEvents.remove(data.id);
-};
-//eventos de busqueda
-let serchEvent = () => {
-  storeEvents.search(search.value);
 };
 </script>
 

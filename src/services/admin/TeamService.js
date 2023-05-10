@@ -18,7 +18,11 @@ export const index = async (payload) => {
 
 export const store = async (payload) => {
   const URL = basePath;
-  const res = await axiosInstance.post(URL, payload);
+  const headers = {
+    'Content-Type': 'multipart/form-data'
+  };
+  const res = await axiosInstance.post(URL, payload, { headers }).then((res) => res);
+  console.log(" :", res)
   return res.data;
 };
 
@@ -29,7 +33,10 @@ export const edit = async (id) => {
 };
 export const update = async (payload, id) => {
   const URL = `${basePath}/${id}`;
-  const res = await axiosInstance.patch(URL, payload)
+  const headers = {
+    'Content-Type': 'multipart/form-data'
+  };
+  const res = await axiosInstance.post(URL, payload, { headers }).then((res) => res);
   return res.data
 };
 
