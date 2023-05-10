@@ -17,9 +17,11 @@
 
     <q-card-section>
       <div class="text-h6">
-        {{ data.address }}
+        {{ data.name }}
       </div>
-      <div class="text-subtitle1 text-justify q-mt-sm">
+      <div
+        class="col-5 print-hide text-subtitle1 text-justify q-mt-sm ellipsis"
+      >
         {{ data.description }}
       </div>
       <div>

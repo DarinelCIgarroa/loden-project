@@ -18,6 +18,10 @@
               outlined
               label="Nombre"
               :rules="[
+                (val) =>
+                  /^([a-zA-ZÁÉÍÚÓáéíóúñÑ] {0,1})+[a-zA-ZÁÉÍÚÓáéíóúñÑ]*$/.test(
+                    val
+                  ) || 'Solo acepta texto y 1 espacio',
                 (val) => (val && val.length > 0) || 'Este campo es requerido',
               ]"
             />
@@ -266,6 +270,7 @@ const update = async () => {
 };
 const validate = async () => {
   const success = await formStatus.value.validate();
+  console.log(" :", success);
   if (success) {
     const response = form.value.id ? await update() : await store();
     if (response.success) {

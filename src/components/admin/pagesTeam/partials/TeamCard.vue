@@ -3,10 +3,7 @@
     <q-item>
       <q-item-section avatar>
         <q-avatar size="60px" class="shadow-10">
-          <img
-            alt="img-profile"
-            src="https://avatars3.githubusercontent.com/u/34883558?s=400&u=09455019882ac53dc69b23df570629fd84d37dd1&v=4"
-          />
+          <img alt="img-profile" :src="`${proces}/images/${data.image}`" />
         </q-avatar>
       </q-item-section>
 
@@ -74,7 +71,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from "vue";
+import { defineProps, defineEmits, onMounted, ref } from "vue";
 
 const props = defineProps({
   data: {
@@ -91,4 +88,8 @@ function deleteIntegrant() {
   console.log("remove");
   emit("removeIntegrant", props.data);
 }
+const proces = ref();
+onMounted(() => {
+  proces.value = process.env.BASE_URL;
+});
 </script>

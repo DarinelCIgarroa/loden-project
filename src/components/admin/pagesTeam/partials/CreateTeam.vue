@@ -5,7 +5,12 @@
         <div class="title">{{ titleDynamic }}</div>
       </q-card-section>
       <q-card-section style="max-height: 50vh" class="scroll">
-        <q-form ref="formTeam" class="q-gutter-md" @reset="onReset">
+        <q-form
+          ref="formTeam"
+          enctype="multipart/form-data"
+          class="q-gutter-md"
+          @reset="onReset"
+        >
           <div class="row col-12">
             <q-input
               v-model="form.name"
@@ -44,12 +49,10 @@
               outlined
               label="Correo electrónico"
               :rules="[
+                (val) => (val && val.length > 0) || 'Este campo es requerido',
                 (val) =>
-                  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(val) ||
-                  'Debe ser un correo electrónico válido',
-                (val) =>
-                  /^.+@.+\..+$/.test(val) ||
-                  'Debe ser un correo electrónico válido',
+                  /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{3,6})$/.test(val) ||
+                  'Solo aceptan tipo correos',
               ]"
             ></q-input>
           </div>
@@ -58,6 +61,7 @@
               v-model="form.phone_number"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
+              mask="### ###  ####"
               label="Número de telefono"
               lazy-rules
               :rules="[
@@ -73,6 +77,10 @@
               style="max-width: 100%"
               :rules="[
                 (val) => (val && val.length > 0) || 'Este campo es requerido',
+                (val) =>
+                  /(?:(?:http|https):\/\/)?(?:www\.)?(?:instagram\.com|instagr\.am)\/([A-Za-z0-9-_\.]+)?/.test(
+                    val
+                  ) || 'Solo aceptan rutas de instagram',
               ]"
             ></q-input>
           </div>
@@ -85,6 +93,10 @@
               lazy-rules
               :rules="[
                 (val) => (val && val.length > 0) || 'Este campo es requerido',
+                (val) =>
+                  /(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/.test(
+                    val
+                  ) || 'Solo aceptan rutas de facebook',
               ]"
             ></q-input>
             <q-input
@@ -98,6 +110,18 @@
                 (val) => (val && val.length > 0) || 'Este campo es requerido',
               ]"
             ></q-input>
+          </div>
+          <div class="row col-12">
+            <q-file
+              v-model="form.image"
+              filled
+              class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
+              accept=".png,.jpge,.jpg, image/*"
+            >
+              <template #prepend>
+                <q-icon name="cloud_upload" />
+              </template>
+            </q-file>
           </div>
           <div class="row col-12">
             <q-input
@@ -163,6 +187,7 @@ const form = ref({
   facebook_link: null,
   intro: null,
   occupation: null,
+  image: [],
 });
 
 const dialogVisible = computed({
