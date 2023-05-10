@@ -3,7 +3,10 @@
     <q-item>
       <q-item-section avatar>
         <q-avatar size="60px" class="shadow-10">
-          <img alt="img-profile" :src="`${proces}/images/${data.image}`" />
+          <img
+            alt="img-profile"
+            :src="`${companyStore.getBaseUrl}/images/${data.image}`"
+          />
         </q-avatar>
       </q-item-section>
 
@@ -71,7 +74,8 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, onMounted, ref } from "vue";
+import { defineProps, defineEmits } from "vue";
+import { useCompanyStore } from "stores/company-store";
 
 const props = defineProps({
   data: {
@@ -88,8 +92,6 @@ function deleteIntegrant() {
   console.log("remove");
   emit("removeIntegrant", props.data);
 }
-const proces = ref();
-onMounted(() => {
-  proces.value = process.env.BASE_URL;
-});
+
+const companyStore = useCompanyStore();
 </script>

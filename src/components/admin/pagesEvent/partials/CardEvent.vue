@@ -1,6 +1,6 @@
 <template>
   <q-card class="">
-    <q-img :src="`${proces}/images/${data.image}`" height="160px">
+    <q-img :src="`${process.getBaseUrl}/images/${data.image}`" height="160px">
       <q-chip></q-chip>
     </q-img>
     <div></div>
@@ -95,8 +95,8 @@
 </template>
 
 <script setup>
-import { defineProps, ref, onMounted } from "vue";
-
+import { defineProps, ref } from "vue";
+import { useCompanyStore } from "stores/company-store";
 const props = defineProps({
   data: {
     type: Object,
@@ -116,10 +116,7 @@ function deleteEvent() {
 const conformationDelet = () => {
   confirmDelete.value = true;
 };
-const proces = ref();
-onMounted(() => {
-  proces.value = process.env.BASE_URL;
-});
+const process = useCompanyStore();
 </script>
 
 <style scoped></style>
