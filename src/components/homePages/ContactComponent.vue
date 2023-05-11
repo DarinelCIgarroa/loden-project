@@ -117,7 +117,7 @@
                       (val) =>
                         /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{3,6})$/.test(
                           val
-                        ) || 'Solo aceptan tipo correos',
+                        ) || 'Correo electrónico no válido',
                     ]"
                   >
                     <template #prepend>
