@@ -1,150 +1,174 @@
 <template>
-  <section id="home">
-    <div class="content">
-      <div id="large-header" class="large-header">
-        <canvas id="demo-canvas"></canvas>
-        <div id="countdown_dashboard" class="home-main container">
-          <div class="row">
-            <div class="logo">
-              <img src="../../statics/images/logo.png" alt="logo" />
-              <p>Lorem Ipsum is simply dummy text</p>
-            </div>
-          </div>
-          <div class="row">
-            <!-- DAYS -->
-            <div
-              class="col-md-3 col-sm-3 col-xs-6 dash-glob"
-              data-scroll-reveal="enter bottom move 25px, after 0.3s"
-            >
-              <div class="dash days_dash">
-                <div class="digit">0</div>
-                <div class="digit">0</div>
-                <span class="dash_title">Days</span>
-              </div>
-            </div>
-            <!-- HOURS -->
-            <div
-              class="col-md-3 col-sm-3 col-xs-6 dash-glob"
-              data-scroll-reveal="enter bottom move 25px, after 0.3s"
-            >
-              <div class="dash hours_dash">
-                <div class="digit">0</div>
-                <div class="digit">0</div>
-                <span class="dash_title">Hours</span>
-              </div>
-            </div>
-            <!-- MINUTES -->
-            <div
-              class="col-md-3 col-sm-3 col-xs-6 dash-glob"
-              data-scroll-reveal="enter bottom move 25px, after 0.3s"
-            >
-              <div class="dash minutes_dash">
-                <div class="digit">0</div>
-                <div class="digit">0</div>
-                <span class="dash_title">Minutes</span>
-              </div>
-            </div>
-            <!-- SECONDS -->
-            <div
-              class="col-md-3 col-sm-3 col-xs-6 dash-glob"
-              data-scroll-reveal="enter bottom move 25px, after 0.3s"
-            >
-              <div class="dash seconds_dash">
-                <div class="digit">0</div>
-                <div class="digit">0</div>
-                <span class="dash_title">Seconds</span>
-              </div>
-            </div>
-          </div>
-          <!-- END ROW -->
+  <q-layout>
+    <q-page-container>
+      <q-page class="row flex flex-center page">
+        <div class="bubbles">
+          <span
+            v-for="(value, index) in duplicatedBubbleCount"
+            :key="index"
+            :style="'--i: ' + value"
+          ></span>
         </div>
-        <!-- END COUNTDOWN -->
-      </div>
-      <!-- LARGE HEADER -->
-    </div>
-    <!-- END CONTENT -->
-  </section>
+        <div class="col-8 container-counter text-center">
+          <div class="col-12 d-flex flex-column">
+            <span
+              class="home-title text-h3 align-self-stretch text-white text-uppercase"
+              >Nombre del evento</span
+            >
+            <div class="q-mt-lg">
+              <div class="row">
+                <!-- DAYS -->
+                <div
+                  class="col-md-3 col-sm-3 col-xs-6 dash-glob"
+                  data-scroll-reveal="enter bottom move 25px, after 0.3s"
+                >
+                  <div class="dash days_dash">
+                    <div class="digit">0</div>
+                    <div class="digit">0</div>
+                    <span class="dash_title">Días</span>
+                  </div>
+                </div>
+                <!-- HOURS -->
+                <div
+                  class="col-md-3 col-sm-3 col-xs-6 dash-glob"
+                  data-scroll-reveal="enter bottom move 25px, after 0.3s"
+                >
+                  <div class="dash hours_dash">
+                    <div class="digit">0</div>
+                    <div class="digit">0</div>
+                    <span class="dash_title">Horas</span>
+                  </div>
+                </div>
+                <!-- MINUTES -->
+                <div
+                  class="col-md-3 col-sm-3 col-xs-6 dash-glob"
+                  data-scroll-reveal="enter bottom move 25px, after 0.3s"
+                >
+                  <div class="dash minutes_dash">
+                    <div class="digit">0</div>
+                    <div class="digit">0</div>
+                    <span class="dash_title">Minutos</span>
+                  </div>
+                </div>
+                <!-- SECONDS -->
+                <div
+                  class="col-md-3 col-sm-3 col-xs-6 dash-glob"
+                  data-scroll-reveal="enter bottom move 25px, after 0.3s"
+                >
+                  <div class="dash seconds_dash">
+                    <div class="digit">0</div>
+                    <div class="digit">0</div>
+                    <span class="dash_title">Segundos</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </q-page>
+      <q-page class="row flex flex-center">
+        <div class="container">
+          <div v-for="(event, index) in events" :key="event.id">
+            <div class="card col-xs-12 col-sm-6 col-md-4 col-lg-2">
+              <div class="box">
+                <div class="content">
+                  <h2>{{ index }}</h2>
+                  <h3>{{ event.name }}</h3>
+                  <p>
+                    {{ event.description }}
+                  </p>
+                  <a><span class="btn-info">Más información</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </q-page>
+    </q-page-container>
+  </q-layout>
 </template>
-<style>
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-family: "Roboto", sans-serif;
-}
-.margin-t-50 {
-  margin-top: 50px;
-}
-.btn-custom {
-  background-color: #000;
-  color: #fff;
-  border-radius: 3px;
-}
-.btn-custom:hover,
-.btn-custom:active,
-.btn-custom:focus {
-  background-color: #3a3939;
-  color: #fff;
-  outline: none;
-}
-.parallax {
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  width: 100%;
-  background-size: cover;
-  background-attachment: fixed;
-}
-.animationload {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fff;
-  z-index: 999999;
-}
-.loader {
-  width: 200px;
-  height: 200px;
-  font-size: 0;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  /* background-image: url(../images/loader.gif); */
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: -100px 0 0 -100px;
-}
-/* -----------------------------------------------------------------------
-   2. HOME / Countdown styles
-------------------------------------------------------------------------- */
-.logo {
-  padding-bottom: 5%;
-}
-.logo p {
-  color: #ffffff;
-  padding-top: 20px;
-  font-style: italic;
-}
-#home .large-header {
-  background-image: url("../../statics/images/pattern.png"),
-    url("../../statics/images/img-1.jpg");
-  background-position: center;
-}
-.home-main {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-  transform: translate3d(-50%, -50%, 0);
-}
-#countdown_dashboard {
-  display: block;
-  margin: 0px auto;
+<script setup>
+import { computed, onMounted, ref, watchEffect } from "vue";
+import * as homeService from "src/services/HomePage/homeService";
+
+onMounted(() => {
+  getEvents();
+});
+const events = ref("");
+
+const bubbleCount = ref([
+  11, 12, 24, 10, 14, 23, 18, 20, 19, 22, 25, 18, 21, 28,
+]);
+const getEvents = async () => {
+  const response = await homeService.getEvents();
+  events.value = response.events;
+};
+
+const duplicatedBubbleCount = computed(() => {
+  const { innerWidth: screenWidth } = window;
+  let numDuplications = 3;
+
+  if (innerWidth < 800) {
+    numDuplications = Math.floor(screenWidth / 100 / 3);
+  }
+  if (innerWidth > 1024) {
+    numDuplications = 5.5;
+  }
+
+  const duplicatedBubbleCount = [...bubbleCount.value];
+  for (let i = 1; i < numDuplications; i++) {
+    duplicatedBubbleCount.push(...bubbleCount.value);
+  }
+
+  return duplicatedBubbleCount;
+});
+
+watchEffect(() => {
+  duplicatedBubbleCount.value;
+});
+</script>
+
+<style scoped>
+.page {
+  position: relative;
   overflow: hidden;
+}
+.bubbles {
+  background-color: rgb(2, 2, 2);
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transform-origin: top left;
+}
+.bubbles span {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background: #4fc3dc;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #3415be, 0 0 100px #4fc3dc;
+  animation: animate 15s linear infinite;
+  animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+  background: #ff2d75;
+  box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+  }
+}
+.container-counter {
+  position: absolute;
+  font-family: "alkatra";
 }
 .dash {
   padding-bottom: 10px;
@@ -170,379 +194,95 @@ body {
   position: relative;
   vertical-align: middle;
 }
-@media (max-height: 360px) {
-  .digit {
-    font-size: 30px;
-    height: 50px;
-    line-height: 50px;
-  }
+.container {
+  /* background-color: #cfcfcf; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+  height: auto;
+  flex-wrap: wrap;
+  padding: 40px 0;
 }
-@media (max-width: 560px) {
-  #countdown_dashboard {
-    min-width: 300px;
-  }
-  .digit {
-    font-size: 30px;
-    height: 60px;
-    line-height: 60px;
-  }
+.container .card {
+  position: relative;
+  width: 320px;
+  height: 440px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
+    inset -5px -5px 5px rgba(255, 255, 255, 0.5),
+    5px 5px 5px rgba(0, 0, 0, 0.05), -5px -5px 5px rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  margin: 30px;
 }
-@media (min-width: 560px) and (max-width: 1024px) {
-  .digit {
-    font-size: 40px;
-    height: 80px;
-    line-height: 80px;
-  }
+.container .card .box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #ebf5fc;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
 }
-/* -----------------------------------------------------------------------
-  3. Newsletter styles
-------------------------------------------------------------------------- */
-.newsletter {
-  padding: 100px 0px;
+.container .card:hover .box {
+  transform: translateY(-50px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, #1c6799, #000000);
 }
-.newsletter h4,
-.newsletter p {
-  margin: 0px;
-}
-.newsletter p {
-  padding: 30px 0px;
-}
-.news-input {
-  border: 3px solid #000;
-  height: 45px;
-  border-right: 0px;
-  color: #000;
-}
-.news-input:focus {
-  background: url("../../statics/images/pattern.png");
-  border: 3px solid #000;
-  border-right: 0px;
-  outline: none;
-  box-shadow: none;
-  color: #fff;
-}
-.news-btn {
-  height: 45px;
-  border: 3px solid #000;
-  font-weight: 700;
-  border-left: 4px solid #000;
-}
-.news-btn:hover {
-  border-left: 3px solid #000;
-}
-.news-text {
-  font-size: 16px;
+.container .card .box .content {
   padding: 20px;
-  color: #333;
-}
-.newsletter .validation {
-  border: 3px solid #ff0000;
-}
-/* -----------------------------------------------------------------------
-   4. Features styles
-------------------------------------------------------------------------- */
-.features {
-  padding: 120px 0px 100px 0px;
-}
-.features h4 {
-  color: #fff;
-}
-#features {
-  background: url("../../statics/images/pattern.png"),
-    url("../../statics/images/img-1.jpg");
-}
-div.open-overlay {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto;
-  -webkit-transition: all 0.6s ease 0s;
-  -moz-transition: all 0.6s ease 0s;
-  transition: all 0.6s ease 0s;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
-  text-align: center;
-  color: #fff;
-  border: solid 3px #fff;
-  border-radius: 3px;
-}
-.open-overlay {
-  font-size: 28px;
-  line-height: 60px;
-  width: 60px;
-  height: 60px;
-  margin-top: -60px;
-  margin-left: -30px;
-}
-.open-overlay i {
-  font-size: 32px;
-  line-height: 70px;
-  z-index: 2;
-  margin: 0 auto;
-  cursor: inherit;
-  -webkit-transition: all 0.6s ease 0s;
-  -moz-transition: all 0.6s ease 0s;
-  transition: all 0.6s ease 0s;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  color: inherit;
-  background: rgba(255, 255, 255, 0);
-}
-.features-box:hover .open-overlay {
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  transform: rotate(0deg);
-  background: rgba(255, 255, 255, 1);
-}
-.features-box:hover .open-overlay i {
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  transform: rotate(0deg);
-  color: #444;
-  font-weight: bold;
-}
-.features-box h4 {
-  padding-top: 30px;
-  text-transform: uppercase;
-}
-.features-box p {
-  color: #bbbbbb;
-  padding-top: 10px;
-  margin-bottom: 0px;
-}
-@media (max-width: 1000px) {
-  .features-box {
-    padding-top: 50px;
-  }
-}
-/*-------------------------------------------------------------------*/
-/*  5.CONTACT
-/*-------------------------------------------------------------------*/
-.contact {
-  text-align: center;
-  padding: 100px 0px;
-}
-.contact h4 {
-  font-size: 22px;
-  line-height: 28px;
-  margin-bottom: 10px;
-  color: #000;
-  text-transform: uppercase;
-}
-.contact p {
-  color: #534f4f;
-  font-size: 16px;
-  margin-bottom: 0px;
-  padding: 10px 0px 30px 0px;
-}
-.contact input {
-  width: 100%;
-  height: 43px;
-  margin-bottom: 20px;
-  line-height: 20px;
-  padding-left: 15px;
-  font-size: 15px;
-  color: #000000;
-}
-.contact .validation {
-  border: 1px solid #ff0000;
-}
-.contact textarea {
-  width: 100%;
-  height: 170px;
-  margin-bottom: 15px;
-  padding: 15px 55px 15px 15px;
-  font-size: 15px;
-  color: #000000;
-  line-height: 28px;
-}
-textarea {
-  resize: none;
-}
-.contact input:focus,
-.contact textarea:focus,
-.contact input:active,
-.contact textarea:active {
-  border: 1px solid #000;
-  outline: none;
-}
-
-.confirm-message {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #000;
-  padding: 10px 0 10px;
-  text-transform: uppercase;
-  display: none;
   text-align: center;
 }
-.line-separate {
-  display: block;
-  margin-bottom: 10px !important;
-  width: 120px;
-  height: 15px;
+.container .card .box .content h2 {
+  position: absolute;
+  top: -20px;
+  right: 30px;
+  font-weight: 500;
+  font-size: 8em;
+  color: rgba(0, 0, 0, 0.02);
+  transition: 0.5s;
+  pointer-events: none;
+}
+.container .card:hover .box .content h2 {
+  color: rgba(224, 217, 217, 0.466);
+}
+.container .card .box .content h3 {
+  font-size: 1.8em;
+  color: #777;
+  z-index: 1;
+  transition: 0.5s;
+}
+.container .card .box .content p {
+  font-size: 1em;
+  font-weight: 300;
+  color: #777;
+  z-index: 1;
+  transition: 0.5s;
+}
+.container .card:hover .box .content h3,
+.container .card:hover .box .content p {
+  color: #fff;
+}
+.container .card .box .content a {
   position: relative;
-  margin: 0 auto;
-}
-.line-white:before,
-.line-white:after {
-  background: #000;
-}
-.line-separate:before {
-  content: "";
-  display: block;
-  position: relative;
-  top: 7px;
-  width: 49px;
-  height: 2px;
-  margin: 0 !important;
-  float: left;
-}
-.line-white span {
-  box-shadow: inset 0px 0px 0px 2px #000;
-}
-.line-separate span {
-  display: block;
-  position: relative;
-  width: 17px;
-  height: 17px;
-  margin: 0 auto;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-}
-.line-separate:after {
-  content: "";
-  display: block;
-  position: relative;
-  top: -10px;
-  width: 49px;
-  height: 2px;
-  margin: 0 !important;
-  float: right;
-}
-.social li {
-  margin: 0px 10px !important;
-}
-li.social-btn {
-  width: 32px;
-  height: 32px;
-  margin: 0 auto;
-  -webkit-transition: all 0.6s ease 0s;
-  -moz-transition: all 0.6s ease 0s;
-  transition: all 0.6s ease 0s;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  text-align: center;
+  display: inline-block;
+  padding: 8px 20px;
+  background: #03a9f4;
+  margin-top: 15px;
+  border-radius: 20px;
   color: #fff;
-  border: solid 1px #000;
+  text-decoration: none;
+  font-weight: 400;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0, 0.2);
 }
-.social-btn {
-  font-size: 16px;
-  line-height: 30px;
-  width: 30px;
-  height: 30px;
-  margin-top: -60px;
-  margin-left: -30px;
+.container .card:hover .box .content a {
+  background: #020202;
 }
-.social-btn a {
-  padding: 10px;
-}
-.social-btn a {
-  font-size: 15px;
-  line-height: 17px;
-  z-index: 2;
-  margin: 0 auto;
-  cursor: inherit;
-  -webkit-transition: all 0.6s ease 0s;
-  -moz-transition: all 0.6s ease 0s;
-  transition: all 0.6s ease 0s;
-  color: inherit;
-  background: rgba(255, 255, 255, 0);
-}
-.social-btn a i {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
-  margin-left: -0.3em;
-  margin-top: -0.1em;
-}
-.social-btn a i:last-of-type {
-  margin-left: -0.5em;
-  margin-top: -0.3em;
-}
-#fb {
-  border: 2px solid #3b5998;
-  color: #3b5998;
-}
-#fb a {
-  color: #3b5998;
-}
-#fb:hover {
-  background-color: #3b5998;
-}
-#fb:hover a {
+.container .card:hover .box .content .btn-info {
   color: #fff;
-}
-#tw {
-  border: 2px solid #00aced;
-  color: #00aced;
-}
-#tw a {
-  color: #00aced;
-}
-#tw:hover {
-  background-color: #00aced;
-}
-#tw:hover a {
-  color: #fff;
-}
-#flk {
-  border: 2px solid #ff0084;
-  color: #ff0084;
-}
-#flk a {
-  color: #ff0084;
-}
-#flk:hover {
-  background-color: #ff0084;
-}
-#flk:hover a {
-  color: #fff;
-}
-#tbl {
-  border: 2px solid #32506d;
-  color: #32506d;
-}
-#tbl a {
-  color: #32506d;
-}
-#tbl:hover {
-  background-color: #32506d;
-}
-#tbl:hover a {
-  color: #fff;
-}
-#pin {
-  border: 2px solid #cb2027;
-}
-#pin a {
-  color: #cb2027;
-}
-#pin:hover {
-  background-color: #cb2027;
-}
-#pin:hover a {
-  color: #fff;
-}
-
-.footer {
-  padding-bottom: 100px;
-}
-.copyright {
-  padding-top: 10px;
 }
 </style>
