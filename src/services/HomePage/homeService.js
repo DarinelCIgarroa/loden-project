@@ -15,3 +15,9 @@ export const getEvents = async () => {
   const res = await axiosInstance.get(url);
   return res.data;
 };
+
+export const getMembers = async () => {
+  const url = `${basePath}/get-members`;
+  const res = await axiosInstance.get(url);
+  return res.data;
+};
