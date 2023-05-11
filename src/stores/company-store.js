@@ -5,6 +5,7 @@ import { notifySuccess, notifyError } from 'src/utils/notify';
 export const useCompanyStore = defineStore('company', {
   state: () => ({
     currentLogo: null,
+    baseUrl: null,
     company: {
       address: null,
       city: null,
@@ -15,12 +16,12 @@ export const useCompanyStore = defineStore('company', {
       phone_number: null,
       state: null,
       zip_code: null
-
     }
   }),
   getters: {
     getStateCompany: (state) => state.company,
-    getStateCurrentLogo: (state) => state.currentLogo
+    getStateCurrentLogo: (state) => state.currentLogo,
+    getBaseUrl: (state) => state.baseUrl,
   },
   actions: {
     async getDataCompany() {
@@ -59,6 +60,9 @@ export const useCompanyStore = defineStore('company', {
       } catch (error) {
         notifyError(error.response.data.message)
       }
+    },
+    setBaseUrl(url) {
+      this.baseUrl = url
     },
   },
   persist: true

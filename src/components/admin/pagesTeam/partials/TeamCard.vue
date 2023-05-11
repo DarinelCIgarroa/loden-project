@@ -5,7 +5,7 @@
         <q-avatar size="60px" class="shadow-10">
           <img
             alt="img-profile"
-            src="https://avatars3.githubusercontent.com/u/34883558?s=400&u=09455019882ac53dc69b23df570629fd84d37dd1&v=4"
+            :src="`${companyStore.getBaseUrl}/images/${data.image}`"
           />
         </q-avatar>
       </q-item-section>
@@ -75,6 +75,7 @@
 
 <script setup>
 import { defineProps, defineEmits } from "vue";
+import { useCompanyStore } from "stores/company-store";
 
 const props = defineProps({
   data: {
@@ -91,4 +92,6 @@ function deleteIntegrant() {
   console.log("remove");
   emit("removeIntegrant", props.data);
 }
+
+const companyStore = useCompanyStore();
 </script>

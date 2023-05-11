@@ -5,9 +5,11 @@ import { ref } from "vue";
 export const useEventStore = defineStore("events", {
   state: () => ({
     events: ref([]),
+    search: ref(""),
   }),
   getters: {
     getListEvents: (state) => state.events,
+    getSearch: (state) => state.search,
   },
   actions: {
     getEvents(payload) {
@@ -51,11 +53,6 @@ export const useEventStore = defineStore("events", {
       } catch (error) {
         notifyError()
       }
-    },
-    async search(payload) {
-      const response = await eventEvent.search(payload);
-      let fillter = this.events.indexOf(response)
-      console.log(fillter);
     },
     setListEvents(payload) {
       this.events = payload;

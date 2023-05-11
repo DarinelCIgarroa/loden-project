@@ -17,7 +17,11 @@ export const useTeamStore = defineStore('team', {
         notifySuccess(response.message)
         return response
       } catch (error) {
-        notifyError(error.response.data.message)
+        Object.keys(error.response.data.errors).forEach((key) => {
+          error.response.data.errors[key].forEach((errorMessage) => {
+            notifyError(errorMessage);
+          });
+        });
       }
     },
     async update(payload, id) {
@@ -28,7 +32,11 @@ export const useTeamStore = defineStore('team', {
         notifySuccess(response.message)
         return response
       } catch (error) {
-        notifyError(error.response.data.message)
+        for (const key in error.response.data.errors) {
+          error.response.data.errors[key].forEach((errorMessage) => {
+            notifyError(errorMessage);
+          });
+        }
       }
     },
     async delete(idIntegrant) {
