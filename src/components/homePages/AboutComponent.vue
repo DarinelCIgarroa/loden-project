@@ -168,14 +168,22 @@
 </script>
 
 <style scoped>
+.q-layout {
+  min-height: auto !important;
+  background-color: rgb(9, 147, 156);
+  margin-top: 25px;
+  padding: 20px;
+}
 .page {
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 10px;
+  background-color: rgb(114, 23, 199);
 }
 .my-card {
-  width: 1400px;
+  background-color: rgb(30, 39, 170);
+  width: 1250px;
   background-size: cover;
   background-position: center;
+  /* padding: 20px; */
 }
 .counts {
   padding-top: 0;

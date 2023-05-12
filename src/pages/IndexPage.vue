@@ -51,7 +51,7 @@ let observer = null;
 onMounted(() => {
   storeCompany.getDataHomeCompany();
   observer = new IntersectionObserver(onIntersection, {
-    threshold: [0.6, 0.6, 0.6, 0.6, 0.6],
+    threshold: [0.6, 0.6, 0.6, 0.6],
     rootMargin: "0px 0px 0px 0px",
   });
   observer.observe(sectionHome.value);

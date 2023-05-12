@@ -1,59 +1,64 @@
 <template>
-  <q-page-container class="page flex flex-center">
-    <q-card flat bordered class="my-card row col-12 no-border justify-center">
-      <q-card-section class="text-center col-12 section-title">
-        <div class="text-h3">Equipo</div>
-      </q-card-section>
-      <q-card-section
-        v-for="member in members"
-        :key="member.id"
-        class="row col-xs-12 col-sm-6 col-md-4 q-gutter-md"
+  <q-layout>
+    <q-page-container class="flex flex-center page">
+      <q-card
+        flat
+        bordered
+        class="my-card row col-12 no-border flex flex-center"
       >
-        <q-card
-          class="hove-content my-card shadow-9 shadow-up-6 max-w-sm"
-          flat
-          bordered
+        <q-card-section class="text-center col-12 section-title">
+          <div class="text-h3">Equipo</div>
+        </q-card-section>
+        <q-card-section
+          class="row col-12 flex flex-center q-gutter-md content-card"
         >
-          <q-img src="../../statics/images/team-1.jpg">
-            <div class="social">
-              <div class="q-pa-md q-gutter-sm">
-                <q-btn
-                  round
-                  push
-                  :href="member.instagram_link"
-                  style="--fa-secondary-opacity: 0.6; background-color: beige"
-                  target="_blank"
-                >
-                  <i class="fa-brands fa-instagram insta fa-bounce"></i>
-                </q-btn>
-                <q-btn
-                  round
-                  push
-                  glossy
-                  class="face"
-                  :href="member.facebook_link"
-                  target="_blank"
-                  ><i class="fa-brands fa-facebook-f fa-lg"></i
-                ></q-btn>
-                <!-- <q-btn round push glossy class="twitt"
-                  ><i class="fa-brands fa-twitter fa-lg"></i>
-                </q-btn> -->
+          <q-card
+            v-for="member in members"
+            :key="member.id"
+            class="hove-content shadow-9 shadow-up-6 max-w-sm col-xs-12 col-sm-5 col-md-4"
+            flat
+            bordered
+          >
+            <q-img src="../../statics/images/team-1.jpg">
+              <div class="social">
+                <div class="q-pa-md q-gutter-sm">
+                  <q-btn
+                    round
+                    push
+                    :href="member.instagram_link"
+                    style="--fa-secondary-opacity: 0.6; background-color: beige"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-instagram insta fa-bounce"></i>
+                  </q-btn>
+                  <q-btn
+                    round
+                    push
+                    glossy
+                    class="face"
+                    :href="member.facebook_link"
+                    target="_blank"
+                    ><i class="fa-brands fa-facebook-f fa-lg"></i
+                  ></q-btn>
+                </div>
               </div>
-            </div>
-          </q-img>
-          <q-card-section>
-            <div class="text-h5 q-mt-sm q-mb-xs text-center">
-              {{ member.name }}
-            </div>
-            <div class="text-caption text-grey text-justify text-center">
-              {{ member.intro }}
-            </div>
-          </q-card-section>
-        </q-card>
-      </q-card-section>
-    </q-card>
-  </q-page-container>
+            </q-img>
+            <q-card-section>
+              <div class="text-h5 q-mt-sm q-mb-xs text-center">
+                {{ member.name }}
+              </div>
+              <div class="text-caption text-grey text-justify text-center">
+                {{ member.intro }}
+              </div>
+            </q-card-section>
+          </q-card>
+        </q-card-section>
+      </q-card>
+    </q-page-container>
+  </q-layout>
 </template>
+
+
 <script setup>
 import * as homeService from "src/services/HomePage/homeService";
 
@@ -69,17 +74,25 @@ const getMembers = async () => {
 };
 </script>
 <style scoped>
+.q-layout {
+  min-height: auto !important;
+  background-color: rgb(9, 147, 156);
+  margin-top: 25px;
+  padding: 20px;
+}
 .page {
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 10px;
+  background-color: rgb(114, 23, 199);
 }
 .my-card {
-  width: 1400px;
+  background-color: springgreen;
+  width: 1250px;
   background-size: cover;
   background-position: center;
+  /* padding: 20px; */
 }
+
 .social {
-  position: absolute;
   left: 0;
   bottom: 0px;
   right: 0;
@@ -91,7 +104,6 @@ const getMembers = async () => {
   justify-content: center;
   align-items: center;
 }
-
 .link {
   background-color: #0e76a8;
   color: #ffffff;

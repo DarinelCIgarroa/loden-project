@@ -1,176 +1,192 @@
 <template>
-  <q-page-container class="page flex flex-center">
-    <q-card flat bordered class="my-card row col-12 no-border justify-center">
-      <q-card-section class="text-center col-12 section-title">
-        <span class="text-h3">NUESTROS EVENTOS</span>
-      </q-card-section>
-      <q-card-section class="row col-12 section-online">
-        <div class="col-xs-12 col-sm-12 col-md-6">
-          <q-parallax
-            class="img-online"
-            src="https://cdn.quasar.dev/img/parallax2.jpg"
-          >
-          </q-parallax>
-        </div>
+  <q-layout>
+    <q-page-container class="page flex flex-center">
+      <q-card flat bordered class="my-card row col-12 no-border justify-center">
+        <q-card-section class="text-center col-12 section-title">
+          <span class="text-h3">NUESTROS EVENTOS</span>
+        </q-card-section>
+        <q-card-section class="row col-12 section-online">
+          <div class="col-xs-12 col-sm-12 col-md-6">
+            <q-parallax
+              class="img-online"
+              src="https://cdn.quasar.dev/img/parallax2.jpg"
+            >
+            </q-parallax>
+          </div>
 
-        <div class="events-content col-xs-12 col-sm-12 col-md-6">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="text-center text-weight-bolder" style="font-size: 17px">
-              <span
-                >Voluptatem dignissimos provident quasi corporis voluptates sit
-                assumenda.</span
+          <div class="events-content col-xs-12 col-sm-12 col-md-6">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div
+                class="text-center text-weight-bolder"
+                style="font-size: 17px"
               >
+                <span
+                  >Voluptatem dignissimos provident quasi corporis voluptates
+                  sit assumenda.</span
+                >
+              </div>
+              <br />
+              <div class="text-center content-text">
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </span>
+              </div>
             </div>
-            <br />
-            <div class="text-center content-text">
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
+            <div
+              class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
+            >
+              <div class="col-2 flex flex-center content-icon">
+                <q-avatar
+                  size="60px"
+                  font-size="40px"
+                  color="primary"
+                  text-color="white"
+                  icon="directions"
+                ></q-avatar>
+              </div>
+              <div class="row column col-10 content-text">
+                <span class="text-weight-bold content-title">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+              </div>
+              <div class="content-icon col-2 flex flex-center">
+                <q-avatar
+                  size="60px"
+                  font-size="40px"
+                  color="primary"
+                  text-color="white"
+                  icon="directions"
+                ></q-avatar>
+              </div>
+              <div class="content-text row column col-10">
+                <span class="text-weight-bold content-title">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+              </div>
+              <div class="col-12 text-center q-mt-md" style="font-size: 18px">
+                <q-btn
+                  to="/events/online"
+                  rounded
+                  color="primary"
+                  size="size"
+                  label="Ir a los eventos"
+                ></q-btn>
+              </div>
             </div>
           </div>
-          <div
-            class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
-          >
-            <div class="col-2 flex flex-center content-icon">
-              <q-avatar
-                size="60px"
-                font-size="40px"
-                color="primary"
-                text-color="white"
-                icon="directions"
-              ></q-avatar>
-            </div>
-            <div class="row column col-10 content-text">
-              <span class="text-weight-bold content-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-            </div>
-            <div class="content-icon col-2 flex flex-center">
-              <q-avatar
-                size="60px"
-                font-size="40px"
-                color="primary"
-                text-color="white"
-                icon="directions"
-              ></q-avatar>
-            </div>
-            <div class="content-text row column col-10">
-              <span class="text-weight-bold content-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-            </div>
-            <div class="col-12 text-center q-mt-md" style="font-size: 18px">
-              <q-btn
-                to="/events/online"
-                rounded
-                color="primary"
-                size="size"
-                label="Ir a los eventos"
-              ></q-btn>
-            </div>
+        </q-card-section>
+        <q-card-section class="row col-12 section-in-person">
+          <div class="col-xs-12 col-sm-12 col-md-6">
+            <q-parallax
+              class="img-online"
+              src="https://cdn.quasar.dev/img/parallax2.jpg"
+            >
+            </q-parallax>
           </div>
-        </div>
-      </q-card-section>
-      <q-card-section class="row col-12 section-in-person">
-        <div class="col-xs-12 col-sm-12 col-md-6">
-          <q-parallax
-            class="img-online"
-            src="https://cdn.quasar.dev/img/parallax2.jpg"
-          >
-          </q-parallax>
-        </div>
 
-        <div class="events-content col-xs-12 col-sm-12 col-md-6">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="text-center text-weight-bolder" style="font-size: 17px">
-              <span
-                >Voluptatem dignissimos provident quasi corporis voluptates sit
-                assumenda.</span
+          <div class="events-content col-xs-12 col-sm-12 col-md-6">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div
+                class="text-center text-weight-bolder"
+                style="font-size: 17px"
               >
+                <span
+                  >Voluptatem dignissimos provident quasi corporis voluptates
+                  sit assumenda.</span
+                >
+              </div>
+              <br />
+              <div class="text-center content-text">
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </span>
+              </div>
             </div>
-            <br />
-            <div class="text-center content-text">
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
+            <div
+              class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
+            >
+              <div class="col-2 flex flex-center content-icon">
+                <q-avatar
+                  size="60px"
+                  font-size="40px"
+                  color="primary"
+                  text-color="white"
+                  icon="directions"
+                ></q-avatar>
+              </div>
+              <div class="row column col-10 content-text">
+                <span class="text-weight-bold content-title">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+              </div>
+              <div class="content-icon col-2 flex flex-center">
+                <q-avatar
+                  size="60px"
+                  font-size="40px"
+                  color="primary"
+                  text-color="white"
+                  icon="directions"
+                ></q-avatar>
+              </div>
+              <div class="content-text row column col-10">
+                <span class="text-weight-bold content-title">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                  doloremqu
+                </span>
+              </div>
+              <div class="col-12 text-center" style="font-size: 18px">
+                <q-btn
+                  rounded
+                  color="primary"
+                  size="size"
+                  label="Ir a los eventos"
+                ></q-btn>
+              </div>
             </div>
           </div>
-          <div
-            class="event-info row justify-start q-mt-md col-xs-12 col-sm-12 col-md-6"
-          >
-            <div class="col-2 flex flex-center content-icon">
-              <q-avatar
-                size="60px"
-                font-size="40px"
-                color="primary"
-                text-color="white"
-                icon="directions"
-              ></q-avatar>
-            </div>
-            <div class="row column col-10 content-text">
-              <span class="text-weight-bold content-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-            </div>
-            <div class="content-icon col-2 flex flex-center">
-              <q-avatar
-                size="60px"
-                font-size="40px"
-                color="primary"
-                text-color="white"
-                icon="directions"
-              ></q-avatar>
-            </div>
-            <div class="content-text row column col-10">
-              <span class="text-weight-bold content-title">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-              <span>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-                doloremqu
-              </span>
-            </div>
-            <div class="col-12 text-center" style="font-size: 18px">
-              <q-btn
-                rounded
-                color="primary"
-                size="size"
-                label="Ir a los eventos"
-              ></q-btn>
-            </div>
-          </div>
-        </div>
-      </q-card-section>
-    </q-card>
-  </q-page-container>
+        </q-card-section>
+      </q-card>
+    </q-page-container>
+  </q-layout>
 </template>
 <script setup>
 </script>
 
 <style scoped>
+.q-layout {
+  /* min-height: auto !important; */
+  background-color: yellow;
+  /* max-height: 100%; */
+  margin-top: 25px;
+  padding: 20px;
+}
 .page {
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 10px;
+  background-color: red;
 }
 .my-card {
+  background-color: springgreen;
   width: 1250px;
   background-size: cover;
   background-position: center;

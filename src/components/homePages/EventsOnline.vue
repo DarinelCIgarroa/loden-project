@@ -129,10 +129,6 @@ watchEffect(() => {
 </script>
 
 <style scoped>
-.page {
-  position: relative;
-  overflow: hidden;
-}
 .bubbles {
   background-color: rgb(2, 2, 2);
   position: absolute;

@@ -1,7 +1,7 @@
 <template>
-  <q-page-container class="page flex flex-center">
-    <q-card flat bordered class="my-card row col-12 no-border justify-center">
-      <q-form @reset="clearForm">
+  <q-layout>
+    <q-page-container class="flex flex-center">
+      <q-card flat bordered>
         <q-card-section class="text-center col-12 section-title">
           <div class="text-h3">Contacto</div>
         </q-card-section>
@@ -64,10 +64,10 @@
                 </li>
               </ul>
             </div>
-            <div class="contact-form">
+            <div class="row col-12 contact-form">
               <h2>Enviar un mensaje</h2>
-              <div class="form-box">
-                <div class="input-box w50">
+              <div class="row col-12 form-box">
+                <div class="col-xs-12 col-sm-6 col-md-4 input-box w50">
                   <q-input
                     v-model="form.full_name"
                     class="input"
@@ -90,7 +90,7 @@
                     </template>
                   </q-input>
                 </div>
-                <div class="input-box w50">
+                <div class="col-xs-12 col-sm-6 col-md-4 input-box w50">
                   <q-input
                     v-model="form.phone_number"
                     class="input"
@@ -106,7 +106,7 @@
                     </template>
                   </q-input>
                 </div>
-                <div class="input-box w50">
+                <div class="col-xs-12 col-sm-6 col-md-4 input-box w50">
                   <q-input
                     v-model="form.mail"
                     class="input"
@@ -128,7 +128,7 @@
                     </template>
                   </q-input>
                 </div>
-                <div class="input-box w50">
+                <div class="col-xs-12 col-sm-6 col-md-4 input-box w50">
                   <q-select
                     v-model="form.eventId"
                     label="Evento de interes"
@@ -142,7 +142,7 @@
                     clearable
                   />
                 </div>
-                <div class="input-box w100">
+                <div class="col-xs-12 col-sm-6 col-md-4 input-box w100">
                   <q-input
                     v-model="form.message"
                     filled
@@ -159,7 +159,7 @@
                     label="Envía un mensaje"
                   ></q-input>
                 </div>
-                <div class="input-box w100">
+                <div class="col-xs-12 col-sm-6 col-md-4 input-box w100">
                   <q-btn
                     class="submit"
                     unelevated
@@ -174,9 +174,9 @@
             </div>
           </div>
         </q-card-section>
-      </q-form>
-    </q-card>
-  </q-page-container>
+      </q-card>
+    </q-page-container>
+  </q-layout>
 </template>
 <script setup>
 import { reactive, ref, onMounted } from "vue";
@@ -233,14 +233,22 @@ const allEvents = async () => {
 </script>
 
 <style scoped>
+.q-layout {
+  min-height: auto !important;
+  background-color: rgb(9, 147, 156);
+  margin-top: 25px;
+  padding: 20px;
+}
 .page {
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 10px;
+  background-color: rgb(114, 23, 199);
 }
 .my-card {
-  width: 1400px;
+  background-color: rgb(30, 39, 170);
+  width: 1250px;
   background-size: cover;
   background-position: center;
+  /* padding: 20px; */
 }
 .section {
   display: flex;
@@ -446,8 +454,9 @@ const allEvents = async () => {
 
     .container .contact-info {
       top: 0;
-      height: 500px;
+      height: 0px !important;
       position: relative;
+      height: 750px;
       box-shadow: none;
     }
 
@@ -456,8 +465,8 @@ const allEvents = async () => {
       width: calc(100% - 350xp);
       padding-left: 0;
       margin-left: 0;
-      padding: 40px;
-      height: 550px;
+      padding: 30px;
+      height: 750px;
       box-shadow: none;
     }
   }
@@ -475,7 +484,7 @@ const allEvents = async () => {
 
     .container .contact-form {
       width: 100%;
-      height: auto;
+      /* height: auto; */
     }
 
     .container .contact-info {
@@ -493,6 +502,12 @@ const allEvents = async () => {
   }
 
   @media (max-width: 600px) {
+    .container {
+      background-color: red;
+      position: relative;
+      /* width: 300px; */
+      /* height: 0px; */
+    }
     .container .contact-form {
       padding: 25px;
     }

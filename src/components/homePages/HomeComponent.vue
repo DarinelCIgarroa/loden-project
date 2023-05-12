@@ -2,7 +2,6 @@
   <q-layout>
     <q-page-container>
       <q-page class="flex flex-center page">
-        <div id="particles-js"></div>
         <div class="container text-center">
           <div class="col-12 d-flex flex-column">
             <span class="home-title text-h2 align-self-stretch text-white">
@@ -49,15 +48,6 @@
   background-position: center;
   opacity: 0.8;
 }
-/* #particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-} */
-
 .normal_gradient {
   background: linear-gradient(145deg, rgba(66, 66, 66, 0.767) 15%, #3498db 80%);
 }
