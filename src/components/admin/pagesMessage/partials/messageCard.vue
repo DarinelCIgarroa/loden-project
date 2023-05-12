@@ -32,7 +32,7 @@
                   <span
                     class="text-overline text-uppercase q-pl-xs"
                     style="font-size: 15px"
-                    >{{ data.event.name }}</span
+                    >{{ data.event.title }}</span
                   ></span
                 >
                 <span style="font-size: 17px"

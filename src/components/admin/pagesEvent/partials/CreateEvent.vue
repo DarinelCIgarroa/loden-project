@@ -13,7 +13,7 @@
         >
           <div class="row col-12">
             <q-input
-              v-model="form.name"
+              v-model="form.title"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
               label="Nombre"
@@ -225,7 +225,7 @@ onMounted(() => {
   }
 });
 const form = ref({
-  name: null, //
+  title: null, //
   description: null,
   start_date: null, //
   end_date: null, //

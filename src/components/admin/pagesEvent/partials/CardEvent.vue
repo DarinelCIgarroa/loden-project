@@ -17,7 +17,7 @@
 
     <q-card-section>
       <div class="text-h6">
-        {{ data.name }}
+        {{ data.title }}
       </div>
       <div
         class="col-5 print-hide text-subtitle1 text-justify q-mt-sm ellipsis"
@@ -60,7 +60,7 @@
           icon="fa-solid fa-trash"
           class="bg-negative text-white q-mx-xs"
           @click="
-            conformationDelet();
+            conformationDelete();
             eventId = data.id;
           "
         />
@@ -107,13 +107,12 @@ const eventId = ref(null);
 const confirmDelete = ref(null);
 const emit = defineEmits(["updateEvent", "removeEvent"]);
 function updateEvent() {
-  ///console.log("ediatr", props.data);
   emit("updateEvent", props.data);
 }
 function deleteEvent() {
   emit("removeEvent", props.data);
 }
-const conformationDelet = () => {
+const conformationDelete = () => {
   confirmDelete.value = true;
 };
 const process = useCompanyStore();
