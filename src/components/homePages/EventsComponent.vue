@@ -175,18 +175,13 @@
 
 <style scoped>
 .q-layout {
-  /* min-height: auto !important; */
-  background-color: yellow;
-  /* max-height: 100%; */
-  margin-top: 25px;
+  /* margin-top: 25px; */
   padding: 20px;
 }
 .page {
   padding: 10px;
-  background-color: red;
 }
 .my-card {
-  background-color: springgreen;
   width: 1250px;
   background-size: cover;
   background-position: center;

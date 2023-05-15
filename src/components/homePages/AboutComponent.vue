@@ -115,8 +115,18 @@
         <q-card-section
           class="row flex-center text-center col-lg-6 col-md-6 col-sm-12 col-xs-12 advantages"
         >
-          <div class="col-6 count-box advantages-info">
-            <div>
+          <div class="col-lg-6 col-md-12 col-sm-12 count-box advantages-info">
+            <div class="col-lg-6 col-md-12 col-sm-12 info-icon">
+              <q-icon class="icon" color="primary" name="far fa-smile-beam" />
+              <span>65</span>
+            </div>
+            <p>
+              <strong>Happy Clients</strong> consequuntur voluptas nostrum
+              aliquid ipsam architecto ut.
+            </p>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 count-box advantages-info">
+            <div class="col-lg-6 col-md-12 col-sm-12 info-icon">
               <q-icon class="icon" color="primary" name="far fa-smile-beam" />
               <span class="q-ml-md">65</span>
             </div>
@@ -125,9 +135,9 @@
               aliquid ipsam architecto ut.
             </p>
           </div>
-          <div class="col-6 count-box advantages-info">
-            <div>
-              <q-icon class="icon" color="primary" name="fa-regular fa-file" />
+          <div class="col-lg-6 col-md-12 col-sm-12 count-box advantages-info">
+            <div class="col-lg-6 col-md-12 col-sm-12 info-icon">
+              <q-icon class="icon" color="primary" name="far fa-smile-beam" />
               <span class="q-ml-md">65</span>
             </div>
             <p>
@@ -135,23 +145,9 @@
               aliquid ipsam architecto ut.
             </p>
           </div>
-          <div class="col-6 count-box advantages-info">
-            <div>
-              <q-icon class="icon" color="primary" name="fa-regular fa-clock" />
-              <span class="q-ml-md">65</span>
-            </div>
-            <p>
-              <strong>Happy Clients</strong> consequuntur voluptas nostrum
-              aliquid ipsam architecto ut.
-            </p>
-          </div>
-          <div class="col-6 count-box advantages-info">
-            <div>
-              <q-icon
-                class="icon"
-                color="primary"
-                name="fa-regular fa-chess-queen"
-              />
+          <div class="col-lg-6 col-md-12 col-sm-12 count-box advantages-info">
+            <div class="col-lg-6 col-md-12 col-sm-12 info-icon">
+              <q-icon class="icon" color="primary" name="far fa-smile-beam" />
               <span class="q-ml-md">65</span>
             </div>
             <p>
@@ -170,20 +166,16 @@
 <style scoped>
 .q-layout {
   min-height: auto !important;
-  background-color: rgb(9, 147, 156);
   margin-top: 25px;
   padding: 20px;
 }
 .page {
   padding: 10px;
-  background-color: rgb(114, 23, 199);
 }
 .my-card {
-  background-color: rgb(30, 39, 170);
   width: 1250px;
   background-size: cover;
   background-position: center;
-  /* padding: 20px; */
 }
 .counts {
   padding-top: 0;
@@ -195,14 +187,12 @@
   padding: 20px 0;
   width: 100%;
 }
-
 .count-box .icon {
   display: block;
   font-size: 36px;
   float: left;
   line-height: 0;
 }
-
 .count-box span {
   font-size: 36px;
   line-height: 30px;
@@ -211,7 +201,6 @@
   color: #222222;
   margin-left: 50px;
 }
-
 .count-box p {
   padding: 15px 0 0 0;
   margin: 0 0 0 50px;
@@ -219,21 +208,31 @@
   font-size: 15px;
   color: #484848;
 }
-
 .marked-advantages span {
   font-size: 18px;
 }
 .list span {
   font-size: 20px;
 }
+.info-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
 
 @media (min-width: 64px) and (max-width: 600px) {
   .list span {
     font-size: 18px;
   }
-
   .img-content {
     display: none;
+  }
+  .count-box span {
+    margin-left: 15px;
+  }
+  .count-box p {
+    margin: 0;
   }
 }
 </style>
