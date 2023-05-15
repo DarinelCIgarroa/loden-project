@@ -166,7 +166,7 @@
                     map-options
                     emit-value
                     option-value="id"
-                    option-label="name"
+                    option-label="title"
                     :options="options"
                     clearable
                   />
@@ -211,16 +211,13 @@
 </template>
 <script setup>
 import { reactive, ref, onMounted } from "vue";
-import { event } from "stores/event";
 import * as serviceEmail from "src/services/HomePage/emailServices.js";
-import * as serviceEvent from "src/services/HomePage/eventService.js";
+import * as homeService from "src/services/HomePage/homeService";
 import { notifySuccess, notifyError } from "src/utils/notify.js";
 const options = ref([]);
 onMounted(() => {
-  getEvents();
-  allEvents();
+  getAllEvents();
 });
-const newEvents = event();
 
 const form = reactive({
   full_name: null,
@@ -247,19 +244,16 @@ const submit = async () => {
   }
 };
 const clearForm = () => {
-  form.full_name = "";
-  form.phone_number = "";
-  form.mail = "";
-  form.event_id = "";
-  form.message = "";
+  form.full_name = null;
+  form.phone_number = null;
+  form.mail = null;
+  form.event_id = null;
+  form.message = null;
 };
-const getEvents = async () => {
-  const response = await serviceEvent.getEvent();
+const getAllEvents = async () => {
+  const response = await homeService.getAllEvents();
+  console.log("response", response.events);
   options.value = response.events;
-};
-const allEvents = async () => {
-  const value = await serviceEvent.getEvents();
-  newEvents.setevents(value);
 };
 </script>
 
@@ -395,21 +389,12 @@ const allEvents = async () => {
 }
 @media (min-width: 991px) {
   .container {
-    background-color: #ffffff;
-    position: relative;
     width: 900px !important;
-    min-height: 550px;
-    display: flex;
   }
-  .contact-info {
-    position: absolute;
-    top: 40px;
-    width: 320px;
-    /* margin-left: -15px; */
-    height: calc(100% - 80px) !important;
-    background: #1c6799;
-    z-index: 1;
-    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+@media (min-width: 1200px) {
+  .container {
+    min-width: 1250px !important;
   }
 }
 </style>

@@ -16,8 +16,3 @@ export const getEvent = async () => {
   return res.data;
 };
 
-export const getEvents = async () => {
-  const url = `${basePath}/get-events`;
-  const res = await axiosInstance.get(url);
-  return res.data;
-};
