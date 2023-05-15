@@ -1,77 +1,107 @@
 <template>
   <q-layout>
     <q-page-container class="flex flex-center">
-      <q-card flat bordered>
+      <q-card flat>
         <q-card-section class="text-center col-12 section-title">
           <div class="text-h3">Contacto</div>
         </q-card-section>
-        <q-card-section class="section">
-          <div class="container">
-            <div class="contact-info">
-              <div>
-                <h2>Infomación de contacto</h2>
-                <ul class="info">
-                  <li>
-                    <span
-                      ><q-icon size="md" class="img" name="face"></q-icon
-                    ></span>
-                    <span>Ciudad de México, 12312, 1231</span>
-                  </li>
-                  <li>
-                    <span
-                      ><q-icon size="md" class="img" name="mail"></q-icon
-                    ></span>
-                    <span>loden@gmail.com</span>
-                  </li>
-                  <li>
-                    <span
-                      ><q-icon size="md" class="img" name="call"></q-icon
-                    ></span>
-                    <span>9612365046</span>
-                  </li>
-                </ul>
-              </div>
-              <ul class="sci">
-                <li>
-                  <a href="#"
-                    ><q-icon
-                      color="white"
-                      class="img"
-                      size="xl"
-                      name="fa-brands fa-facebook"
-                    ></q-icon
-                  ></a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><q-icon
-                      color="white"
-                      class="img"
-                      size="xl"
-                      name="fa-brands fa-instagram"
-                    ></q-icon
-                  ></a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><q-icon
-                      color="white"
-                      class="img"
-                      size="xl"
-                      name="fa-brands fa-twitter"
-                    ></q-icon
-                  ></a>
-                </li>
-              </ul>
+        <q-card-section class="row col-12 container">
+          <div
+            class="col-xs-12 col-sm-12 col-md-6 q-pa-md contact-info"
+            color="primary"
+          >
+            <h3 class="text-white">Infomación de contacto</h3>
+            <q-list class="flex flex-center">
+              <q-item class="q-my-sm">
+                <q-icon
+                  name="fa-solid fa-location-dot"
+                  color="white"
+                  size="3em"
+                ></q-icon>
+                <q-item-section>
+                  <q-item-label class="label-info text-white q-ml-md"
+                    >Fraccionamiento las flores calle orquidea Manzana 9, lote
+                    8</q-item-label
+                  >
+                  <q-item-label
+                    class="text-white"
+                    style="font-size: 14px"
+                    caption
+                    lines="1"
+                    >Direccion</q-item-label
+                  >
+                </q-item-section>
+              </q-item>
+              <q-item class="q-my-sm">
+                <q-icon
+                  name="fa-solid fa-envelope"
+                  color="white"
+                  size="3em"
+                ></q-icon>
+                <q-item-section>
+                  <q-item-label class="label-info text-white q-ml-md"
+                    >Fraccionamiento las flores calle orquidea Manzana 9, lote
+                    8</q-item-label
+                  >
+                  <q-item-label
+                    class="text-white"
+                    style="font-size: 14px"
+                    caption
+                    lines="1"
+                    >Direccion</q-item-label
+                  >
+                </q-item-section>
+              </q-item>
+              <q-item class="q-my-sm">
+                <q-icon
+                  name="fa-solid fa-phone"
+                  color="white"
+                  size="3em"
+                ></q-icon>
+                <q-item-section>
+                  <q-item-label class="label-info text-white q-ml-md"
+                    >Fraccionamiento las flores calle orquidea Manzana 9, lote
+                    8</q-item-label
+                  >
+                  <q-item-label
+                    class="text-white"
+                    style="font-size: 14px"
+                    caption
+                    lines="1"
+                    >Direccion</q-item-label
+                  >
+                </q-item-section>
+              </q-item>
+            </q-list>
+            <div class="q-gutter-x-sm q-my-xl">
+              <q-icon
+                class="q-mx-md"
+                name="fa-brands fa-facebook"
+                color="white"
+                size="3.5em"
+              ></q-icon>
+              <q-icon
+                class="q-mx-md"
+                name="fa-brands fa-instagram"
+                color="white"
+                size="3.5em"
+              ></q-icon>
+              <q-icon
+                class="q-mx-md"
+                name="fa-brands fa-twitter"
+                color="white"
+                size="3.5em"
+              ></q-icon>
             </div>
-            <div class="row col-12 contact-form">
-              <h2>Enviar un mensaje</h2>
-              <div class="row col-12 form-box">
-                <div class="col-xs-12 col-sm-6 col-md-4 input-box w50">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 contact-form">
+            <h2>Enviar un mensaje</h2>
+            <div class="row col-12 form-box">
+              <div class="content-form">
+                <div class="col-xs-12 col-sm-12 col-md-12 input-box w50">
                   <q-input
                     v-model="form.full_name"
                     class="input"
-                    outlined
                     label="Nombre completo"
                     :rules="[
                       (val) =>
@@ -90,7 +120,7 @@
                     </template>
                   </q-input>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 input-box w50">
+                <div class="col-xs-12 col-sm-12 col-md-12 input-box w50">
                   <q-input
                     v-model="form.phone_number"
                     class="input"
@@ -106,7 +136,7 @@
                     </template>
                   </q-input>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 input-box w50">
+                <div class="col-xs-12 col-sm-12 col-md-12 input-box w50">
                   <q-input
                     v-model="form.mail"
                     class="input"
@@ -128,12 +158,11 @@
                     </template>
                   </q-input>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 input-box w50">
+                <div class="col-xs-12 col-sm-12 col-md-12 input-box w50">
                   <q-select
                     v-model="form.eventId"
                     label="Evento de interes"
                     :rules="[(val) => !!val || 'Este campo es requerido']"
-                    outlined
                     map-options
                     emit-value
                     option-value="id"
@@ -142,7 +171,7 @@
                     clearable
                   />
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 input-box w100">
+                <div class="col-xs-12 col-sm-12 col-md-12 input-box w100">
                   <q-input
                     v-model="form.message"
                     filled
@@ -159,17 +188,19 @@
                     label="Envía un mensaje"
                   ></q-input>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 input-box w100">
-                  <q-btn
-                    class="submit"
-                    unelevated
-                    rounded
-                    type="submit"
-                    color="primary"
-                    label="Enviar"
-                    @click="submit"
-                  ></q-btn>
-                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <q-btn
+                  style="min-width: 150px"
+                  class="submit"
+                  unelevated
+                  rounded
+                  type="submit"
+                  color="primary"
+                  label="Enviar"
+                  size="md"
+                  @click="submit"
+                ></q-btn>
               </div>
             </div>
           </div>
@@ -235,296 +266,128 @@ const allEvents = async () => {
 <style scoped>
 .q-layout {
   min-height: auto !important;
-  background-color: rgb(9, 147, 156);
-  margin-top: 25px;
   padding: 20px;
 }
 .page {
   padding: 10px;
-  background-color: rgb(114, 23, 199);
 }
 .my-card {
-  background-color: rgb(30, 39, 170);
   width: 1250px;
   background-size: cover;
   background-position: center;
-  /* padding: 20px; */
 }
-.section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-}
-
 .container {
+  background-color: #ffffff;
   position: relative;
-  min-width: 1400px;
-  height: 720px;
+  width: 1250px;
+  min-height: 550px;
+  display: flex;
 }
-
-.container .contact-info {
+.contact-info {
   position: absolute;
   top: 40px;
-  width: 350px;
+  width: 320px;
+  /* margin-left: -15px; */
   height: calc(100% - 80px) !important;
   background: #1c6799;
   z-index: 1;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  justify-content: space-between;
   box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
 }
-
-.container .contact-info h2 {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 500;
-  margin: 0;
+.contact-info h3 {
+  font-size: 25px;
 }
-
-.container .contact-info ul.info {
-  position: relative;
-  /* background-color: red; */
-  margin: 10px 0;
+.label-info {
+  font-size: 16px;
 }
-
-.container .contact-info ul.info li {
-  position: relative;
-  list-style: none;
-  display: flex;
-  margin: 5px 0;
-  cursor: pointer;
-  align-items: flex-start;
-}
-
-.container .contact-info ul.info span {
-  color: #fff;
-  margin: 8px;
-}
-
-.container .contact-info ul.info li span:nth-child(1) {
-  width: 30px;
-  min-width: 30px;
-}
-
-.container .contact-info ul.info li span:nth-child(1) .img {
-  max-width: 100%;
-  font-size: 25px !important;
-}
-
-.container .contact-info ul.sci {
-  position: relative;
-  display: flex;
-}
-
-.container .contact-info ul.sci li {
-  list-style: none;
-  margin-right: 15px;
-}
-
-.container .contact-info ul.sci li a {
-  text-decoration: none;
-}
-
-.container .contact-form {
-  position: absolute;
+.contact-form {
   padding: 70px 50px;
   padding-left: 250px;
   margin-left: 150px;
-  width: calc(100% - 150px);
+  width: calc(100% - 145px);
   height: 100%;
   background: #fff;
-  box-shadow: 0 50px 50px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0 50px 50px rgba(0, 0, 0, 0.25); */
 }
-
-.container .contact-form h2 {
-  color: #0f3959;
-  font-size: 24px;
-  font-weight: 500;
+.contact-form h2 {
+  font-size: 30px;
 }
-
-.container .contact-form .form-box {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding-top: 10px;
+.content-form {
+  min-width: 100%;
 }
-
-.container .contact-form .form-box .input-box {
-  position: relative;
-  margin-bottom: 35px;
-}
-
-.container .contact-form .form-box .input-box.w50 {
-  width: 47%;
-}
-
-.container .contact-form .form-box .input-box.w100 {
-  width: 100%;
-}
-
-.container .contact-form .form-box .input-box .input {
-  width: 100%;
-  resize: none;
-  padding: 5px 0;
-  font-weight: 300;
-  /* background-color: yellow; */
-  color: #333;
-  border: none;
-  outline: none;
-}
-
-.container .contact-form .form-box .input-box span {
-  position: absolute;
-  left: 0;
-  padding: 5px 0;
-  pointer-events: none;
-  font-size: 18px;
-  font-weight: 300;
-  transition: 0.3s;
-}
-
-.container .contact-form .form-box .input-box input:focus ~ span,
-.container .contact-form .form-box .input-box input:valid ~ span {
-  transform: translateY(-20px);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  color: #0f3959;
-  font-weight: 500;
-}
-
-.container .contact-form .form-box .input-box .submit {
-  position: relative !important;
-  background: #0f3959 !important;
-  border: none !important;
-  max-width: 160px !important;
-  width: 160px;
-  padding: 12px !important;
-}
-
-.container .contact-form .form-box .input-box .submit:hover {
-  background: #18b991;
-}
-
-@media (max-width: 1200px) {
+/* @media (max-width: 600px) {
+  .contact-info {
+    position: relative;
+    top: 0px;
+    width: 100%;
+  }
+  .contact-info h2 {
+    font-size: 25px;
+  }
+  .contact-form {
+    padding: 70px 50px;
+    margin-left: 0px;
+    width: 100%;
+    padding: 25px;
+  }
+  .contact-form h2 {
+    font-size: 30px;
+  }
+  .contact-info .label-info {
+    font-size: 12px !important;
+  }
+} */
+@media (max-width: 600px) {
   .container {
-    width: 90%;
-    min-width: auto;
-    margin: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    flex-direction: column-reverse;
+    width: auto;
   }
-
-  .container .contact-info {
-    top: 0;
-    height: 500px;
+  .content-form {
+    min-width: 100%;
+  }
+  .contact-info {
     position: relative;
-    box-shadow: none;
+    top: 0px;
+    width: 60%;
   }
-
-  .container .contact-form {
+  .contact-info h2 {
+    font-size: 25px;
+  }
+  .contact-form {
+    padding: 70px 50px;
+    margin-left: 0px;
+    width: 100%;
+    padding: 25px;
+  }
+  .contact-form h2 {
+    font-size: 30px;
+  }
+  .contact-info .label-info {
+    font-size: 12px !important;
+  }
+}
+@media (max-width: 720px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+  .contact-info {
     position: relative;
-    width: calc(100% - 350xp);
-    padding-left: 0;
-    margin-left: 0;
-    padding: 40px;
-    height: 550px;
-    box-shadow: none;
+    top: 0px;
+    width: 100%;
   }
-
-  @media (max-width: 1024px) {
-    .container {
-      width: 85%;
-      min-width: auto;
-      margin: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-    }
-
-    .container .contact-info {
-      top: 0;
-      height: 0px !important;
-      position: relative;
-      height: 750px;
-      box-shadow: none;
-    }
-
-    .container .contact-form {
-      position: relative;
-      width: calc(100% - 350xp);
-      padding-left: 0;
-      margin-left: 0;
-      padding: 30px;
-      height: 750px;
-      box-shadow: none;
-    }
+  .contact-info h2 {
+    font-size: 25px;
   }
-
-  @media (max-width: 991px) {
-    .section:before {
-      display: none;
-    }
-
-    .container {
-      min-height: auto;
-      display: flex;
-      flex-direction: column-reverse;
-    }
-
-    .container .contact-form {
-      width: 100%;
-      /* height: auto; */
-    }
-
-    .container .contact-info {
-      width: 100%;
-      height: auto;
-      flex-direction: row;
-    }
-
-    .container .contact-info ul.sci {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .contact-form {
+    padding: 70px 50px;
+    margin-left: 0px;
+    width: 100%;
+    padding: 25px;
   }
-
-  @media (max-width: 600px) {
-    .container {
-      background-color: red;
-      position: relative;
-      /* width: 300px; */
-      /* height: 0px; */
-    }
-    .container .contact-form {
-      padding: 25px;
-    }
-
-    .container .contact-info {
-      padding: 25px;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .container .contact-info ul.sci {
-      margin-top: 40px;
-    }
-
-    .container .contact-form .form-box .input-box.w50 {
-      width: 100%;
-    }
+  .contact-form h2 {
+    font-size: 30px;
+  }
+  .contact-info .label-info {
+    font-size: 12px !important;
   }
 }
 </style>

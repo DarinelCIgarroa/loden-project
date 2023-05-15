@@ -10,18 +10,19 @@
           <div class="text-h3">Equipo</div>
         </q-card-section>
         <q-card-section
-          class="row col-12 flex flex-center q-gutter-md content-card"
+          class="row col-12 flex flex-center q-gutter-sm content-card"
         >
           <q-card
             v-for="member in members"
             :key="member.id"
-            class="hove-content shadow-9 shadow-up-6 max-w-sm col-xs-12 col-sm-5 col-md-4"
-            flat
             bordered
+            rounded
+            class="hove-content shadow-9 shadow-up-6 max-w-sm col-sm-12 col-md-4 card-team"
+            flat
           >
             <q-img src="../../statics/images/team-1.jpg">
               <div class="social">
-                <div class="q-pa-md q-gutter-sm">
+                <div class="q-pa-md q-gutter-lg">
                   <q-btn
                     round
                     push
@@ -76,22 +77,27 @@ const getMembers = async () => {
 <style scoped>
 .q-layout {
   min-height: auto !important;
-  background-color: rgb(9, 147, 156);
-  margin-top: 25px;
+  /* margin-top: 25px; */
   padding: 20px;
 }
 .page {
   padding: 10px;
-  background-color: rgb(114, 23, 199);
 }
 .my-card {
-  background-color: springgreen;
   width: 1250px;
+  /* padding: 10px; */
+  /* background-color: #0165e1; */
   background-size: cover;
   background-position: center;
-  /* padding: 20px; */
 }
-
+.content-card {
+  min-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.card-team {
+  width: 400px;
+}
 .social {
   left: 0;
   bottom: 0px;

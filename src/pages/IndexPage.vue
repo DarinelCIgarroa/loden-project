@@ -10,11 +10,11 @@
       <section id="events" ref="sectionEvents" class="section">
         <EventsComponent></EventsComponent>
       </section>
-      <section id="team" ref="sectionTeam" class="section">
-        <TeamComponent></TeamComponent>
-      </section>
       <section id="contact" ref="sectionContact" class="section">
         <ContactComponent></ContactComponent>
+      </section>
+      <section id="team" ref="sectionTeam" class="section">
+        <TeamComponent></TeamComponent>
       </section>
     </main>
   </div>
