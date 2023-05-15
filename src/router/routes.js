@@ -7,6 +7,7 @@ const routes = [
     ]
   },
   { path: '/events/online', component: () => import('src/components/homePages/EventsOnline.vue') },
+  { path: '/events/in-person', component: () => import('src/components/homePages/EventsInPerson.vue') },
   {
     path: '/admin/dashboard',
     component: () => import('src/components/admin/DashboardComponent.vue'),

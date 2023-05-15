@@ -10,8 +10,25 @@ import { axiosInstance } from "boot/axios";
   * */
 const basePath = "api/home";
 
+export const getAllEvents = async () => {
+  const url = `${basePath}/get-events`;
+  const res = await axiosInstance.get(url);
+  return res.data;
+};
 export const getEvents = async () => {
   const url = `${basePath}/get-events`;
+  const res = await axiosInstance.get(url);
+  return res.data;
+};
+
+export const getOnlineEvents = async () => {
+  const url = `${basePath}/get-events-online`;
+  const res = await axiosInstance.get(url);
+  return res.data;
+};
+
+export const getInPersonEvents = async () => {
+  const url = `${basePath}/get-events-in-person`;
   const res = await axiosInstance.get(url);
   return res.data;
 };

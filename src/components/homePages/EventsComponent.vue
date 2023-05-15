@@ -157,6 +157,7 @@
               </div>
               <div class="col-12 text-center" style="font-size: 18px">
                 <q-btn
+                  to="/events/in-person"
                   rounded
                   color="primary"
                   size="size"

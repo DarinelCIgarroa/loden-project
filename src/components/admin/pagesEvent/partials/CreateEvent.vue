@@ -154,7 +154,7 @@
                 option-label="name"
                 outlined
                 map-options
-                option-value="code"
+                option-value="status"
                 clearable
               />
             </div>
@@ -205,16 +205,16 @@ const props = defineProps({
 });
 
 const options = ref([
-  { code: 0, name: "Inactivo" },
-  { code: 1, name: "Activo" },
+  { status: 0, name: "Inactivo" },
+  { status: 1, name: "Activo" },
 ]);
-const typeOption = ref(["Presencial", "En linea"]);
+const typeOption = ref(["presencial", "en-linea"]);
 
 const eventStore = useEventStore();
 const emit = defineEmits(["EventsDialogCreate", "updateStatus"]);
 const formStatus = ref(null);
 const status = ref(true);
-//para menejo de fechas
+
 const optionsFn = (date) => {
   return date >= form.value.start_date;
 };
