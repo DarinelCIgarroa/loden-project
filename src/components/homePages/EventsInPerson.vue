@@ -100,7 +100,7 @@ const bubbleCount = ref([
   11, 12, 24, 10, 14, 23, 18, 20, 19, 22, 25, 18, 21, 28,
 ]);
 const getEvents = async () => {
-  const response = await homeService.getOnlineEvents();
+  const response = await homeService.getInPersonEvents();
   events.value = response.events;
 };
 

@@ -21,6 +21,18 @@ export const getEvents = async () => {
   return res.data;
 };
 
+export const getOnlineEvents = async () => {
+  const url = `${basePath}/get-events-online`;
+  const res = await axiosInstance.get(url);
+  return res.data;
+};
+
+export const getInPersonEvents = async () => {
+  const url = `${basePath}/get-events-in-person`;
+  const res = await axiosInstance.get(url);
+  return res.data;
+};
+
 export const getMembers = async () => {
   const url = `${basePath}/get-members`;
   const res = await axiosInstance.get(url);
