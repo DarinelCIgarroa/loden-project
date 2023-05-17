@@ -271,21 +271,45 @@ const getAllEvents = async () => {
   background-position: center;
 }
 .container {
-  background-color: #ffffff;
   position: relative;
   width: 1250px;
   min-height: 550px;
   display: flex;
+  z-index: 3;
+  overflow: hidden;
 }
+/* .container::before {
+  content: "";
+  position: absolute;
+  width: 1200px;
+  height: 80%;
+  z-index: 1;
+  background: linear-gradient(#3cf8ff, #ff3c7b);
+  animation: animate 5s linear infinite;
+}
+.container::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  z-index: 1;
+  background: #ffffff;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
 .contact-info {
   position: absolute;
-  top: 40px;
-  width: 320px;
-  /* margin-left: -15px; */
+  top: 55px;
+  width: 300px;
   height: calc(100% - 80px) !important;
   background: #1c6799;
-  z-index: 1;
-  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+  /* box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15); */
 }
 .contact-info h3 {
   font-size: 25px;
@@ -299,8 +323,11 @@ const getAllEvents = async () => {
   margin-left: 150px;
   width: calc(100% - 145px);
   height: 100%;
+  z-index: 4;
   background: #fff;
-  /* box-shadow: 0 50px 50px rgba(0, 0, 0, 0.25); */
+  -webkit-box-shadow: -11px 2px 0px 6px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: -11px 2px 0px 6px rgba(0, 0, 0, 0.06);
+  box-shadow: -11px 2px 0px 6px rgba(0, 0, 0, 0.06);
 }
 .contact-form h2 {
   font-size: 30px;

@@ -97,7 +97,7 @@ onMounted(() => {
 const events = ref("");
 
 const bubbleCount = ref([
-  11, 12, 24, 10, 14, 23, 18, 20, 19, 22, 25, 18, 21, 28,
+  9, 11, 12, 24, 13, 14, 23, 18, 11, 15, 20, 25, 18, 19, 28,
 ]);
 const getEvents = async () => {
   const response = await homeService.getOnlineEvents();
@@ -105,14 +105,20 @@ const getEvents = async () => {
 };
 
 const duplicatedBubbleCount = computed(() => {
-  const { innerWidth: screenWidth } = window;
-  let numDuplications = 3;
+  const { innerWidth } = window;
+  let numDuplications = 0;
 
-  if (innerWidth < 800) {
-    numDuplications = Math.floor(screenWidth / 100 / 3);
+  if (innerWidth < 688) {
+    numDuplications = 1;
   }
-  if (innerWidth > 1024) {
-    numDuplications = 5.5;
+  if (innerWidth >= 688 && innerWidth < 1024) {
+    numDuplications = 2;
+  }
+  if (innerWidth >= 1024 && innerHeight < 1200) {
+    numDuplications = 3;
+  }
+  if (innerWidth >= 1200) {
+    numDuplications = 5;
   }
 
   const duplicatedBubbleCount = [...bubbleCount.value];
