@@ -42,7 +42,7 @@
 <style scoped>
 .page {
   background-color: black;
-  background-image: url("../../statics/images/home/home6.jpg");
+  background-image: url("../../statics/images/Home/home6.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
