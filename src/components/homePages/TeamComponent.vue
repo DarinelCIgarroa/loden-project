@@ -17,10 +17,14 @@
             :key="member.id"
             bordered
             rounded
-            class="hove-content shadow-9 shadow-up-6 max-w-sm col-sm-12 col-md-4 card-team"
+            style="min-height: 550px; max-width: 420px"
+            class="hove-content shadow-9 shadow-up-6 max-w-sm col-sm-12 col-md-4 card-team q-mx-sm"
             flat
           >
-            <q-img src="../../statics/images/team-1.jpg">
+            <q-img
+              :src="`${companyStore.getBaseUrl}/images/${member.image}`"
+              style="width: 400px; height: 400px"
+            >
               <div class="social">
                 <div class="q-pa-md q-gutter-lg">
                   <q-btn
@@ -46,7 +50,8 @@
             </q-img>
             <q-card-section>
               <div class="text-h5 q-mt-sm q-mb-xs text-center">
-                {{ member.name }}
+                {{ member.name }} {{ member.last_name }}
+                {{ member.second_last_name }}
               </div>
               <div class="text-caption text-grey text-justify text-center">
                 {{ member.intro }}
@@ -62,13 +67,16 @@
 
 <script setup>
 import * as homeService from "src/services/HomePage/homeService";
-
+import { useCompanyStore } from "stores/company-store";
 import { onMounted, ref } from "vue";
 
 onMounted(() => {
   getMembers();
 });
+
+const companyStore = useCompanyStore();
 const members = ref();
+
 const getMembers = async () => {
   const response = await homeService.getMembers();
   members.value = response.members;

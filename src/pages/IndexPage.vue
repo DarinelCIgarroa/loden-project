@@ -27,10 +27,11 @@ import EventsComponent from "src/components/homePages/EventsComponent.vue";
 import HomeComponent from "src/components/homePages/HomeComponent.vue";
 import TeamComponent from "src/components/homePages/TeamComponent.vue";
 import ContactComponent from "src/components/homePages/ContactComponent.vue";
-import { ref, onMounted, onUnmounted } from "vue";
-import bus from "src/utils/event-bus";
 import { useCompanyStore } from "stores/company-store";
 
+import { ref, onMounted, onUnmounted } from "vue";
+import bus from "src/utils/event-bus";
+const companyStore = useCompanyStore();
 const sectionHome = ref(null);
 const sectionAbout = ref(null);
 const sectionEvents = ref(null);
@@ -45,11 +46,9 @@ const onIntersection = (entries) => {
   });
 };
 
-const storeCompany = useCompanyStore();
 let observer = null;
 
 onMounted(() => {
-  storeCompany.getDataHomeCompany();
   observer = new IntersectionObserver(onIntersection, {
     threshold: [0.6, 0.6, 0.6, 0.6],
     rootMargin: "0px 0px 0px 0px",
@@ -59,6 +58,7 @@ onMounted(() => {
   observer.observe(sectionEvents.value);
   observer.observe(sectionTeam.value);
   observer.observe(sectionContact.value);
+  companyStore.setBaseUrl(process.env.BASE_URL);
 });
 
 onUnmounted(() => {

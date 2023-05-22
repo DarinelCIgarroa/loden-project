@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import * as LoanService from 'src/services/admin/LoansService';
+import * as homeService from "src/services/HomePage/homeService";
 import { notifySuccess, notifyError } from 'src/utils/notify';
 
 export const useCompanyStore = defineStore('company', {
@@ -36,7 +37,7 @@ export const useCompanyStore = defineStore('company', {
     },
     async getDataHomeCompany() {
       try {
-        const response = await LoanService.getDataHomeCompany()
+        const response = await homeService.getDataCompany()
         this.company = response.data.company
       } catch (error) {
         notifyError(error.response.data.message)

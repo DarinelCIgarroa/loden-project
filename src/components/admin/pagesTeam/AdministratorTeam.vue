@@ -78,7 +78,8 @@ const updateIntegrant = (data) => {
   dataUPdate.value = data;
   activateCreation.value = true;
 };
-const removeIntegrant = (data) => {
-  teamStore.delete(data.id);
+const removeIntegrant = async (data) => {
+  await teamStore.delete(data.id);
+  getTeam();
 };
 </script>

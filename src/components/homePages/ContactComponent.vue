@@ -12,17 +12,16 @@
           >
             <h3 class="text-white">Infomación de contacto</h3>
             <q-list class="flex flex-center">
-              <q-item class="q-my-sm">
+              <q-item style="width: 220px" class="q-my-sm flex justify-start">
                 <q-icon
                   name="fa-solid fa-location-dot"
                   color="white"
                   size="3em"
                 ></q-icon>
-                <q-item-section>
-                  <q-item-label class="label-info text-white q-ml-md"
-                    >Fraccionamiento las flores calle orquidea Manzana 9, lote
-                    8</q-item-label
-                  >
+                <q-item-section class="q-ml-md">
+                  <q-item-label class="label-info text-white">{{
+                    storeCompany.getStateCompany.address
+                  }}</q-item-label>
                   <q-item-label
                     class="text-white"
                     style="font-size: 14px"
@@ -32,43 +31,41 @@
                   >
                 </q-item-section>
               </q-item>
-              <q-item class="q-my-sm">
+              <q-item style="width: 220px" class="q-my-sm flex justify-start">
                 <q-icon
                   name="fa-solid fa-envelope"
                   color="white"
                   size="3em"
                 ></q-icon>
-                <q-item-section>
-                  <q-item-label class="label-info text-white q-ml-md"
-                    >Fraccionamiento las flores calle orquidea Manzana 9, lote
-                    8</q-item-label
-                  >
+                <q-item-section class="q-ml-md">
+                  <q-item-label class="label-info text-white">
+                    {{ storeCompany.getStateCompany.email }}
+                  </q-item-label>
                   <q-item-label
                     class="text-white"
                     style="font-size: 14px"
                     caption
                     lines="1"
-                    >Direccion</q-item-label
+                    >Correo</q-item-label
                   >
                 </q-item-section>
               </q-item>
-              <q-item class="q-my-sm">
+              <q-item style="width: 220px" class="q-my-sm flex justify-start">
                 <q-icon
                   name="fa-solid fa-phone"
                   color="white"
                   size="3em"
                 ></q-icon>
-                <q-item-section>
-                  <q-item-label class="label-info text-white q-ml-md"
-                    >Fraccionamiento las flores calle orquidea Manzana 9, lote
-                    8</q-item-label
-                  >
+                <q-item-section class="q-ml-md">
+                  <q-item-label class="label-info text-white">
+                    {{ storeCompany.getStateCompany.phone_number }}
+                  </q-item-label>
                   <q-item-label
                     class="text-white"
                     style="font-size: 14px"
                     caption
                     lines="1"
-                    >Direccion</q-item-label
+                    >Telefónico</q-item-label
                   >
                 </q-item-section>
               </q-item>
@@ -214,6 +211,9 @@ import { reactive, ref, onMounted } from "vue";
 import * as serviceEmail from "src/services/HomePage/emailServices.js";
 import * as homeService from "src/services/HomePage/homeService";
 import { notifySuccess, notifyError } from "src/utils/notify.js";
+import { useCompanyStore } from "stores/company-store";
+
+const storeCompany = useCompanyStore();
 const options = ref([]);
 onMounted(() => {
   getAllEvents();
@@ -252,7 +252,6 @@ const clearForm = () => {
 };
 const getAllEvents = async () => {
   const response = await homeService.getAllEvents();
-  console.log("response", response.events);
   options.value = response.events;
 };
 </script>
@@ -278,30 +277,6 @@ const getAllEvents = async () => {
   z-index: 3;
   overflow: hidden;
 }
-/* .container::before {
-  content: "";
-  position: absolute;
-  width: 1200px;
-  height: 80%;
-  z-index: 1;
-  background: linear-gradient(#3cf8ff, #ff3c7b);
-  animation: animate 5s linear infinite;
-}
-.container::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  z-index: 1;
-  background: #ffffff;
-}
-@keyframes animate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} */
 .contact-info {
   position: absolute;
   top: 55px;

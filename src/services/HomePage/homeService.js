@@ -38,3 +38,9 @@ export const getMembers = async () => {
   const res = await axiosInstance.get(url);
   return res.data;
 };
+
+export const getDataCompany = async () => {
+  const URL = '/api/home/company';
+  const res = await axiosInstance.get(URL);
+  return res;
+};

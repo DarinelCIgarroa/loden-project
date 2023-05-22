@@ -31,8 +31,3 @@ export const getLogo = async (payload) => {
   return res;
 };
 
-export const getDataHomeCompany = async () => {
-  const URL = '/api/home/company';
-  const res = await axiosInstance.get(URL);
-  return res;
-};

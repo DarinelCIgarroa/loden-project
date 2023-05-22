@@ -42,10 +42,7 @@ export const useTeamStore = defineStore('team', {
     async delete(idIntegrant) {
       try {
         const response = await TeamService.destroy(idIntegrant)
-        const filter = this.teamList.filter((element) => element.id != response.integrant.id)
-        this.teamList = filter
         notifySuccess(response.message)
-        return response
       } catch (error) {
         notifyError(error.response.data.message)
       }

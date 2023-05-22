@@ -1,7 +1,7 @@
 <template>
   <q-card class="">
     <q-img :src="`${process.getBaseUrl}/images/${data.image}`" height="160px">
-      <q-chip></q-chip>
+      <q-chip :class="eventActive"></q-chip>
     </q-img>
     <div></div>
     <q-card-section>
@@ -95,7 +95,7 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from "vue";
+import { ref, computed } from "vue";
 import { useCompanyStore } from "stores/company-store";
 const props = defineProps({
   data: {
@@ -103,6 +103,7 @@ const props = defineProps({
     required: true,
   },
 });
+const process = useCompanyStore();
 const eventId = ref(null);
 const confirmDelete = ref(null);
 const emit = defineEmits(["updateEvent", "removeEvent"]);
@@ -115,7 +116,34 @@ function deleteEvent() {
 const conformationDelete = () => {
   confirmDelete.value = true;
 };
-const process = useCompanyStore();
+const eventActive = computed(() => {
+  return props.data.status === 1 ? "active-class" : "inactive-class";
+});
 </script>
 
-<style scoped></style>
+<style scoped>
+.active-class {
+  background-color: #32a852; /* Un verde vibrante para el fondo */
+  color: #f5f5f5; /* Un color de texto claro para contrarrestar el fondo oscuro */
+  animation: glowing 3s infinite;
+  transition: background-color 1s ease;
+}
+
+.inactive-class {
+  background-color: rgb(121, 121, 121);
+}
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px #32a852, 0 0 5px #32a852, 0 0 15px #32a852,
+      0 0 20px #32a852;
+  }
+  50% {
+    box-shadow: 0 0 10px #32a852, 0 0 20px #32a852, 0 0 30px #32a852,
+      0 0 40px #32a852;
+  }
+  100% {
+    box-shadow: 0 0 5px #32a852, 0 0 5px #32a852, 0 0 15px #32a852,
+      0 0 20px #32a852;
+  }
+}
+</style>

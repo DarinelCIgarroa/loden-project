@@ -74,7 +74,6 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from "vue";
 import { useCompanyStore } from "stores/company-store";
 
 const props = defineProps({
@@ -89,9 +88,9 @@ function updateIntegrant() {
   emit("updateIntegrant", props.data);
 }
 function deleteIntegrant() {
-  console.log("remove");
   emit("removeIntegrant", props.data);
 }
 
 const companyStore = useCompanyStore();
 </script>
+
