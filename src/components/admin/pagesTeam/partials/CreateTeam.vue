@@ -1,16 +1,33 @@
 <template>
   <q-dialog v-model="dialogVisible">
-    <q-card style="width: 800px">
+    <q-card style="min-width: 80vh">
       <q-card-section>
         <div class="title">{{ titleDynamic }}</div>
       </q-card-section>
-      <q-card-section style="max-height: 50vh" class="scroll">
+      <q-card-section style="max-height: 60vh" class="scroll">
         <q-form
           ref="formTeam"
           enctype="multipart/form-data"
           class="q-gutter-md"
           @reset="onReset"
         >
+          <div v-if="selectedImage" class="row col-12 flex flex-center">
+            <q-img
+              style="max-width: 500px; max-height: 500px"
+              :src="selectedImage"
+              :ratio="1"
+            ></q-img>
+          </div>
+          <div
+            v-if="form.imageForm == null"
+            class="row col-12 flex flex-center"
+          >
+            <q-img
+              style="max-width: 300px; max-height: 300px"
+              :src="`${companyStore.getBaseUrl}/images/${form.image}`"
+              :ratio="1"
+            ></q-img>
+          </div>
           <div class="row col-12">
             <q-input
               v-model="form.name"
@@ -61,7 +78,7 @@
               v-model="form.phone_number"
               class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
               outlined
-              mask="### ###  ####"
+              mask="##########"
               label="Número de telefono"
               lazy-rules
               :rules="[
@@ -113,9 +130,10 @@
           </div>
           <div class="row col-12">
             <q-file
-              v-model="form.image"
-              filled
-              class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
+              v-model="form.imageForm"
+              outlined
+              label="Subir imagen"
+              class="col-12 q-pa-xs"
               accept=".png,.jpge,.jpg, image/*"
             >
               <template #prepend>
@@ -156,9 +174,9 @@
 
 <script setup>
 import { notifyWarning } from "src/utils/notify";
-import { computed, ref, defineEmits, onMounted } from "vue";
+import { computed, ref, onMounted, watch } from "vue";
 import { useTeamStore } from "stores/team-store";
-
+import { useCompanyStore } from "stores/company-store";
 const teamStore = useTeamStore();
 const emit = defineEmits(["statusDialogCreate", "updateTeam"]);
 const formTeam = ref(null);
@@ -176,7 +194,8 @@ onMounted(() => {
     form.value = props.dataUpdate;
   }
 });
-
+const companyStore = useCompanyStore();
+const selectedImage = ref("");
 const form = ref({
   name: null,
   last_name: null,
@@ -186,8 +205,9 @@ const form = ref({
   instagram_link: null,
   facebook_link: null,
   intro: null,
+  imageForm: null,
   occupation: null,
-  image: [],
+  image: null,
 });
 
 const dialogVisible = computed({
@@ -216,11 +236,16 @@ const buttonDynamic = computed({
   },
 });
 const store = async () => {
+  form.value.image =
+    form.value.imageForm !== null ? form.value.imageForm : null;
   const response = await teamStore.store(form.value);
   return response;
 };
 
 const update = async () => {
+  console.log("oo", form.value.imageForm);
+  form.value.image =
+    form.value.imageForm !== null ? form.value.imageForm : null;
   const response = await teamStore.update(form.value, form.value.id);
   return response;
 };
@@ -241,6 +266,18 @@ const validate = async () => {
 const onReset = () => {
   form.value = [];
 };
+watch(
+  () => form.value.imageForm,
+  (newValue) => {
+    const file = newValue;
+    if (file) {
+      selectedImage.value = URL.createObjectURL(file);
+    } else {
+      selectedImage.value = null;
+    }
+  },
+  { deep: true }
+);
 </script>
 <style scoped>
 .title {

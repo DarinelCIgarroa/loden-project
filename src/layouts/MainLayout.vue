@@ -7,7 +7,10 @@
     >
       <div class="logo justify-start flex flex-center">
         <q-avatar size="50px">
-          <img src="https://cdn.quasar.dev/img/avatar.png" />
+          <img
+            :src="`${storeCompany.getBaseUrl}/images/${storeCompany.getStateCompany.logo}`"
+            alt="profile"
+          />
         </q-avatar>
         <span class="name-company q-mx-md">{{
           storeCompany.getStateCompany.name
@@ -95,11 +98,19 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import bus from "src/utils/event-bus";
 import { useCompanyStore } from "stores/company-store";
 
 const storeCompany = useCompanyStore();
+
+onMounted(() => {
+  getCompany();
+});
+
+const getCompany = () => {
+  storeCompany.getDataHomeCompany();
+};
 
 const current_section = ref();
 bus.on("section", (section) => {

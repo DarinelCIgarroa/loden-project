@@ -51,6 +51,7 @@
         :status="activateCreation"
         :data-update="dataUPdate"
         @events-dialog-create="changesEventsDialogCreate"
+        @create-event="createEvent"
       >
       </DialogCreated>
     </div>
@@ -115,8 +116,12 @@ const updateEvent = (data) => {
 const changesEventsDialogCreate = (value) => {
   activateCreation.value = value;
 };
+const createEvent = () => {
+  getEvents();
+};
 const removeEvent = (data) => {
   storeEvents.remove(data.id);
+  getEvents();
 };
 </script>
 

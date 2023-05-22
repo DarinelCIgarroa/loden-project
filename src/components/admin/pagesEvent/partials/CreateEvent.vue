@@ -1,67 +1,87 @@
 <template>
   <q-dialog v-model="dialogVisible">
-    <q-card style="width: 700px">
+    <q-card style="min-width: 80vh">
       <q-card-section>
         <div class="title">{{ titleDynamic }}</div>
       </q-card-section>
-      <q-card-section style="max-height: 50vh" class="scroll">
+      <q-card-section style="max-height: 60vh" class="scroll">
         <q-form
           ref="formStatus"
           class="q-gutter-md"
           enctype="multipart/form-data"
           @reset="onReset"
         >
-          <div class="row col-12">
-            <q-input
-              v-model="form.title"
-              class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
-              outlined
-              label="Nombre"
-              :rules="[
-                (val) =>
-                  /^([a-zA-ZÁÉÍÚÓáéíóúñÑ] {0,1})+[a-zA-ZÁÉÍÚÓáéíóúñÑ]*$/.test(
-                    val
-                  ) || 'Solo acepta texto y 1 espacio',
-                (val) => (val && val.length > 0) || 'Este campo es requerido',
-              ]"
-            />
-            <q-input
-              v-model="form.place"
-              class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
-              outlined
-              label="lugar"
-              style="max-width: 100%"
-              :rules="[
-                (val) => (val && val.length > 0) || 'Este campo es requerido',
-              ]"
-            ></q-input>
+          <div v-if="selectedImage" class="row col-12 flex flex-center">
+            <q-img
+              style="max-width: 400px; max-height: 400px"
+              :src="selectedImage"
+              :ratio="1"
+            ></q-img>
+          </div>
+          <div v-if="form.image !== null" class="row col-12 flex flex-center">
+            <q-img
+              style="max-width: 300px; max-height: 300px"
+              :src="`${companyStore.getBaseUrl}/images/${form.image}`"
+              :ratio="1"
+            ></q-img>
           </div>
           <div class="row col-12">
-            <q-input
-              v-model="form.address"
-              class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
-              outlined
-              label="Dirección"
-              :rules="[
-                (val) => (val && val.length > 0) || 'Este campo es requerido',
-              ]"
-            />
-            <q-input
-              v-model="form.city"
-              class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
-              outlined
-              label="Ciudad"
-              style="max-width: 100%"
-              :rules="[
-                (val) => (val && val.length > 0) || 'Este campo es requerido',
-              ]"
-            ></q-input>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <q-input
+                v-model="form.title"
+                class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
+                outlined
+                label="Nombre"
+                :rules="[
+                  (val) => (val && val.length > 0) || 'Este campo es requerido',
+                ]"
+              />
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <q-input
+                v-model="form.place"
+                class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
+                outlined
+                label="lugar"
+                style="max-width: 100%"
+                :rules="[
+                  (val) => (val && val.length > 0) || 'Este campo es requerido',
+                ]"
+              ></q-input>
+            </div>
           </div>
           <div class="row col-12">
-            <div class="q-pa-md col-xs-12 col-sm-6 col-md-6 q-pa-xs">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <q-input
+                v-model="form.address"
+                class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
+                outlined
+                label="Dirección"
+                :rules="[
+                  (val) => (val && val.length > 0) || 'Este campo es requerido',
+                ]"
+              />
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <q-input
+                v-model="form.city"
+                class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
+                outlined
+                label="Ciudad"
+                style="max-width: 100%"
+                :rules="[
+                  (val) => (val && val.length > 0) || 'Este campo es requerido',
+                ]"
+              ></q-input>
+            </div>
+          </div>
+          <div class="row col-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input
                 v-model="form.start_date"
                 label="Fecha inicial"
+                class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
+                outlined
                 mask="date"
                 :rules="['date']"
                 @click="$refs.qstartDateProxy.show()"
@@ -89,11 +109,13 @@
                 </template>
               </q-input>
             </div>
-            <div class="q-pa-md col-xs-12 col-sm-6 col-md-6 q-pa-xs">
+            <div class="col-xs-12 col-sm-6 col-md-6">
               <q-input
                 v-model="form.end_date"
                 label="Fecha final"
                 mask="date"
+                class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
+                outlined
                 :rules="['date']"
                 @click="$refs.qendDateProxy.show()"
               >
@@ -122,35 +144,38 @@
             </div>
           </div>
           <div class="row col-12">
-            <q-file
-              v-model="form.image"
-              class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
-              accept=".png, image/*"
-            >
-              <template #prepend>
-                <q-icon name="cloud_upload" />
-              </template>
-            </q-file>
-
-            <div class="q-gutter-md col-xs-12 col-sm-6 col-md-6 q-pa-xs">
-              <q-select
-                v-model="form.status"
-                :options="options"
-                label="Estatus"
-                option-label="name"
+            <div class="col-12">
+              <q-file
+                v-model="form.imageForm"
                 outlined
-                map-options
-                option-value="code"
-                clearable
-              />
+                class="col-12 q-pa-xs"
+                label="Subir imagen"
+                accept=".png, image/*"
+              >
+                <template #prepend>
+                  <q-icon name="cloud_upload" />
+                </template>
+              </q-file>
             </div>
           </div>
           <div class="row col-12">
-            <div class="q-gutter-md col-xs-12 col-sm-6 col-md-6 q-pa-xs">
+            <div class="col-xs-12 col-sm-6 col-md-6 q-pa-xs">
               <q-select
                 v-model="form.type"
                 :options="typeOption"
                 label="Tipo"
+                option-label="name"
+                outlined
+                map-options
+                clearable
+              />
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 q-pa-xs">
+              <q-select
+                v-model="form.status"
+                :options="options"
+                label="Estatus"
                 option-label="name"
                 outlined
                 map-options
@@ -160,7 +185,7 @@
             </div>
           </div>
           <div class="row col-12">
-            <div class="q-gutter-md col-xs-12 col-sm-12 col-md-12 q-pa-xs">
+            <div class="col-xs-12 col-sm-12 col-md-12 q-pa-xs">
               <q-input
                 v-model="form.description"
                 class="col-xs-12 col-sm-6 col-md-6 q-pa-xs"
@@ -193,7 +218,8 @@
 </template>
 
 <script setup>
-import { computed, defineEmits, onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
+import { useCompanyStore } from "stores/company-store";
 import { useEventStore } from "src/stores/events-store";
 import { notifyWarning } from "src/utils/notify";
 
@@ -203,6 +229,21 @@ const props = defineProps({
     default: null,
   },
 });
+const companyStore = useCompanyStore();
+const eventStore = useEventStore();
+const form = ref({
+  title: null,
+  description: null,
+  start_date: null,
+  end_date: null,
+  imageForm: null,
+  place: null,
+  address: null,
+  city: null,
+  status: null,
+  type: null,
+  image: null,
+});
 
 const options = ref([
   { status: 0, name: "Inactivo" },
@@ -210,31 +251,14 @@ const options = ref([
 ]);
 const typeOption = ref(["presencial", "en-linea"]);
 
-const eventStore = useEventStore();
-const emit = defineEmits(["EventsDialogCreate", "updateStatus"]);
+const emit = defineEmits(["EventsDialogCreate", "updateStatus", "createEvent"]);
 const formStatus = ref(null);
 const status = ref(true);
-
-const optionsFn = (date) => {
-  return date >= form.value.start_date;
-};
-
+const selectedImage = ref("");
 onMounted(() => {
   if (props.dataUpdate.id !== undefined) {
     form.value = props.dataUpdate;
   }
-});
-const form = ref({
-  title: null, //
-  description: null,
-  start_date: null, //
-  end_date: null, //
-  place: null, //
-  address: null,
-  city: null,
-  status: null, //
-  type: null,
-  image: [],
 });
 
 const dialogVisible = computed({
@@ -260,17 +284,38 @@ const buttonDynamic = computed({
 });
 
 const store = async () => {
+  form.value.image =
+    form.value.imageForm !== null ? form.value.imageForm : null;
   const response = await eventStore.store(form.value);
+  if (response.success == true) {
+    emit("createEvent");
+  }
   return response;
 };
 
+const optionsFn = (date) => {
+  return date >= form.value.start_date;
+};
+watch(
+  () => form.value.imageForm,
+  (newValue) => {
+    const file = newValue;
+    if (file) {
+      selectedImage.value = URL.createObjectURL(file);
+    } else {
+      selectedImage.value = null;
+    }
+  },
+  { deep: true }
+);
+
 const update = async () => {
+  form.value.image = form.value.imageForm;
   const response = await eventStore.update(form.value, form.value.id);
   return response;
 };
 const validate = async () => {
   const success = await formStatus.value.validate();
-  console.log(" :", success);
   if (success) {
     const response = form.value.id ? await update() : await store();
     if (response.success) {
@@ -279,7 +324,7 @@ const validate = async () => {
     }
     return true;
   }
-  notifyWarning();
+  notifyWarning("Por favor, ingresa correctamente los datos del formulario");
   return false;
 };
 const onReset = () => {

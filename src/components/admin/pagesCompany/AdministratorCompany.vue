@@ -85,7 +85,7 @@
                 rounded
                 class="float-right q-mr-md q-mb-md"
                 color="primary"
-                label="Next"
+                label="Siguiente"
                 @click="
                   () => {
                     done1 = true;
@@ -199,22 +199,17 @@ const company = ref({
 
 onMounted(() => {
   assignCompanyData();
-  getLogo();
 });
-
-const getLogo = async () => {
-  await companyStore.getCompanyLogo();
-};
 
 const assignCompanyData = () => {
   company.value = companyStore.getStateCompany;
 };
-//actuzalizamos los campos
+
 const storeCompany = async () => {
   await companyStore.store(company.value);
   step.value = 1;
 };
-//mandamos a llamar nuestra ruta.
+
 let procesTem = ref();
 onMounted(() => {
   procesTem.value = process.env.BASE_URL;

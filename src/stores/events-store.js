@@ -24,24 +24,21 @@ export const useEventStore = defineStore("events", {
     async store(payload) {
       try {
         const response = await eventEvent.store(payload)
-        this.events.unshift(response.event)
         notifySuccess();
         return response
       } catch (error) {
-        notifyError()
+        Object.values(error.response.data.errors).flat().forEach((error) => notifyError(error))
       }
     },
     async update(payload, id) {
       try {
         const response = await eventEvent.update(payload, id)
-        //console.log("1: ", response)
-        //console.log("this ->", this.events)
         const index = this.events.findIndex((event) => event.id === id);
         this.events.splice(index, 1, response.event)
         notifySuccess()
         return response
       } catch (error) {
-        notifyError()
+        Object.values(error.response.data.errors).flat().forEach((error) => notifyError(error))
       }
     },
     async remove(idEvent) {
