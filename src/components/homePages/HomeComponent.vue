@@ -22,6 +22,7 @@
                 leave-active-class="animated bounceOutRight"
               >
                 <q-btn
+                  to="/login"
                   size="lg"
                   rounded
                   color="white"
